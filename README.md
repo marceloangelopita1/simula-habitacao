@@ -1,0 +1,92 @@
+# Simula · Habitação
+
+Piloto para a Letícia comparar simulações de financiamento com os resultados da CAIXA. Regras da pesquisa de **14/09/2026**. Aplicação independente, sem cadastro e sem conexão com serviços de cálculo da CAIXA.
+
+## Acessar online
+
+Endereço: **https://marceloangelopita1.github.io/simula-habitacao/**.
+
+O site estático é hospedado gratuitamente no GitHub Pages. Não exige cadastro para simular. O histórico continua no navegador; use **Meus testes → Exportar testes** para compartilhar achados.
+
+## Abrir localmente
+
+Com Node.js instalado, abra um terminal nesta pasta e execute:
+
+```sh
+npm start
+```
+
+Acesse **http://127.0.0.1:4173**. Para encerrar, use Ctrl+C no terminal. Nenhuma instalação de dependências é necessária: a biblioteca decimal está incluída em `vendor/`, com sua licença.
+
+Outra opção, caso já tenha Python 3:
+
+```sh
+python3 -m http.server 4173 --bind 127.0.0.1
+```
+
+Execute dentro desta pasta. Abrir `index.html` diretamente por duplo clique não é suficiente, pois o navegador precisa carregar os módulos e o catálogo municipal por HTTP.
+
+## Como testar
+
+1. Abra um dos exemplos da pesquisa ou clique em **Limpar dados**.
+2. Preencha comprador, imóvel e modalidade. Para isolar a conferência das parcelas, escolha **Parcelas de um financiamento informado** e use o mesmo principal da CAIXA.
+3. Clique em **Calcular simulação**. Confira o resumo, o seguro, o prazo e as premissas.
+4. Em **Como ficou na CAIXA?**, preencha os valores oficiais. A diferença é “este simulador menos CAIXA”, na precisão exibida.
+5. Registre o que mudou no campo de observações e clique em **Salvar teste neste navegador**.
+6. Em **Meus testes**, exporte o JSON para compartilhar os achados e preservar uma cópia.
+
+As comparações oficiais dos três exemplos vêm da pesquisa anterior. O nascimento preenchido nos exemplos é sintético e mantém a faixa etária usada na conciliação; não identifica o comprador real. Não há CPF, celular, código de SMS ou perfil autenticado distribuído com o site.
+
+O histórico usa o armazenamento local deste navegador e endereço. Outro navegador, outra porta ou outro domínio terá histórico separado. Os dados não são compartilhados automaticamente. Exportar e importar o JSON é o mecanismo de transferência desta primeira versão.
+
+Alterações no formulário invalidam a conferência corrente. Abrir um teste salvo gera um novo rascunho e preserva o registro anterior. Os casos importados mantêm a versão das regras e os valores salvos.
+
+## Cobertura e limites
+
+O motor calcula aquisição residencial pronta, com SAC/PRICE, regras de MCMV/Classe Média/SBPE, enquadramento exploratório de Pró-Cotista, fatores municipais, subsídio, FGTS/aportes, prazo por idade, MIP/DFI, tarifas e indicadores CET/CESH. O catálogo contém os municípios e fatores da pesquisa; limites nacionais e faixas de renda posteriores à planilha municipal são tratados separadamente no motor.
+
+O financiamento máximo é uma estimativa. Os três cronogramas da pesquisa foram conciliados em perfis específicos; isso não homologa todos os perfis. As tabelas de seguro foram calibradas na entrada aos 38 anos, e extensões a outras idades, seguros e dois compradores precisam de comparação oficial. Taxas comerciais, disponibilidade de recursos, quotas operacionais de usados e ajustes de subsídio devem ser validados por cenário. O app permite informar condições oficiais nos ajustes, sem alterar a regra geral para outros testes.
+
+A calculadora rápida da CAIXA usa simplificações próprias. Este piloto usa o modelo das simulações completas pesquisadas; não tenta reproduzir simultaneamente as simplificações da calculadora rápida.
+
+Construção, terreno + construção, reforma e empréstimo com garantia ainda exigem fluxos próprios. O cronograma não projeta TR futura. A análise de crédito e a oferta final pertencem ao banco.
+
+O CET de comparação usa períodos mensais iguais, que reproduziram os testes oficiais. O indicador calculado por dias corridos/365 também está visível nos detalhes. CESH é um indicador do seguro, não uma taxa anual de juros. Os custos informados de ITBI/cartório não são automaticamente classificados como despesas integrantes do CET.
+
+## Estrutura e publicação
+
+- `index.html`, `styles.css`, `app.js`: interface, histórico e comparação.
+- `engine.js`: cálculo decimal, enquadramento e regras com versão.
+- `data/municipal-rules.json`: limites e fatores municipais/estaduais, com fontes.
+- `vendor/decimal.mjs`: biblioteca Decimal.js e licença acompanhante.
+- `server.cjs`: servidor para teste local, sem dependências.
+
+O site é estático, sem banco de dados nem servidor de aplicação. O GitHub Pages publica os arquivos de execução preparados em `dist/`. O repositório é público; dados digitados e testes salvos pelos usuários não são enviados ao repositório. Cada navegador mantém seu histórico.
+
+A cada atualização de `main`, o workflow em `.github/workflows/pages.yml` executa `npm test`, prepara `npm run build` e publica somente depois de os testes passarem. Pull requests executam as verificações sem publicar. Os arquivos `release.json` e seus hashes identificam a versão publicada. A configuração usa o endereço gratuito `github.io` e não exige domínio próprio.
+
+Para verificar a publicação: `gh run list --repo marceloangelopita1/simula-habitacao`. Para republicar a mesma revisão: `gh workflow run pages.yml --repo marceloangelopita1/simula-habitacao`.
+
+## Verificação reproduzível
+
+Execute dentro desta pasta:
+
+```sh
+npm test
+```
+
+A suíte compara 1.200 parcelas com três cronogramas oficiais preservados como referências anônimas e executa 16 verificações adicionais de matemática, entrada e limites, além de 204 verificações normativas. Os resultados são gravados em `tests/latest-results.json` e `tests/boundary-results.json`. As referências têm nascimento sintético compatível com as faixas mensais de seguro observadas. Os testes são necessários para avaliar mudanças no algoritmo; não abrangem todas as modalidades e perfis.
+
+Diferenças conhecidas do piloto: em quatro resumos SBPE SAC, a primeira parcela difere R$ 0,01 do resultado capturado (um deles também difere R$ 0,01 na última). Nos quatro testes de máximo comparados, a estimativa ficou R$ 0,11 a R$ 0,19 abaixo do principal oficial. Essas diferenças foram preservadas para validação, sem ajuste artificial dos valores financiados.
+
+Guardas adicionais: benefício anterior no MCMV encaminha o caso à análise específica, pois também pode afetar descontos de juros e administração; Pró-Cotista e uso de FGTS respeitam o teto de avaliação/financiamento aplicável de R$ 2,25 milhões; o histórico recente de uso do FGTS pelo imóvel é verificado. SBPE acima do teto SFH é identificado como SFI exploratório. Valores de subsídio acima do teto após redutores devem ser registrados na comparação oficial para investigação, sem forçar uma entrada incompatível no cálculo.
+
+## Aprovação independente desta entrega
+
+Três validadores de IA deram OK expresso para o piloto local, sem correções impeditivas pendentes em seus respectivos escopos:
+
+- Matemática: 1.200 parcelas e 16 verificações adicionais aprovadas.
+- Normas e inputs: 204 verificações do motor e 11 no navegador aprovadas.
+- Experiência de uso: 65 verificações funcionais aprovadas, com revisão de contraste, desktop e celular.
+
+Os pareceres completos estão em `validation/`. A revisão valida o piloto nos escopos declarados; não constitui homologação emitida pela CAIXA. Os dados de exemplo distribuídos são sintéticos.

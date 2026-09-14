@@ -1,0 +1,11 @@
+{
+  "name": "simula-habitacao-piloto",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.cjs",
+    "test": "node tests/all.mjs",
+    "build": "node scripts/build.mjs"
+  }
+}

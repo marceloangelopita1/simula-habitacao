@@ -1,0 +1,10 @@
+dist/
+node_modules/
+.env
+.env.*
+*.log
+.DS_Store
+Thumbs.db
+manifest-sha256.json
+tests/latest-results.json
+tests/boundary-results.json
