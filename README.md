@@ -28,6 +28,8 @@ Execute dentro desta pasta. Abrir `index.html` diretamente por duplo clique não
 
 ## Como testar
 
+Para agentes que vão inspecionar as abas já abertas do Chrome, consulte o [guia de uso do navegador](docs/browser.md): autorização do projeto, conexão, recuperação WSL/Windows e boas práticas para comparar com a CAIXA.
+
 1. Abra um dos exemplos da pesquisa ou clique em **Limpar dados**.
 2. Preencha comprador, imóvel e modalidade. Para isolar a conferência das parcelas, escolha **Parcelas de um financiamento informado** e use o mesmo principal da CAIXA.
 3. Clique em **Calcular simulação**. Confira o resumo, o seguro, o prazo e as premissas.
@@ -45,7 +47,7 @@ Alterações no formulário invalidam a conferência corrente. Abrir um teste sa
 
 O motor calcula aquisição residencial pronta, com SAC/PRICE, regras de MCMV/Classe Média/SBPE, enquadramento exploratório de Pró-Cotista, fatores municipais, subsídio, FGTS/aportes, prazo por idade, MIP/DFI, tarifas e indicadores CET/CESH. O catálogo contém os municípios e fatores da pesquisa; limites nacionais e faixas de renda posteriores à planilha municipal são tratados separadamente no motor.
 
-O financiamento máximo é uma estimativa. Os três cronogramas da pesquisa foram conciliados em perfis específicos; isso não homologa todos os perfis. As tabelas de seguro foram calibradas na entrada aos 38 anos, e extensões a outras idades, seguros e dois compradores precisam de comparação oficial. Taxas comerciais, disponibilidade de recursos, quotas operacionais de usados e ajustes de subsídio devem ser validados por cenário. O app permite informar condições oficiais nos ajustes, sem alterar a regra geral para outros testes.
+O financiamento máximo é uma estimativa. Os três cronogramas da pesquisa foram conciliados em perfis específicos; isso não homologa todos os perfis. O MIP MCMV foi conciliado em contratações aos 28 e 38 anos, incluindo os reenquadramentos futuros; o SBPE foi conciliado aos 38 anos. Outras idades de entrada, seguros e dois compradores precisam de comparação oficial. Taxas comerciais, disponibilidade de recursos, quotas operacionais de usados e ajustes de subsídio devem ser validados por cenário. O app permite informar condições oficiais nos ajustes, sem alterar a regra geral para outros testes.
 
 A calculadora rápida da CAIXA usa simplificações próprias. Este piloto usa o modelo das simulações completas pesquisadas; não tenta reproduzir simultaneamente as simplificações da calculadora rápida.
 
@@ -75,9 +77,9 @@ Execute dentro desta pasta:
 npm test
 ```
 
-A suíte compara 1.200 parcelas com três cronogramas oficiais preservados como referências anônimas e executa 16 verificações adicionais de matemática, entrada e limites, além de 204 verificações normativas. Os resultados são gravados em `tests/latest-results.json` e `tests/boundary-results.json`. As referências têm nascimento sintético compatível com as faixas mensais de seguro observadas. Os testes são necessários para avaliar mudanças no algoritmo; não abrangem todas as modalidades e perfis.
+A suíte compara 2.040 parcelas com cinco cronogramas oficiais preservados como referências anônimas, incluindo o MCMV PRICE aos 28 e 38 anos. Executa ainda 16 verificações adicionais de matemática, 204 verificações de regras e a regressão de capacidade/idade de `tests/age-capacity.mjs`. Os resultados são gravados em `tests/latest-results.json` e `tests/boundary-results.json`. As referências têm nascimento sintético compatível com as faixas mensais de seguro observadas. Os testes são necessários para avaliar mudanças no algoritmo; não abrangem todas as modalidades e perfis.
 
-Diferenças conhecidas do piloto: em quatro resumos SBPE SAC, a primeira parcela difere R$ 0,01 do resultado capturado (um deles também difere R$ 0,01 na última). Nos quatro testes de máximo comparados, a estimativa ficou R$ 0,11 a R$ 0,19 abaixo do principal oficial. Essas diferenças foram preservadas para validação, sem ajuste artificial dos valores financiados.
+Diferenças conhecidas do piloto: em quatro resumos SBPE SAC, a primeira parcela difere R$ 0,01 do resultado capturado (um deles também difere R$ 0,01 na última). O ajuste de precisão de 19/09/2026 reproduz os quatro máximos históricos SAC e três novos máximos observados (PRICE aos 28/38 e SAC aos 38). O MCMV usado deste diagnóstico ainda estima R$ 326 de subsídio, enquanto a CAIXA considera zero: a entrada automática permanece R$ 326 menor até confirmar essa regra. Selecionar “Sem subsídio” permite comparar a mesma composição de recursos. Veja `validation/comparacao-idades-2026-09-19.md`.
 
 Guardas adicionais: benefício anterior no MCMV encaminha o caso à análise específica, pois também pode afetar descontos de juros e administração; Pró-Cotista e uso de FGTS respeitam o teto de avaliação/financiamento aplicável de R$ 2,25 milhões; o histórico recente de uso do FGTS pelo imóvel é verificado. SBPE acima do teto SFH é identificado como SFI exploratório. Valores de subsídio acima do teto após redutores devem ser registrados na comparação oficial para investigação, sem forçar uma entrada incompatível no cálculo.
 

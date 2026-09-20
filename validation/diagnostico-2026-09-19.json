@@ -1,0 +1,896 @@
+{
+  "investigatedAt": "2026-09-19T22:28:59.666Z",
+  "ruleVersion": "2026-09-14.piloto.1",
+  "evidenceScope": {
+    "currentBrowserTabsObserved": false,
+    "newOfficialSimulations": 0,
+    "blocker": "node_repl rejeita sandboxCwd file:///home/mapita/projetos/simula-habitacao, inclusive após js_reset.",
+    "historicalSources": [
+      "app.js",
+      "tests/schedule-fixtures.json",
+      "validation/matematica.md"
+    ],
+    "limitation": "A hipótese de truncamento foi ajustada aos quatro casos históricos; não é validação independente nem acesso à implementação da CAIXA."
+  },
+  "deployment": {
+    "release": {
+      "ruleVersion": "2026-09-14.piloto.1",
+      "commit": "8c0f6cf094deba1c6b9e10db04ec981739ffddfc",
+      "files": {
+        "index.html": "5ddd4f8a7c8c8f1ba0ff311828afd7894221132b4857134abf955dfda0b3514d",
+        "styles.css": "ce3dda9fbbd1a9a72fc3c925100dadddd007247078924562cbb76bf74e1bc90f",
+        "app.js": "d8a14a1be29e0de0cebd2010533565598d72c3fdf137be1a68f5318685fb1939",
+        "engine.js": "d35d0ddd0eae60701a6e4d27ea68e6cf9cfdb3414db5f8cde53f4773117cf6cd",
+        "favicon.svg": "bd11755c14462ce870f667c812ee5b05acde606359102aeede058a6bda86529c",
+        "data/municipal-rules.json": "46308cf544e44c68f3f6b555358714865bf20b6aee27c69e363717cc0374b538",
+        "vendor/decimal.mjs": "45e6ecc0a500fee6439acdf67ee2e9322aab57e6ea0409ef52993dedbba8cf19",
+        "vendor/decimal-LICENSE.md": "3108b546bcff5d346923a82f48b2d252ca722f9088076db6d145f6b67757ad6c"
+      }
+    },
+    "engine.js": {
+      "localSha256": "d35d0ddd0eae60701a6e4d27ea68e6cf9cfdb3414db5f8cde53f4773117cf6cd",
+      "publishedSha256": "d35d0ddd0eae60701a6e4d27ea68e6cf9cfdb3414db5f8cde53f4773117cf6cd",
+      "equal": true
+    },
+    "app.js": {
+      "localSha256": "d8a14a1be29e0de0cebd2010533565598d72c3fdf137be1a68f5318685fb1939",
+      "publishedSha256": "d8a14a1be29e0de0cebd2010533565598d72c3fdf137be1a68f5318685fb1939",
+      "equal": true
+    },
+    "data/municipal-rules.json": {
+      "localSha256": "46308cf544e44c68f3f6b555358714865bf20b6aee27c69e363717cc0374b538",
+      "publishedSha256": "46308cf544e44c68f3f6b555358714865bf20b6aee27c69e363717cc0374b538",
+      "equal": true
+    }
+  },
+  "references": [
+    {
+      "name": "MCMV SAC",
+      "input": {
+        "birthDate": "1988-02-01",
+        "simulationDate": "2026-09-14",
+        "income": 6000,
+        "propertyValue": 350000,
+        "municipalityId": "3543402",
+        "program": "mcmv",
+        "system": "SAC",
+        "months": 420,
+        "amountMode": "fixed",
+        "principal": 193949.89,
+        "cotista": true,
+        "family": "single",
+        "relationship": "none",
+        "insurance": "basic",
+        "subsidyMode": "quick"
+      },
+      "officialSummary": {
+        "first": 1777.61,
+        "last": 489.74
+      },
+      "result": {
+        "principal": 193949.89,
+        "ownFunds": 156050.11,
+        "months": 420,
+        "nominalAnnual": 7.66,
+        "firstSummary": 1777.61,
+        "lastSummary": 489.74,
+        "firstRow": {
+          "installment": 1,
+          "date": "2026-10-14",
+          "amortization": 461.79,
+          "interest": 1238.05,
+          "balance": 193488.1,
+          "mip": 27.86,
+          "dfi": 24.85,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 1777.55
+        },
+        "lastRow": {
+          "installment": 420,
+          "date": "2061-09-14",
+          "amortization": 461.79,
+          "interest": 2.94,
+          "balance": 0,
+          "mip": 0,
+          "dfi": 0,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 489.73
+        },
+        "cet": 9.049141197880505,
+        "cetActualDates": 9.043713894060835,
+        "cesh": 4.49454575857283,
+        "initialInsurance": 52.78,
+        "assessment": 2909.25,
+        "amortizationAdjustment": 1.91
+      },
+      "resultWithSimulationDate19September": {
+        "principal": 193949.89,
+        "ownFunds": 156050.11,
+        "months": 420,
+        "nominalAnnual": 7.66,
+        "firstSummary": 1777.61,
+        "lastSummary": 489.74,
+        "firstRow": {
+          "installment": 1,
+          "date": "2026-10-19",
+          "amortization": 461.79,
+          "interest": 1238.05,
+          "balance": 193488.1,
+          "mip": 27.86,
+          "dfi": 24.85,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 1777.55
+        },
+        "lastRow": {
+          "installment": 420,
+          "date": "2061-09-19",
+          "amortization": 461.79,
+          "interest": 2.94,
+          "balance": 0,
+          "mip": 0,
+          "dfi": 0,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 489.73
+        },
+        "cet": 9.049141197880505,
+        "cetActualDates": 9.043713894060835,
+        "cesh": 4.49454575857283,
+        "initialInsurance": 52.78,
+        "assessment": 2909.25,
+        "amortizationAdjustment": 1.91
+      }
+    },
+    {
+      "name": "MCMV PRICE",
+      "input": {
+        "birthDate": "1988-02-01",
+        "simulationDate": "2026-09-14",
+        "income": 6000,
+        "propertyValue": 350000,
+        "municipalityId": "3543402",
+        "program": "mcmv",
+        "system": "PRICE",
+        "months": 420,
+        "amountMode": "fixed",
+        "principal": 193949.89,
+        "cotista": true,
+        "family": "single",
+        "relationship": "none",
+        "insurance": "basic",
+        "subsidyMode": "quick"
+      },
+      "officialSummary": {
+        "first": 1407.7,
+        "last": 1354.92
+      },
+      "result": {
+        "principal": 193949.89,
+        "ownFunds": 156050.11,
+        "months": 420,
+        "nominalAnnual": 7.66,
+        "firstSummary": 1407.7,
+        "lastSummary": 1354.92,
+        "firstRow": {
+          "installment": 1,
+          "date": "2026-10-14",
+          "amortization": 91.87,
+          "interest": 1238.05,
+          "balance": 193858.02,
+          "mip": 27.92,
+          "dfi": 24.85,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 1407.69
+        },
+        "lastRow": {
+          "installment": 420,
+          "date": "2061-09-14",
+          "amortization": 1319.25,
+          "interest": 8.42,
+          "balance": 0,
+          "mip": 0,
+          "dfi": 0,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 1352.67
+        },
+        "cet": 9.000546897288409,
+        "cetActualDates": 8.994959624681032,
+        "cesh": 5.600195844958351,
+        "initialInsurance": 52.78,
+        "assessment": 2909.25,
+        "amortizationAdjustment": 0
+      },
+      "resultWithSimulationDate19September": {
+        "principal": 193949.89,
+        "ownFunds": 156050.11,
+        "months": 420,
+        "nominalAnnual": 7.66,
+        "firstSummary": 1407.7,
+        "lastSummary": 1354.92,
+        "firstRow": {
+          "installment": 1,
+          "date": "2026-10-19",
+          "amortization": 91.87,
+          "interest": 1238.05,
+          "balance": 193858.02,
+          "mip": 27.92,
+          "dfi": 24.85,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 1407.69
+        },
+        "lastRow": {
+          "installment": 420,
+          "date": "2061-09-19",
+          "amortization": 1319.25,
+          "interest": 8.42,
+          "balance": 0,
+          "mip": 0,
+          "dfi": 0,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 1352.67
+        },
+        "cet": 9.000546897288409,
+        "cetActualDates": 8.994959624681032,
+        "cesh": 5.600195844958351,
+        "initialInsurance": 52.78,
+        "assessment": 2909.25,
+        "amortizationAdjustment": 0
+      }
+    },
+    {
+      "name": "SBPE PRICE salário",
+      "input": {
+        "birthDate": "1988-02-01",
+        "simulationDate": "2026-09-14",
+        "income": 10000,
+        "propertyValue": 500000,
+        "municipalityId": "3543402",
+        "program": "sbpe",
+        "system": "PRICE",
+        "months": 360,
+        "amountMode": "fixed",
+        "principal": 245560.88,
+        "cotista": true,
+        "family": "single",
+        "relationship": "salary",
+        "insurance": "basic",
+        "subsidyMode": "quick"
+      },
+      "officialSummary": {
+        "first": 2370.38,
+        "last": 2299.56
+      },
+      "result": {
+        "principal": 245560.88,
+        "ownFunds": 254439.12,
+        "months": 360,
+        "nominalAnnual": 10.654,
+        "firstSummary": 2370.38,
+        "lastSummary": 2299.56,
+        "firstRow": {
+          "installment": 1,
+          "date": "2026-10-14",
+          "amortization": 94.39,
+          "interest": 2180.17,
+          "balance": 245466.49,
+          "mip": 37.8,
+          "dfi": 33,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 2370.36
+        },
+        "lastRow": {
+          "installment": 360,
+          "date": "2056-09-14",
+          "amortization": 2261.26,
+          "interest": 20.08,
+          "balance": 0,
+          "mip": 0,
+          "dfi": 0,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 2306.34
+        },
+        "cet": 12.124524236087975,
+        "cetActualDates": 12.117205126819563,
+        "cesh": 6.284062217411169,
+        "initialInsurance": 70.82,
+        "assessment": 841.44,
+        "amortizationAdjustment": 0
+      },
+      "resultWithSimulationDate19September": {
+        "principal": 245560.88,
+        "ownFunds": 254439.12,
+        "months": 360,
+        "nominalAnnual": 10.654,
+        "firstSummary": 2370.38,
+        "lastSummary": 2299.56,
+        "firstRow": {
+          "installment": 1,
+          "date": "2026-10-19",
+          "amortization": 94.39,
+          "interest": 2180.17,
+          "balance": 245466.49,
+          "mip": 37.8,
+          "dfi": 33,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 2370.36
+        },
+        "lastRow": {
+          "installment": 360,
+          "date": "2056-09-19",
+          "amortization": 2261.26,
+          "interest": 20.08,
+          "balance": 0,
+          "mip": 0,
+          "dfi": 0,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 2306.34
+        },
+        "cet": 12.124524236087975,
+        "cetActualDates": 12.117205126819563,
+        "cesh": 6.284062217411169,
+        "initialInsurance": 70.82,
+        "assessment": 841.44,
+        "amortizationAdjustment": 0
+      }
+    }
+  ],
+  "maximumHypothesis": [
+    {
+      "name": "MCMV renda 6000",
+      "input": {
+        "simulationDate": "2026-09-14",
+        "municipalityId": "3543402",
+        "program": "mcmv",
+        "system": "SAC",
+        "months": 420,
+        "propertyType": "new",
+        "purpose": "purchase",
+        "family": "single",
+        "cotista": true,
+        "relationship": "none",
+        "amountMode": "max",
+        "subsidyMode": "quick",
+        "insurance": "basic",
+        "fgtsUse": 0,
+        "confirmedAid": 0,
+        "purchaseCosts": 0,
+        "secondSharePercent": 0,
+        "birthDate": "1988-02-01",
+        "income": 6000,
+        "propertyValue": 350000,
+        "principal": 193949.89
+      },
+      "official": 193949.89,
+      "original": 193949.77,
+      "originalMinusOfficial": -0.12,
+      "numerator": "1727.76",
+      "coefficient": "0.00890828571428571428571428571428571428571428",
+      "truncatedCoefficient": "0.00890828",
+      "estimatedWithTruncation": 193949.89,
+      "matchesHistoricalOfficial": true
+    },
+    {
+      "name": "MCMV renda 3000",
+      "input": {
+        "simulationDate": "2026-09-14",
+        "municipalityId": "3543402",
+        "program": "mcmv",
+        "system": "SAC",
+        "months": 420,
+        "propertyType": "new",
+        "purpose": "purchase",
+        "family": "single",
+        "cotista": true,
+        "relationship": "none",
+        "amountMode": "max",
+        "subsidyMode": "quick",
+        "insurance": "basic",
+        "fgtsUse": 0,
+        "confirmedAid": 0,
+        "purchaseCosts": 0,
+        "secondSharePercent": 0,
+        "birthDate": "1988-02-01",
+        "income": 3000,
+        "propertyValue": 240000,
+        "principal": 193949.89
+      },
+      "official": 129966.62,
+      "original": 129966.51,
+      "originalMinusOfficial": -0.11,
+      "numerator": "842.61",
+      "coefficient": "0.00648328571428571428571428571428571428571428",
+      "truncatedCoefficient": "0.00648328",
+      "estimatedWithTruncation": 129966.62,
+      "matchesHistoricalOfficial": true
+    },
+    {
+      "name": "SBPE renda 6000",
+      "input": {
+        "simulationDate": "2026-09-14",
+        "municipalityId": "3543402",
+        "program": "sbpe",
+        "system": "SAC",
+        "months": 420,
+        "propertyType": "new",
+        "purpose": "purchase",
+        "family": "single",
+        "cotista": true,
+        "relationship": "none",
+        "amountMode": "max",
+        "subsidyMode": "quick",
+        "insurance": "basic",
+        "fgtsUse": 0,
+        "confirmedAid": 0,
+        "purchaseCosts": 0,
+        "secondSharePercent": 0,
+        "birthDate": "1988-02-01",
+        "income": 6000,
+        "propertyValue": 350000,
+        "principal": 193949.89
+      },
+      "official": 145734.57,
+      "original": 145734.46,
+      "originalMinusOfficial": -0.11,
+      "numerator": "1696.33",
+      "coefficient": "0.0116398690476190476190476190476190476190476",
+      "truncatedCoefficient": "0.01163986",
+      "estimatedWithTruncation": 145734.57,
+      "matchesHistoricalOfficial": true
+    },
+    {
+      "name": "SBPE renda 10000",
+      "input": {
+        "simulationDate": "2026-09-14",
+        "municipalityId": "3543402",
+        "program": "sbpe",
+        "system": "SAC",
+        "months": 420,
+        "propertyType": "new",
+        "purpose": "purchase",
+        "family": "single",
+        "cotista": true,
+        "relationship": "none",
+        "amountMode": "max",
+        "subsidyMode": "quick",
+        "insurance": "basic",
+        "fgtsUse": 0,
+        "confirmedAid": 0,
+        "purchaseCosts": 0,
+        "secondSharePercent": 0,
+        "birthDate": "1988-02-01",
+        "income": 10000,
+        "propertyValue": 500000,
+        "principal": 193949.89
+      },
+      "official": 245931.65,
+      "original": 245931.46,
+      "originalMinusOfficial": -0.19,
+      "numerator": "2862.61",
+      "coefficient": "0.0116398690476190476190476190476190476190476",
+      "truncatedCoefficient": "0.01163986",
+      "estimatedWithTruncation": 245931.65,
+      "matchesHistoricalOfficial": true
+    }
+  ],
+  "sensitivities": [
+    {
+      "name": "MCMV básico",
+      "patch": {},
+      "result": {
+        "principal": 193949.89,
+        "ownFunds": 156050.11,
+        "months": 420,
+        "nominalAnnual": 7.66,
+        "firstSummary": 1777.61,
+        "lastSummary": 489.74,
+        "firstRow": {
+          "installment": 1,
+          "date": "2026-10-14",
+          "amortization": 461.79,
+          "interest": 1238.05,
+          "balance": 193488.1,
+          "mip": 27.86,
+          "dfi": 24.85,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 1777.55
+        },
+        "lastRow": {
+          "installment": 420,
+          "date": "2061-09-14",
+          "amortization": 461.79,
+          "interest": 2.94,
+          "balance": 0,
+          "mip": 0,
+          "dfi": 0,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 489.73
+        },
+        "cet": 9.049141197880505,
+        "cetActualDates": 9.043713894060835,
+        "cesh": 4.49454575857283,
+        "initialInsurance": 52.78,
+        "assessment": 2909.25,
+        "amortizationAdjustment": 1.91
+      }
+    },
+    {
+      "name": "MCMV Mais",
+      "patch": {
+        "insurance": "plus"
+      },
+      "result": {
+        "principal": 193949.89,
+        "ownFunds": 156050.11,
+        "months": 420,
+        "nominalAnnual": 7.66,
+        "firstSummary": 1800,
+        "lastSummary": 489.74,
+        "firstRow": {
+          "installment": 1,
+          "date": "2026-10-14",
+          "amortization": 461.79,
+          "interest": 1238.05,
+          "balance": 193488.1,
+          "mip": 27.86,
+          "dfi": 24.85,
+          "adminFee": 25,
+          "extraPremium": 22.39,
+          "total": 1799.94
+        },
+        "lastRow": {
+          "installment": 420,
+          "date": "2061-09-14",
+          "amortization": 461.79,
+          "interest": 2.94,
+          "balance": 0,
+          "mip": 0,
+          "dfi": 0,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 489.73
+        },
+        "cet": 9.252633459642501,
+        "cetActualDates": 9.247088776890767,
+        "cesh": 4.49454575857283,
+        "initialInsurance": 52.78,
+        "assessment": 2909.25,
+        "amortizationAdjustment": 1.91
+      }
+    },
+    {
+      "name": "MCMV Ampliado",
+      "patch": {
+        "insurance": "expanded"
+      },
+      "result": {
+        "principal": 193949.89,
+        "ownFunds": 156050.11,
+        "months": 420,
+        "nominalAnnual": 7.66,
+        "firstSummary": 1833.18,
+        "lastSummary": 489.74,
+        "firstRow": {
+          "installment": 1,
+          "date": "2026-10-14",
+          "amortization": 461.79,
+          "interest": 1238.05,
+          "balance": 193488.1,
+          "mip": 27.86,
+          "dfi": 24.85,
+          "adminFee": 25,
+          "extraPremium": 55.57,
+          "total": 1833.12
+        },
+        "lastRow": {
+          "installment": 420,
+          "date": "2061-09-14",
+          "amortization": 461.79,
+          "interest": 2.94,
+          "balance": 0,
+          "mip": 0,
+          "dfi": 0,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 489.73
+        },
+        "cet": 9.551507700096506,
+        "cetActualDates": 9.545791321015507,
+        "cesh": 4.49454575857283,
+        "initialInsurance": 52.78,
+        "assessment": 2909.25,
+        "amortizationAdjustment": 1.91
+      }
+    },
+    {
+      "name": "Nascimento sintético diferente, também 38 anos",
+      "patch": {
+        "birthDate": "1988-09-01"
+      },
+      "result": {
+        "principal": 193949.89,
+        "ownFunds": 156050.11,
+        "months": 420,
+        "nominalAnnual": 7.66,
+        "firstSummary": 1777.61,
+        "lastSummary": 489.74,
+        "firstRow": {
+          "installment": 1,
+          "date": "2026-10-14",
+          "amortization": 461.79,
+          "interest": 1238.05,
+          "balance": 193488.1,
+          "mip": 27.86,
+          "dfi": 24.85,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 1777.55
+        },
+        "lastRow": {
+          "installment": 420,
+          "date": "2061-09-14",
+          "amortization": 461.79,
+          "interest": 2.94,
+          "balance": 0,
+          "mip": 0,
+          "dfi": 0,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 489.73
+        },
+        "cet": 9.02649787852564,
+        "cetActualDates": 9.02108244801646,
+        "cesh": 4.3426574476774,
+        "initialInsurance": 52.78,
+        "assessment": 2909.25,
+        "amortizationAdjustment": 1.91
+      }
+    },
+    {
+      "name": "Avaliação sem tarifa",
+      "patch": {
+        "assessmentOverride": 0
+      },
+      "result": {
+        "principal": 193949.89,
+        "ownFunds": 156050.11,
+        "months": 420,
+        "nominalAnnual": 7.66,
+        "firstSummary": 1777.61,
+        "lastSummary": 489.74,
+        "firstRow": {
+          "installment": 1,
+          "date": "2026-10-14",
+          "amortization": 461.79,
+          "interest": 1238.05,
+          "balance": 193488.1,
+          "mip": 27.86,
+          "dfi": 24.85,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 1777.55
+        },
+        "lastRow": {
+          "installment": 420,
+          "date": "2061-09-14",
+          "amortization": 461.79,
+          "interest": 2.94,
+          "balance": 0,
+          "mip": 0,
+          "dfi": 0,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 489.73
+        },
+        "cet": 8.84989984315917,
+        "cetActualDates": 8.84458477793687,
+        "cesh": 4.49454575857283,
+        "initialInsurance": 52.78,
+        "assessment": 0,
+        "amortizationAdjustment": 1.91
+      }
+    },
+    {
+      "name": "Máximo com seguro básico",
+      "patch": {
+        "amountMode": "max"
+      },
+      "result": {
+        "principal": 193949.77,
+        "ownFunds": 156050.23,
+        "months": 420,
+        "nominalAnnual": 7.66,
+        "firstSummary": 1777.61,
+        "lastSummary": 489.74,
+        "firstRow": {
+          "installment": 1,
+          "date": "2026-10-14",
+          "amortization": 461.79,
+          "interest": 1238.05,
+          "balance": 193487.98,
+          "mip": 27.86,
+          "dfi": 24.85,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 1777.55
+        },
+        "lastRow": {
+          "installment": 420,
+          "date": "2061-09-14",
+          "amortization": 461.79,
+          "interest": 2.93,
+          "balance": 0,
+          "mip": 0,
+          "dfi": 0,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 489.72
+        },
+        "cet": 9.04914280010326,
+        "cetActualDates": 9.043715495517535,
+        "cesh": 4.49454699564644,
+        "initialInsurance": 52.78,
+        "assessment": 2909.25,
+        "amortizationAdjustment": 2.03
+      }
+    },
+    {
+      "name": "Máximo com seguro Mais",
+      "patch": {
+        "amountMode": "max",
+        "insurance": "plus"
+      },
+      "result": {
+        "principal": 193949.77,
+        "ownFunds": 156050.23,
+        "months": 420,
+        "nominalAnnual": 7.66,
+        "firstSummary": 1800,
+        "lastSummary": 489.74,
+        "firstRow": {
+          "installment": 1,
+          "date": "2026-10-14",
+          "amortization": 461.79,
+          "interest": 1238.05,
+          "balance": 193487.98,
+          "mip": 27.86,
+          "dfi": 24.85,
+          "adminFee": 25,
+          "extraPremium": 22.39,
+          "total": 1799.94
+        },
+        "lastRow": {
+          "installment": 420,
+          "date": "2061-09-14",
+          "amortization": 461.79,
+          "interest": 2.93,
+          "balance": 0,
+          "mip": 0,
+          "dfi": 0,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 489.72
+        },
+        "cet": 9.252635222624727,
+        "cetActualDates": 9.247090539016655,
+        "cesh": 4.49454699564644,
+        "initialInsurance": 52.78,
+        "assessment": 2909.25,
+        "amortizationAdjustment": 2.03
+      }
+    },
+    {
+      "name": "SBPE taxa nominal automática",
+      "patch": {
+        "program": "sbpe",
+        "system": "PRICE",
+        "relationship": "salary",
+        "income": 10000,
+        "propertyValue": 500000,
+        "principal": 245560.88,
+        "months": 360
+      },
+      "result": {
+        "principal": 245560.88,
+        "ownFunds": 254439.12,
+        "months": 360,
+        "nominalAnnual": 10.654,
+        "firstSummary": 2370.38,
+        "lastSummary": 2299.56,
+        "firstRow": {
+          "installment": 1,
+          "date": "2026-10-14",
+          "amortization": 94.39,
+          "interest": 2180.17,
+          "balance": 245466.49,
+          "mip": 37.8,
+          "dfi": 33,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 2370.36
+        },
+        "lastRow": {
+          "installment": 360,
+          "date": "2056-09-14",
+          "amortization": 2261.26,
+          "interest": 20.08,
+          "balance": 0,
+          "mip": 0,
+          "dfi": 0,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 2306.34
+        },
+        "cet": 12.124524236087975,
+        "cetActualDates": 12.117205126819563,
+        "cesh": 6.284062217411169,
+        "initialInsurance": 70.82,
+        "assessment": 841.44,
+        "amortizationAdjustment": 0
+      }
+    },
+    {
+      "name": "SBPE nominal digitada com duas casas",
+      "patch": {
+        "program": "sbpe",
+        "system": "PRICE",
+        "relationship": "salary",
+        "income": 10000,
+        "propertyValue": 500000,
+        "principal": 245560.88,
+        "months": 360,
+        "nominalOverride": 10.65
+      },
+      "result": {
+        "principal": 245560.88,
+        "ownFunds": 254439.12,
+        "months": 360,
+        "nominalAnnual": 10.65,
+        "firstSummary": 2369.64,
+        "lastSummary": 2298.83,
+        "firstRow": {
+          "installment": 1,
+          "date": "2026-10-14",
+          "amortization": 94.48,
+          "interest": 2179.35,
+          "balance": 245466.4,
+          "mip": 37.8,
+          "dfi": 33,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 2369.63
+        },
+        "lastRow": {
+          "installment": 360,
+          "date": "2056-09-14",
+          "amortization": 2242.09,
+          "interest": 19.9,
+          "balance": 0,
+          "mip": 0,
+          "dfi": 0,
+          "adminFee": 25,
+          "extraPremium": 0,
+          "total": 2286.99
+        },
+        "cet": 12.120171960772652,
+        "cetActualDates": 12.11285529487508,
+        "cesh": 6.283412350090719,
+        "initialInsurance": 70.82,
+        "assessment": 841.44,
+        "amortizationAdjustment": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "evidence": "Duas abas reais do Chrome e 420 parcelas oficiais observadas em 19/09/2026.",
+  "inputPrivacy": "Nascimento oficial substituído por data sintética equivalente para estes vencimentos. Sem CPF ou telefone.",
+  "original": {
+    "principal": 183666.32,
+    "ownFunds": 80007.68,
+    "subsidy": 326,
+    "firstSummary": 1056.51,
+    "lastSummary": 1011.32,
+    "firstRow": {
+      "installment": 1,
+      "date": "2026-10-14",
+      "amortization": 144.52,
+      "interest": 841.8,
+      "balance": 183521.8,
+      "mip": 26.43,
+      "dfi": 18.74,
+      "adminFee": 25,
+      "extraPremium": 0,
+      "total": 1056.49
+    },
+    "lastRow": {
+      "installment": 420,
+      "date": "2061-09-14",
+      "amortization": 978.95,
+      "interest": 4.49,
+      "balance": 0,
+      "mip": 0,
+      "dfi": 0,
+      "adminFee": 25,
+      "extraPremium": 0,
+      "total": 1008.44
+    },
+    "cet": 6.710483584083937,
+    "cesh": 5.018570678656549
+  },
+  "birthOnly": {
+    "principal": 183666.32,
+    "ownFunds": 80007.68,
+    "subsidy": 326,
+    "firstSummary": 1056.51,
+    "lastSummary": 1011.32,
+    "firstRow": {
+      "installment": 1,
+      "date": "2026-10-14",
+      "amortization": 144.52,
+      "interest": 841.8,
+      "balance": 183521.8,
+      "mip": 26.43,
+      "dfi": 18.74,
+      "adminFee": 25,
+      "extraPremium": 0,
+      "total": 1056.49
+    },
+    "lastRow": {
+      "installment": 420,
+      "date": "2061-09-14",
+      "amortization": 978.95,
+      "interest": 4.49,
+      "balance": 0,
+      "mip": 0,
+      "dfi": 0,
+      "adminFee": 25,
+      "extraPremium": 0,
+      "total": 1008.44
+    },
+    "cet": 6.423084883371011,
+    "cesh": 3.1332706217452335
+  },
+  "sameAgeNoSubsidy": {
+    "principal": 183666.32,
+    "ownFunds": 80333.68,
+    "subsidy": 0,
+    "firstSummary": 1056.51,
+    "lastSummary": 1011.32,
+    "firstRow": {
+      "installment": 1,
+      "date": "2026-10-19",
+      "amortization": 144.52,
+      "interest": 841.8,
+      "balance": 183521.8,
+      "mip": 26.43,
+      "dfi": 18.74,
+      "adminFee": 25,
+      "extraPremium": 0,
+      "total": 1056.49
+    },
+    "lastRow": {
+      "installment": 420,
+      "date": "2061-09-19",
+      "amortization": 978.95,
+      "interest": 4.49,
+      "balance": 0,
+      "mip": 0,
+      "dfi": 0,
+      "adminFee": 25,
+      "extraPremium": 0,
+      "total": 1008.44
+    },
+    "cet": 6.423084883371011,
+    "cesh": 3.1332706217452335
+  },
+  "initialMipOnly": {
+    "principal": 185652.75,
+    "ownFunds": 78347.25,
+    "subsidy": 0,
+    "firstSummary": 1056.51,
+    "lastSummary": 1021.99,
+    "firstRow": {
+      "installment": 1,
+      "date": "2026-10-19",
+      "amortization": 146.08,
+      "interest": 850.91,
+      "balance": 185506.67,
+      "mip": 15.77,
+      "dfi": 18.74,
+      "adminFee": 25,
+      "extraPremium": 0,
+      "total": 1056.5
+    },
+    "lastRow": {
+      "installment": 420,
+      "date": "2061-09-19",
+      "amortization": 986.84,
+      "interest": 4.52,
+      "balance": 0,
+      "mip": 0,
+      "dfi": 0,
+      "adminFee": 25,
+      "extraPremium": 0,
+      "total": 1016.36
+    },
+    "cet": 6.260369806195365,
+    "cesh": 2.0911180979056856
+  },
+  "subsidy": {
+    "amount": 326,
+    "raw": 2174.9182674699496,
+    "warnings": [
+      "Subsídio sem área: fator do imóvel FUH=0 e valor em reais inteiros, hipóteses compatíveis com os dois testes oficiais.",
+      "O redutor deixou o desconto abaixo de R$ 1.500. A ordem desse mínimo precisa de conferência oficial."
+    ],
+    "reason": "Estimativa pela fórmula do Manual 034.",
+    "factors": {
+      "income": 3578,
+      "incomeFactor": 2088.2762393162393,
+      "financingDemand": 166568.50725175225,
+      "vvi": 178200,
+      "fdUf": 2.07,
+      "fdFin": -7.389114983558308,
+      "fuh": 0,
+      "fpop": 1.1,
+      "cap": 55000,
+      "reducer": 0.15
+    }
+  },
+  "scheduleComparison": {
+    "paymentPI": {
+      "count": 0,
+      "first": null,
+      "last": null
+    },
+    "balance": {
+      "count": 0,
+      "first": null,
+      "last": null
+    },
+    "date": {
+      "count": 0,
+      "first": null,
+      "last": null
+    },
+    "dfi": {
+      "count": 0,
+      "first": null,
+      "last": null
+    },
+    "adminFee": {
+      "count": 0,
+      "first": null,
+      "last": null
+    },
+    "mip": {
+      "count": 94,
+      "first": 1,
+      "last": 94
+    },
+    "total": {
+      "count": 94,
+      "first": 1,
+      "last": 94
+    }
+  },
+  "reconstructed": {
+    "observedBands": [
+      [
+        30,
+        0.0085
+      ],
+      [
+        35,
+        0.0108
+      ],
+      [
+        40,
+        0.0144
+      ],
+      [
+        45,
+        0.0244
+      ],
+      [
+        50,
+        0.0359
+      ],
+      [
+        55,
+        0.0645
+      ],
+      [
+        60,
+        0.0764
+      ],
+      [
+        65,
+        0.1296
+      ]
+    ],
+    "matchingRows": 420,
+    "cet": 6.388349438985131,
+    "cesh": 2.82456928161515,
+    "assessment": 2784.8,
+    "initialInsurance": 34.52,
+    "netCredit": 182834.26
+  },
+  "maximum": {
+    "coefficient": "0.00545516279222608016288561493189537718761748",
+    "truncatedCoefficient": "0.00545516",
+    "roundedDfi": 18.74,
+    "extraReference": 16.89,
+    "capacity": 1012.77,
+    "recoveredMaximum": 185653.58
+  },
+  "officialTotals": {
+    "paymentPI": 418735.52,
+    "mip": 13779.13,
+    "dfi": 7852.06,
+    "adminFee": 10500,
+    "total": 450866.71
+  },
+  "limitations": [
+    "Faixas recuperadas validadas apenas no contrato/apólice e nas idades observadas (28–63 anos).",
+    "Truncamento reproduz o principal observado, mas não prova algoritmo interno universal.",
+    "CAIXA sem desconto na composição observada; causa normativa do subsídio zero ainda não confirmada.",
+    "Tarifa de avaliação de 1,5% é hipótese que reproduz o CET exibido; não foi apresentada separadamente na tela.",
+    "Custom MIP constante serve apenas para isolar financiamento máximo; não reproduz custos futuros."
+  ]
+}

@@ -1,11 +1,13 @@
 import Decimal from './vendor/decimal.mjs';
 Decimal.set({precision:42,rounding:Decimal.ROUND_HALF_UP});
-export const RULE_VERSION='2026-09-14.piloto.1';
+export const RULE_VERSION='2026-09-19.piloto.2';
 const D=x=>new Decimal(x);
 const money=x=>D(x).toDecimalPlaces(2).toNumber();
 const jr=x=>D(x).toDecimalPlaces(4).toDecimalPlaces(2);
 const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
-const bands={mcmv:[[40,.0144],[45,.0244],[50,.0359],[55,.0645],[60,.0764],[65,.1296],[70,.2005],[100,.3729]],sbpe:[[40,.0154],[45,.0252],[50,.0386],[55,.0676],[60,.1533],[65,.2731],[100,.3259]]};
+// As faixas até 35 anos reproduzem o cronograma MCMV contratado aos 28 anos
+// observado em 19/09/2026; a idade atingida determina o reenquadramento mensal.
+const bands={mcmv:[[30,.0085],[35,.0108],[40,.0144],[45,.0244],[50,.0359],[55,.0645],[60,.0764],[65,.1296],[70,.2005],[100,.3729]],sbpe:[[40,.0154],[45,.0252],[50,.0386],[55,.0676],[60,.1533],[65,.2731],[100,.3259]]};
 export function parseDate(s){
  if(!/^\d{4}-\d{2}-\d{2}$/.test(s||''))return null;
  const [y,m,d]=s.split('-').map(Number),v=new Date(Date.UTC(y,m-1,d));
@@ -203,7 +205,7 @@ export function simulate(raw,catalog){
  if(extraPremiumMonthly)warnings.push('Coberturas adicionais projetadas como valor mensal constante a partir dos resumos observados; cronograma desses pacotes ainda não homologado.');
  if(input.insurance==='custom')warnings.push('Coeficiente MIP manual constante: mudanças futuras por idade não estão incorporadas nesta opção.');
  const ages=[ageOn(input.birthDate,input.simulationDate),...(input.family==='two'?[ageOn(input.secondBirthDate,input.simulationDate)]:[])];
- if(ages.some(a=>a!==38))warnings.push('Tabela de seguro estendida a partir do perfil de entrada aos 38 anos. Outras idades de contratação exigem conferência da apólice.');
+ if(ages.some(a=>a!==38&&!(insuranceModel==='mcmv'&&a===28)))warnings.push(`Seguro conferido em perfis de entrada ${insuranceModel==='mcmv'?'aos 28 e 38 anos':'aos 38 anos'}. Outras idades de contratação exigem conferência da apólice.`);
  if(input.family==='two')warnings.push('Seguro ponderado pela participação informada de cada comprador; a composição ainda não foi conciliada com um caso oficial.');
  const insuranceOpts={insuranceModel,birthDate:input.birthDate,secondBirthDate:input.secondBirthDate,secondSharePercent:input.secondSharePercent,customMipPercent:input.insurance==='custom'?+input.customMipPercent:null};
  const referenceExtra=insuranceModel==='mcmv'?money(D(V).mul('.00006396')):money(D(V).mul('.00015878'));
@@ -211,7 +213,12 @@ export function simulate(raw,catalog){
  const mi=D(weightedMip(insuranceOpts,input.simulationDate)).div(100),i=D(nominal).div(1200);
  const coeff=input.system==='SAC'?D(1).div(months).plus(i):(i.isZero()?D(1).div(months):i.div(D(1).minus(D(1).plus(i).pow(-months))));
  const incomeLimit=D(R).mul(input.commitmentPercent||30).div(100);
- const affordable=Decimal.max(0,incomeLimit.minus(adminFee).minus(D(+input.appraisal||V).mul(dfiRatePercent).div(100)).minus(capExtra).div(coeff.plus(mi)));
+ // DFI em centavos, coeficiente em oito casas e capacidade truncada em
+ // centavos reproduzem os máximos oficiais SAC e PRICE preservados nos testes.
+ // O cronograma continua usando a taxa integral e seus próprios arredondamentos.
+ const capacityDfi=D(+input.appraisal||V).mul(dfiRatePercent).div(100).toDecimalPlaces(2);
+ const capacityCoefficient=coeff.plus(mi).toDecimalPlaces(8,Decimal.ROUND_DOWN);
+ const affordable=Decimal.max(0,incomeLimit.minus(adminFee).minus(capacityDfi).minus(capExtra).div(capacityCoefficient)).toDecimalPlaces(2,Decimal.ROUND_DOWN);
  const capByQuota=D(base).mul(quota).div(100);
  const resourceCap=D(V).minus(input.fgtsUse).minus(subsidy.amount).minus(input.confirmedAid);
  const maximum=money(Decimal.max(0,Decimal.min(affordable,capByQuota,resourceCap)));
@@ -223,7 +230,7 @@ export function simulate(raw,catalog){
  if(program==='sbpe'&&input.relationship!=='none'&&principal<150000)error('principal','No fluxo de relacionamento/TR pesquisado, o financiamento mínimo foi R$ 150 mil. Experimente balcão ou outro valor.');
  if(input.amountMode!=='max'&&principal>maximum+1)warnings.push('Valor informado acima da capacidade estimada por renda. As parcelas são um cálculo exploratório, sem indicação de aprovação.');
  if(input.amountMode!=='max'&&principal>maximum+.01&&principal<=maximum+1)warnings.push('Há diferença de até R$ 1 entre o principal informado e a capacidade aproximada; o motor não usa isso para inferir reprovação por renda.');
- if(input.amountMode==='max')warnings.push('Financiamento máximo estimado por quota e renda, usando o seguro de referência mais completo observado. A busca interna da CAIXA ainda não foi reproduzida ao centavo.');
+ if(input.amountMode==='max')warnings.push('Financiamento máximo estimado por quota e renda, com seguro de referência e precisão conciliados nos casos oficiais registrados. Outros perfis ainda exigem comparação.');
  if(errors.length)return {ok:false,errors,warnings,ruleVersion:RULE_VERSION};
  const schedule=buildSchedule({principal,months,nominalAnnual:nominal,system:input.system,simulationDate:input.simulationDate,propertyValue:+input.appraisal||V,...insuranceOpts,adminFee,dfiRatePercent,extraPremiumMonthly});
  const assessment=input.assessmentOverride!=null&&input.assessmentOverride!==''?+input.assessmentOverride:program==='mcmv'?(input.linkedProject?0:money(D(principal).mul('.015'))):841.44;
