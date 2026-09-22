@@ -30,16 +30,18 @@ Execute dentro desta pasta. Abrir `index.html` diretamente por duplo clique não
 
 Para agentes que vão inspecionar as abas já abertas do Chrome, consulte o [guia de uso do navegador](docs/browser.md): autorização do projeto, conexão, recuperação WSL/Windows e boas práticas para comparar com a CAIXA.
 
-1. Abra um dos exemplos da pesquisa ou clique em **Limpar dados**.
-2. Preencha comprador, imóvel e modalidade. Para isolar a conferência das parcelas, escolha **Parcelas de um financiamento informado** e use o mesmo principal da CAIXA.
-3. Clique em **Calcular simulação**. Confira o resumo, o seguro, o prazo e as premissas.
-4. Em **Como ficou na CAIXA?**, preencha os valores oficiais. A diferença é “este simulador menos CAIXA”, na precisão exibida.
+1. Preencha os dados essenciais ou abra um cenário em **Usar exemplo**. A página começa sem uma simulação preenchida.
+2. Preencha comprador, imóvel e financiamento. Modalidade, seguro, FGTS e condições especiais ficam em **Mais opções**. Para isolar a conferência das parcelas, escolha **Valor a financiar** e use o mesmo principal da CAIXA.
+3. Clique em **Simular**, sempre disponível na barra inferior. Os resultados aparecem abaixo do formulário; os detalhes podem ser expandidos.
+4. Abra **Comparar com a CAIXA** e, em **Como ficou na CAIXA?**, preencha os valores oficiais. A diferença é “este simulador menos CAIXA”, na precisão exibida.
 5. Registre o que mudou no campo de observações e clique em **Salvar teste neste navegador**.
 6. Em **Meus testes**, exporte o JSON para compartilhar os achados e preservar uma cópia.
 
 As comparações oficiais dos três exemplos vêm da pesquisa anterior. O nascimento preenchido nos exemplos é sintético e mantém a faixa etária usada na conciliação; não identifica o comprador real. Não há CPF, celular, código de SMS ou perfil autenticado distribuído com o site.
 
 O histórico usa o armazenamento local deste navegador e endereço. Outro navegador, outra porta ou outro domínio terá histórico separado. Os dados não são compartilhados automaticamente. Exportar e importar o JSON é o mecanismo de transferência desta primeira versão.
+
+As datas de nascimento usam **dia/mês/ano**; também aceitam oito dígitos sem barras. Os registros salvos continuam usando o formato ISO.
 
 Alterações no formulário invalidam a conferência corrente. Abrir um teste salvo gera um novo rascunho e preserva o registro anterior. Os casos importados mantêm a versão das regras e os valores salvos.
 
@@ -92,3 +94,7 @@ Três validadores de IA deram OK expresso para o piloto local, sem correções i
 - Experiência de uso: 65 verificações funcionais aprovadas, com revisão de contraste, desktop e celular.
 
 Os pareceres completos estão em `validation/`. A revisão valida o piloto nos escopos declarados; não constitui homologação emitida pela CAIXA. Os dados de exemplo distribuídos são sintéticos.
+
+## Revisão do layout
+
+A revisão de 22/09/2026 concentra os campos essenciais na primeira dobra do desktop, recolhe opções complementares e posiciona os resultados abaixo. O [relatório de validação](validation/layout-2026-09-22/review.md) reúne prints de desktop/celular e verificações de uso reproduzíveis.
