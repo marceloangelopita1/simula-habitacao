@@ -1,13 +1,20 @@
 import Decimal from './vendor/decimal.mjs';
 Decimal.set({precision:42,rounding:Decimal.ROUND_HALF_UP});
-export const RULE_VERSION='2026-09-22.piloto.3';
+export const RULE_VERSION='2026-09-22.piloto.4';
 const D=x=>new Decimal(x);
 const money=x=>D(x).toDecimalPlaces(2).toNumber();
 const jr=x=>D(x).toDecimalPlaces(4).toDecimalPlaces(2);
 const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
 // As faixas até 35 anos reproduzem o cronograma MCMV contratado aos 28 anos
 // observado em 19/09/2026; a idade atingida determina o reenquadramento mensal.
-const bands={mcmv:[[30,.0085],[35,.0108],[40,.0144],[45,.0244],[50,.0359],[55,.0645],[60,.0764],[65,.1296],[70,.2005],[100,.3729]],sbpe:[[40,.0154],[45,.0252],[50,.0386],[55,.0676],[60,.1533],[65,.2731],[100,.3259]]};
+// SBPE: faixas 71–75 e 76–80 conferidas nos cronogramas de 22/09/2026.
+const bands={mcmv:[[30,.0085],[35,.0108],[40,.0144],[45,.0244],[50,.0359],[55,.0645],[60,.0764],[65,.1296],[70,.2005],[100,.3729]],sbpe:[[40,.0154],[45,.0252],[50,.0386],[55,.0676],[60,.1533],[65,.2731],[70,.3259],[75,.4894],[100,.5312]]};
+// Perfis comerciais observados, não limites universais do SFH. A reserva
+// de capacidade não é uma cobertura cobrada no cronograma do seguro básico.
+const sbpeProfiles={
+ standard:{name:'SBPE • comum',quota:{SAC:80,PRICE:70},commitment:{SAC:30,PRICE:30},referenceExtra:'.00015878',assessment:841.44},
+ linked:{name:'SBPE • empreendimento CAIXA',quota:{SAC:90,PRICE:80},commitment:{SAC:30,PRICE:25},referenceExtra:'.00006396',assessment:0},
+};
 export function parseDate(s){
  if(!/^\d{4}-\d{2}-\d{2}$/.test(s||''))return null;
  const [y,m,d]=s.split('-').map(Number),v=new Date(Date.UTC(y,m-1,d));
@@ -115,9 +122,9 @@ export function calculateSubsidy(input,municipality,fdUf,rate,eligible=true){
  return {amount,raw:raw.toNumber(),warnings,reason:amount?'Estimativa pela fórmula do Manual 034.':'Fórmula abaixo do mínimo do desconto.',factors:{income:R,incomeFactor:Fr.toNumber(),financingDemand:pv.toNumber(),vvi:vvi.toNumber(),fdUf:fd,fdFin,fuh,fpop:municipality.fpop,cap,reducer:factor.toNumber()}};
 }
 export function simulate(raw,catalog){
- const input={simulationDate:'2026-09-14',municipalityId:'3543402',program:'auto',system:'SAC',months:420,propertyType:'new',purpose:'purchase',family:'single',cotista:true,relationship:'none',amountMode:'max',subsidyMode:'quick',insurance:'basic',fgtsUse:0,confirmedAid:0,purchaseCosts:0,secondSharePercent:0,...raw};
+ const input={simulationDate:'2026-09-14',municipalityId:'3543402',program:'auto',system:'SAC',months:420,propertyType:'new',purpose:'purchase',family:'single',cotista:true,relationship:'none',sbpeVariant:'standard',amountMode:'max',subsidyMode:'quick',insurance:'basic',fgtsUse:0,confirmedAid:0,purchaseCosts:0,secondSharePercent:0,...raw};
  const warnings=[],errors=[];const error=(field,message)=>errors.push({field,message});
- if(input.simulationDate!=='2026-09-14')warnings.push('Data diferente da pesquisa: as regras comerciais permanecem as de 14/09/2026; as datas e idades do cronograma acompanham a data informada.');
+ if(input.simulationDate!=='2026-09-14')warnings.push('Data diferente da pesquisa: as regras mantêm as referências de setembro/2026 documentadas; outras datas não atualizam as ofertas comerciais; as datas e idades do cronograma acompanham a data informada.');
  const finite=(key,min,max=1e10)=>{const x=+input[key];if(!Number.isFinite(x)||x<min||x>max)error(key,`Confira o valor de ${key}.`);return x;};
  const municipality=catalog?.municipalities?.find(x=>x.ibge===input.municipalityId);
  if(!municipality)error('municipalityId','Selecione um município da lista.');
@@ -127,7 +134,7 @@ export function simulate(raw,catalog){
  finite('income',.01,1e8);finite('propertyValue',1,1e9);finite('months',1,420);
  if(!Number.isInteger(+input.months))error('months','O prazo deve ser um número inteiro de meses.');
  if(!['SAC','PRICE'].includes(input.system))error('system','Selecione SAC ou PRICE.');
- for(const [key,values] of Object.entries({program:['auto','mcmv','middle','sbpe','pro'],family:['single','dependents','two'],propertyType:['new','used'],amountMode:['max','fixed','entry'],insurance:['basic','plus','expanded','custom'],subsidyMode:['quick','area','none','manual'],relationship:['none','account','salary']}))if(!values.includes(input[key]))error(key,'Selecione uma opção válida.');
+ for(const [key,values] of Object.entries({program:['auto','mcmv','middle','sbpe','pro'],family:['single','dependents','two'],propertyType:['new','used'],amountMode:['max','fixed','entry'],insurance:['basic','plus','expanded','custom'],subsidyMode:['quick','area','none','manual'],relationship:['none','account','salary'],sbpeVariant:['standard','linked']}))if(!values.includes(input[key]))error(key,'Selecione uma opção válida.');
  for(const key of ['fgtsUse','confirmedAid','purchaseCosts'])finite(key,0,1e9);
  if(input.purpose!=='purchase')error('purpose','Obras e empréstimo com garantia exigem outro fluxo de liberações. Este piloto calcula aquisição residencial pronta.');
  if(input.family==='two'){
@@ -145,6 +152,7 @@ export function simulate(raw,catalog){
  const R=+input.income,V=+input.propertyValue,base=Math.min(V,+input.appraisal||V),region=municipality.regionCode;
  let program=input.program;
  if(program==='auto')program=R<=9600&&V<=400000?'mcmv':R<=13000&&V<=600000?'middle':'sbpe';
+ const sbpeProfile=program==='sbpe'?sbpeProfiles[input.sbpeVariant]:null;
  let nominal,quota=80,programName,subEligible=false;
  if(program==='mcmv'){
   programName=R<=3200?'MCMV • Faixa 1':R<=5000?'MCMV • Faixa 2':'MCMV • Faixa 3';
@@ -168,9 +176,10 @@ export function simulate(raw,catalog){
   if(input.propertyType==='used'&&R>12000)error('income','Pró-Cotista usado: renda limitada a R$ 12 mil na regra pesquisada.');
   warnings.push('Pró-Cotista depende de recursos disponíveis e oferta CAIXA. Teto de imóvel, quota de novo e apólice devem ser confirmados; este resultado é exploratório.');
  }else{
-  programName='SBPE';nominal=nominalFromEffective(input.relationship==='salary'?11.19:input.relationship==='account'?11.29:11.49);
+  programName=sbpeProfile.name;nominal=nominalFromEffective(input.relationship==='salary'?11.19:input.relationship==='account'?11.29:11.49);
   nominal=D(nominal).toDecimalPlaces(4).toNumber();
-  quota=input.system==='SAC'?80:70;
+  quota=sbpeProfile.quota[input.system];
+  if(input.sbpeVariant==='linked')warnings.push('Empreendimento CAIXA: referência conferida em imóvel novo, taxa balcão e um comprador. Outros perfis e ofertas precisam de comparação.');
   warnings.push('Taxa SBPE baseada no perfil consultado em 14/09/2026; relacionamento e salário não garantem a mesma oferta para todos.');
  }
  if(program==='mcmv'&&input.previousBenefit)error('previousBenefit','Benefício habitacional anterior pode impedir também descontos de juros e administração. Este caso requer análise específica no MCMV, inclusive a exceção de benefício apenas para material. Compare uma alternativa em SBPE ou Pró-Cotista quando elegível.');
@@ -192,7 +201,7 @@ export function simulate(raw,catalog){
  if(months<+input.months)warnings.push(`Prazo ajustado de ${input.months} para ${months} meses por idade ou pela condição PRICE/SBPE observada.`);
  if(input.nominalOverride!=null&&input.nominalOverride!==''){nominal=+input.nominalOverride;warnings.push('Juros nominais informados manualmente. O enquadramento e o subsídio normativo mantêm a taxa de referência do programa.');}
  if(input.quotaOverride!=null&&input.quotaOverride!=='')quota=+input.quotaOverride;
- const normativeCap=program==='middle'?(input.propertyType==='used'&&['S','SE'].includes(region)?60:input.system==='SAC'?90:80):program==='pro'&&input.propertyType==='used'?50:program==='sbpe'?(input.system==='SAC'?80:70):input.system==='SAC'?90:80;
+ const normativeCap=program==='middle'?(input.propertyType==='used'&&['S','SE'].includes(region)?60:input.system==='SAC'?90:80):program==='pro'&&input.propertyType==='used'?50:program==='sbpe'?sbpeProfile.quota[input.system]:input.system==='SAC'?90:80;
  if(quota>normativeCap)error('quotaOverride',`A quota ultrapassa o limite de ${normativeCap}% aplicado à modalidade.`);
  if(errors.length)return {ok:false,errors,warnings,ruleVersion:RULE_VERSION};
  if(input.subsidyMode==='manual'&&program==='mcmv'&&subEligible){
@@ -211,14 +220,15 @@ export function simulate(raw,catalog){
  if(extraPremiumMonthly)warnings.push('Coberturas adicionais projetadas como valor mensal constante a partir dos resumos observados; cronograma desses pacotes ainda não homologado.');
  if(input.insurance==='custom')warnings.push('Coeficiente MIP manual constante: mudanças futuras por idade não estão incorporadas nesta opção.');
  const ages=[ageOn(input.birthDate,input.simulationDate),...(input.family==='two'?[ageOn(input.secondBirthDate,input.simulationDate)]:[])];
- if(ages.some(a=>a!==38&&!(insuranceModel==='mcmv'&&a===28)))warnings.push(`Seguro conferido em perfis de entrada ${insuranceModel==='mcmv'?'aos 28 e 38 anos':'aos 38 anos'}. Outras idades de contratação exigem conferência da apólice.`);
+ if(ages.some(a=>!(insuranceModel==='mcmv'?[28,38]:[38,69]).includes(a)))warnings.push(`Seguro conferido em perfis de entrada ${insuranceModel==='mcmv'?'aos 28 e 38 anos':'aos 38 e 69 anos'}. Outras idades de contratação exigem conferência da apólice.`);
  if(input.family==='two')warnings.push('Seguro ponderado pela participação informada de cada comprador; a composição ainda não foi conciliada com um caso oficial.');
  const insuranceOpts={insuranceModel,birthDate:input.birthDate,secondBirthDate:input.secondBirthDate,secondSharePercent:input.secondSharePercent,customMipPercent:input.insurance==='custom'?+input.customMipPercent:null};
- const referenceExtra=D(V).mul(insuranceModel==='mcmv'?'.00006396':'.00015878');
+ const referenceExtra=D(V).mul(insuranceModel==='mcmv'?'.00006396':sbpeProfile?.referenceExtra??'.00015878');
  const capExtra=Decimal.max(extraPremiumRaw,referenceExtra);
  const mi=D(weightedMip(insuranceOpts,input.simulationDate)).div(100),i=D(nominal).div(1200);
  const coeff=input.system==='SAC'?D(1).div(months).plus(i):(i.isZero()?D(1).div(months):i.div(D(1).minus(D(1).plus(i).pow(-months))));
- const incomeLimit=D(R).mul(input.commitmentPercent||30).div(100);
+ const commitmentPercent=input.commitmentPercent||sbpeProfile?.commitment[input.system]||30;
+ const incomeLimit=D(R).mul(commitmentPercent).div(100);
  // Arredondar DFI + adicional juntos evita a diferença de ~R$ 1 na
  // capacidade causada pelo arredondamento separado de cada prêmio.
  // Coeficiente em oito casas e quociente truncado preservam SAC e PRICE.
@@ -239,12 +249,12 @@ export function simulate(raw,catalog){
  if(input.amountMode==='max')warnings.push('Financiamento máximo estimado por quota e renda, com seguro de referência e precisão conciliados nos casos oficiais registrados. Outros perfis ainda exigem comparação.');
  if(errors.length)return {ok:false,errors,warnings,ruleVersion:RULE_VERSION};
  const schedule=buildSchedule({principal,months,nominalAnnual:nominal,system:input.system,simulationDate:input.simulationDate,propertyValue:+input.appraisal||V,...insuranceOpts,adminFee,dfiRatePercent,extraPremiumMonthly});
- const assessment=input.assessmentOverride!=null&&input.assessmentOverride!==''?+input.assessmentOverride:program==='mcmv'?(input.linkedProject?0:money(D(principal).mul('.015'))):841.44;
+ const assessment=input.assessmentOverride!=null&&input.assessmentOverride!==''?+input.assessmentOverride:program==='mcmv'?(input.linkedProject?0:money(D(principal).mul('.015'))):(sbpeProfile?.assessment??841.44);
  warnings.push('Tarifa de avaliação aplicada por hipótese do produto; confira o valor oficial. ITBI e cartório são informados separadamente.');
  if(schedule.roundingAdjustment!==0)warnings.push(`A soma da amortização difere do principal em R$ ${schedule.roundingAdjustment.toFixed(2)} pela convenção de arredondamento observada no SAC.`);
  const netCredit=money(D(principal).minus(assessment).minus(schedule.initialInsurance));
  if(netCredit<=0)return {ok:false,errors:[{field:'assessmentOverride',message:'Avaliação e seguro inicial atingem ou superam o financiamento. Confira os custos à vista para calcular o CET.'}],warnings,ruleVersion:RULE_VERSION};
  const cet=computeCet(schedule.rows,netCredit,input.simulationDate),cetActualDates=computeCet(schedule.rows,netCredit,input.simulationDate,true);
  const ownFunds=money(resourceCap.minus(principal));
- return {ok:true,input,ruleVersion:RULE_VERSION,status:'estimate',program,programName,municipality,principal,maximum,ownFunds,fgtsUse:+input.fgtsUse,aid:+input.confirmedAid,subsidy,propertyValue:V,months,quota,nominalAnnual:nominal,effectiveAnnual:effectiveFromNominal(nominal),adminFee,assessment,dfiRatePercent,insuranceModel,insurance:input.insurance,firstSummary:schedule.firstSummary,lastSummary:schedule.lastSummary,schedule,cet,cetActualDates,cesh:schedule.cesh,initialInsurance:schedule.initialInsurance,purchaseCosts:+input.purchaseCosts,totalCash:money(D(ownFunds).plus(input.purchaseCosts).plus(assessment).plus(schedule.initialInsurance)),incomeCommitment:schedule.firstSummary/R*100,capacityApproved:principal<=maximum+1,warnings:[...new Set(warnings)],errors,assumptions:['Cronograma sem projeção da TR futura.','CET de comparação usa períodos mensais iguais; o cálculo por datas corridas aparece nos detalhes.','CESH considera MIP e DFI; coberturas adicionais não entram nesse indicador.']};
+ return {ok:true,input,ruleVersion:RULE_VERSION,status:'estimate',program,programName,municipality,principal,maximum,ownFunds,fgtsUse:+input.fgtsUse,aid:+input.confirmedAid,subsidy,propertyValue:V,months,quota,nominalAnnual:nominal,effectiveAnnual:effectiveFromNominal(nominal),adminFee,assessment,dfiRatePercent,insuranceModel,insurance:input.insurance,firstSummary:schedule.firstSummary,lastSummary:schedule.lastSummary,schedule,cet,cetActualDates,cesh:schedule.cesh,initialInsurance:schedule.initialInsurance,purchaseCosts:+input.purchaseCosts,totalCash:money(D(ownFunds).plus(input.purchaseCosts).plus(assessment).plus(schedule.initialInsurance)),incomeCommitment:schedule.firstSummary/R*100,commitmentPercent,capacityReferenceExtra:money(capExtra),capacityApproved:principal<=maximum+1,warnings:[...new Set(warnings)],errors,assumptions:['Cronograma sem projeção da TR futura.','CET de comparação usa períodos mensais iguais; o cálculo por datas corridas aparece nos detalhes.','CESH considera MIP e DFI; coberturas adicionais não entram nesse indicador.']};
 }

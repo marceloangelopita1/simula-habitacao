@@ -4,3 +4,4 @@ await import('./boundaries.mjs');
 if(process.exitCode)process.exit(process.exitCode);
 await import('./age-capacity.mjs');
 await import('./rounding.mjs');
+await import('./sbpe.mjs');

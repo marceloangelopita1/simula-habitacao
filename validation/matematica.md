@@ -68,3 +68,35 @@ node work/site-validation-calculos/compare_maximum.mjs
 Evidências: `test_results.json`, `reference_summary_comparison.json`, `maximum_comparison.json`, `schedule_fixtures.json` e `reference_summaries.json`, todos nesta pasta. A auditoria passou sem necessidade de alterar o motor para forçar valores oficiais.
 
 **Aprovação final expressa: OK no escopo de piloto local estimativo, com as ressalvas e diferenças registradas.** É apropriado usar a ferramenta para reduzir trabalho repetitivo e acumular novos confrontos com o simulador oficial; ainda não é apropriado prometer reprodução universal ou aprovação de financiamento.
+
+## Atualização SBPE — 22/09/2026
+
+Esta conferência posterior, feita durante a implementação, não amplia o parecer independente acima. Referência: [capturas anônimas da CAIXA](caixa-sbpe-2026-09-22.json); reprodução: `node tests/sbpe.mjs` ou `npm test`. Motor: `2026-09-22.piloto.4`.
+
+**Hipótese aprovada no escopo observado:** a oferta “SBPE (TR): Imóvel vinculado a Empreendimento Financiado na CAIXA — Taxa Balcão” usa parâmetros comerciais diferentes do SBPE comum. A seleção anterior do piloto não distinguia essas ofertas; a caixa “empreendimento vinculado” apenas dispensava avaliação no MCMV. Agora `sbpeVariant` diferencia as modalidades e aparece no formulário e no resultado; registros antigos continuam como SBPE comum.
+
+Regras incorporadas para empreendimento CAIXA:
+
+- Cota de 90% no SAC e 80% no PRICE; comprometimento padrão de 30% e 25%, respectivamente. A hipótese inicial de 30% também no PRICE foi refutada em dois perfis.
+- Adicional de referência da capacidade: `valor de compra × 0,00006396` (Especial), em vez de `× 0,00015878` (Ampliado) do perfil comum. Continua sendo usado o maior entre a referência e o adicional selecionado. Essa reserva não é cobrada no cronograma do seguro básico.
+- Mantidos DFI e adicional somados antes de arredondar a centavos, coeficiente financeiro + MIP truncado em oito casas e principal truncado em centavos. Exemplo original: `(6.300 − 25 − 101,37) / 0,01163986`, truncado, resulta em **R$ 530.386,96**.
+- Avaliação padrão zero no fluxo do CET: essa hipótese reproduziu os três CETs consultados (12,23%, 12,23% e 17,81%). É uma inferência do fluxo observado, não prova de isenção contratual universal; tarifa informada manualmente prevalece.
+- MIP SBPE, por idade atingida no vencimento: 66–70 anos **0,3259%**, 71–75 **0,4894%**, 76 até o limite de 80 anos e seis meses **0,5312%** ao mês sobre o saldo após amortização. MIP/DFI continuam zerados na última parcela. A faixa de 71 anos corrigiu 31 parcelas do caso original, antes subestimadas em R$ 1.024,03 no total.
+
+Testes no navegador: imóvel novo em Ribeirão Preto/SP, renda R$ 21 mil, um comprador, balcão e seguro básico; data-base 22/09/2026. Nascimentos sintéticos preservam as transições mensais; CPF/telefone não foram copiados. A cada troca SAC/PRICE, a entrada foi zerada para recalcular o máximo.
+
+| Oferta / idade / imóvel / prazo aplicado | Financiamento CAIXA | Primeira / última do resumo | Resultado |
+|---|---:|---:|---|
+| Empreendimento, 38 anos, R$ 780 mil, SAC 420 | R$ 530.386,96 | R$ 6.250,11 / R$ 1.299,33 | Exato; 420 linhas exatas |
+| Empreendimento, 38 anos, R$ 780 mil, SAC 360 | R$ 512.900,97 | R$ 6.250,11 / R$ 1.462,69 | Exato |
+| Empreendimento, 38 anos, R$ 780 mil, PRICE 360 | R$ 532.531,01 | R$ 5.200,11 / R$ 5.066,62 | Exato |
+| Empreendimento, 38 anos, R$ 400 mil, SAC 420 | R$ 360.000,00 | R$ 4.241,75 / R$ 889,94 | Exato; limitado pela cota de 90% |
+| Empreendimento, 69 anos, R$ 400 mil, SAC 130 | R$ 310.278,80 | R$ 6.274,42 / R$ 2.433,49 | Exato; 130 linhas exatas |
+| Empreendimento, 69 anos, R$ 400 mil, PRICE 130 | R$ 315.183,58 | R$ 5.224,42 / R$ 4.170,84 | Exato; previsão conferida em nova simulação |
+| Comum, 38 anos, R$ 780 mil, SAC 420 | R$ 524.033,79 | R$ 6.176,15 / R$ 1.284,05 | Controle: resíduos descritos abaixo |
+
+As 550 linhas oficiais foram confrontadas em data, prestação sem seguros, MIP, DFI, seguros, administração, encargo e saldo. Os três CETs/CESHs conferiram nas duas casas exibidas. Resumos Especial também foram confrontados nos casos preservados; isso não homologa seus cronogramas. O total chamado “Soma das parcelas” pela CAIXA é amortização + juros, sem seguros e administração.
+
+Limites preservados: no SBPE comum, o máximo continua R$ 0,86 abaixo da CAIXA e a última do resumo R$ 0,01 acima; fixando o principal oficial, a primeira também fica R$ 0,01 acima. No SAC de R$ 400 mil, o total amortização + juros é R$ 1.049.972,90 no motor versus R$ 1.049.971,70 na CAIXA (+R$ 1,20). A diferença é compatível com o ajuste final de saldo, mas esse cronograma não foi capturado integralmente e sua regra não foi alterada. As fixtures mantêm os valores oficiais e os testes identificam explicitamente esses resíduos, sem tratá-los como igualdade.
+
+A reprodução foi aprovada para os seis casos de empreendimento acima e seus campos conferidos, com a ressalva do total de R$ 400 mil. A interface foi conferida com `tests/sbpe-ui.mjs` (Playwright em ambiente local): seleção, troca SAC/PRICE, histórico e larguras de 320, 390 e 768 px. As fórmulas não comprovam o algoritmo interno completo da CAIXA. PRICE do SBPE comum, outros relacionamentos, idades iniciais, dois compradores, usados, SFI e outras apólices não foram homologados por esta rodada. O formulário preserva ajustes manuais de tarifa e comprometimento; escolher a modalidade comercial correta e a mesma data-base continua necessário para comparar.
