@@ -1,0 +1,48 @@
+{
+  "source": "https://simuladorhabitacao.caixa.gov.br/simulacao",
+  "observedAt": "2026-09-22",
+  "method": "Leitura da interface do Chrome existente, variando valor do imóvel ou entrada e aguardando cada recálculo. Valores esperados transcritos da CAIXA, não gerados pelo motor.",
+  "anonymization": "Nascimento sintético no mesmo mês e ano, preservando os reenquadramentos em todos os vencimentos no dia 22. Sem identificadores pessoais.",
+  "input": {
+    "income": 6000,
+    "birthDate": "1988-02-01",
+    "simulationDate": "2026-09-22",
+    "municipalityId": "3543402",
+    "propertyType": "new",
+    "program": "mcmv",
+    "linkedProject": true,
+    "system": "SAC",
+    "months": 420,
+    "cotista": true,
+    "family": "single",
+    "insurance": "basic",
+    "subsidyMode": "none",
+    "amountMode": "max"
+  },
+  "cases": [
+    {"id":"original-315000","input":{"propertyValue":315000},"expected":{"principal":194480.86,"ownFunds":120519.14,"firstSummary":1779.85,"lastSummary":491.01},"plusFirstSummary":1800},
+    {"id":"max-314000","input":{"propertyValue":314000},"expected":{"principal":194495.45,"ownFunds":119504.55,"firstSummary":1779.91,"lastSummary":491.05},"plusFirstSummary":1800},
+    {"id":"max-325000","input":{"propertyValue":325000},"expected":{"principal":194329.32,"ownFunds":130670.68,"firstSummary":1779.21,"lastSummary":490.64},"plusFirstSummary":1800},
+    {"id":"max-316000","input":{"propertyValue":316000},"expected":{"principal":194465.14,"ownFunds":121534.86,"firstSummary":1779.78,"lastSummary":490.97},"plusFirstSummary":1799.99},
+    {"id":"fixed-190000","input":{"propertyValue":315000,"amountMode":"fixed","principal":190000},"expected":{"principal":190000,"ownFunds":125000,"firstSummary":1739.93,"lastSummary":480.27}},
+    {"id":"fixed-180000","input":{"propertyValue":316000,"amountMode":"fixed","principal":180000},"expected":{"principal":180000,"ownFunds":136000,"firstSummary":1650.93,"lastSummary":456.31},"plusFirstSummary":1671.14},
+    {"id":"tie-up","input":{"propertyValue":316000,"amountMode":"fixed","principal":180687.50},"expected":{"principal":180687.50,"ownFunds":135312.50,"firstSummary":1657.05,"lastSummary":457.96}},
+    {"id":"tie-down","input":{"propertyValue":316000,"amountMode":"fixed","principal":180062.50},"expected":{"principal":180062.50,"ownFunds":135937.50,"firstSummary":1651.47,"lastSummary":456.46}}
+  ],
+  "partialSchedule": {
+    "caseId": "original-315000",
+    "scope": "Somente as 10 primeiras parcelas observadas; as demais 410 não foram capturadas nesta comparação.",
+    "rows": [
+      {"installment":1,"date":"2026-10-22","paymentPI":1704.49,"mip":27.94,"dfi":22.37,"adminFee":25,"total":1779.80,"balance":194017.81},
+      {"installment":2,"date":"2026-11-22","paymentPI":1701.53,"mip":27.87,"dfi":22.37,"adminFee":25,"total":1776.77,"balance":193554.76},
+      {"installment":3,"date":"2026-12-22","paymentPI":1698.57,"mip":27.81,"dfi":22.37,"adminFee":25,"total":1773.75,"balance":193091.71},
+      {"installment":4,"date":"2027-01-22","paymentPI":1695.62,"mip":27.74,"dfi":22.37,"adminFee":25,"total":1770.73,"balance":192628.66},
+      {"installment":5,"date":"2027-02-22","paymentPI":1692.66,"mip":27.67,"dfi":22.37,"adminFee":25,"total":1767.70,"balance":192165.61},
+      {"installment":6,"date":"2027-03-22","paymentPI":1689.71,"mip":27.61,"dfi":22.37,"adminFee":25,"total":1764.69,"balance":191702.56},
+      {"installment":7,"date":"2027-04-22","paymentPI":1686.75,"mip":27.54,"dfi":22.37,"adminFee":25,"total":1761.66,"balance":191239.51},
+      {"installment":8,"date":"2027-05-22","paymentPI":1683.80,"mip":27.47,"dfi":22.37,"adminFee":25,"total":1758.64,"balance":190776.46},
+      {"installment":9,"date":"2027-06-22","paymentPI":1680.84,"mip":27.41,"dfi":22.37,"adminFee":25,"total":1755.62,"balance":190313.41},
+      {"installment":10,"date":"2027-07-22","paymentPI":1677.88,"mip":27.34,"dfi":22.37,"adminFee":25,"total":1752.59,"balance":189850.36}
+    ]
+  }
+}

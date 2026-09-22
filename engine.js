@@ -1,6 +1,6 @@
 import Decimal from './vendor/decimal.mjs';
 Decimal.set({precision:42,rounding:Decimal.ROUND_HALF_UP});
-export const RULE_VERSION='2026-09-19.piloto.2';
+export const RULE_VERSION='2026-09-22.piloto.3';
 const D=x=>new Decimal(x);
 const money=x=>D(x).toDecimalPlaces(2).toNumber();
 const jr=x=>D(x).toDecimalPlaces(4).toDecimalPlaces(2);
@@ -61,8 +61,13 @@ export function buildSchedule(o){
  const mipInitial=money(F.mul(weightedMip(o,simulationDate)).div(100));
  const initialInsurance=money(D(mipInitial).plus(dfi));
  const rawPayment=system==='SAC'?F.div(n).plus(F.mul(i)):(i.isZero()?F.div(n):F.mul(i).div(D(1).minus(D(1).plus(i).pow(-n))));
- // O resumo usa componentes sem os arredondamentos intermediários da planilha.
- const firstSummary=money(rawPayment.plus(F.mul(weightedMip(o,simulationDate)).div(100)).plus(D(propertyValue).mul(o.dfiRatePercent??(o.insuranceModel==='mcmv'?.0071:.0066)).div(100)).plus(o.adminFee??25).plus(o.extraPremiumMonthly||0));
+ const summaryInsurance=F.mul(weightedMip(o,simulationDate)).div(100).plus(D(propertyValue).mul(o.dfiRatePercent??(o.insuranceModel==='mcmv'?.0071:.0066)).div(100)).plus(o.extraPremiumMonthly||0);
+ // SAC: prestação sem seguros truncada; prêmios somados e arredondados para
+ // o centavo par. Empates de R$ 48,365 e R$ 48,455 foram conferidos na CAIXA.
+ // PRICE mantém a soma integral. Ver validation/arredondamento-2026-09-22.md.
+ const firstSummary=system==='SAC'
+  ? money(rawPayment.toDecimalPlaces(2,Decimal.ROUND_DOWN).plus(summaryInsurance.toDecimalPlaces(2,Decimal.ROUND_HALF_EVEN)).plus(o.adminFee??25))
+  : money(rawPayment.plus(summaryInsurance).plus(o.adminFee??25));
  const lastSummary=money((system==='SAC'?A0.mul(D(1).plus(i)):P).plus(o.adminFee??25));
  const d0=parseDate(simulationDate),days=rows.map(r=>(parseDate(r.date)-d0)/86400000);
  const cesh=rows.reduce((s,r,k)=>s+(r.mip+r.dfi)/Math.pow(1.008,12*days[k]/365),0)/+F*100;
@@ -201,24 +206,25 @@ export function simulate(raw,catalog){
  const insuranceModel=program==='mcmv'?'mcmv':'sbpe';
  const adminFee=input.adminOverride!=null&&input.adminOverride!==''?+input.adminOverride:(program==='mcmv'&&R<=2850&&V<=municipality.propertyLimit?0:25);
  const dfiRatePercent=input.dfiOverride!=null&&input.dfiOverride!==''?+input.dfiOverride:insuranceModel==='mcmv'?.0071:.0066;
- const extraPremiumMonthly=input.insurance==='plus'?money(D(V).mul('.00006396')):input.insurance==='expanded'?money(D(V).mul('.00015878')):0;
+ const extraPremiumRaw=D(V).mul(input.insurance==='plus'?'.00006396':input.insurance==='expanded'?'.00015878':0);
+ const extraPremiumMonthly=money(extraPremiumRaw);
  if(extraPremiumMonthly)warnings.push('Coberturas adicionais projetadas como valor mensal constante a partir dos resumos observados; cronograma desses pacotes ainda não homologado.');
  if(input.insurance==='custom')warnings.push('Coeficiente MIP manual constante: mudanças futuras por idade não estão incorporadas nesta opção.');
  const ages=[ageOn(input.birthDate,input.simulationDate),...(input.family==='two'?[ageOn(input.secondBirthDate,input.simulationDate)]:[])];
  if(ages.some(a=>a!==38&&!(insuranceModel==='mcmv'&&a===28)))warnings.push(`Seguro conferido em perfis de entrada ${insuranceModel==='mcmv'?'aos 28 e 38 anos':'aos 38 anos'}. Outras idades de contratação exigem conferência da apólice.`);
  if(input.family==='two')warnings.push('Seguro ponderado pela participação informada de cada comprador; a composição ainda não foi conciliada com um caso oficial.');
  const insuranceOpts={insuranceModel,birthDate:input.birthDate,secondBirthDate:input.secondBirthDate,secondSharePercent:input.secondSharePercent,customMipPercent:input.insurance==='custom'?+input.customMipPercent:null};
- const referenceExtra=insuranceModel==='mcmv'?money(D(V).mul('.00006396')):money(D(V).mul('.00015878'));
- const capExtra=Math.max(extraPremiumMonthly,referenceExtra);
+ const referenceExtra=D(V).mul(insuranceModel==='mcmv'?'.00006396':'.00015878');
+ const capExtra=Decimal.max(extraPremiumRaw,referenceExtra);
  const mi=D(weightedMip(insuranceOpts,input.simulationDate)).div(100),i=D(nominal).div(1200);
  const coeff=input.system==='SAC'?D(1).div(months).plus(i):(i.isZero()?D(1).div(months):i.div(D(1).minus(D(1).plus(i).pow(-months))));
  const incomeLimit=D(R).mul(input.commitmentPercent||30).div(100);
- // DFI em centavos, coeficiente em oito casas e capacidade truncada em
- // centavos reproduzem os máximos oficiais SAC e PRICE preservados nos testes.
- // O cronograma continua usando a taxa integral e seus próprios arredondamentos.
- const capacityDfi=D(+input.appraisal||V).mul(dfiRatePercent).div(100).toDecimalPlaces(2);
+ // Arredondar DFI + adicional juntos evita a diferença de ~R$ 1 na
+ // capacidade causada pelo arredondamento separado de cada prêmio.
+ // Coeficiente em oito casas e quociente truncado preservam SAC e PRICE.
+ const capacityInsurance=D(+input.appraisal||V).mul(dfiRatePercent).div(100).plus(capExtra).toDecimalPlaces(2);
  const capacityCoefficient=coeff.plus(mi).toDecimalPlaces(8,Decimal.ROUND_DOWN);
- const affordable=Decimal.max(0,incomeLimit.minus(adminFee).minus(capacityDfi).minus(capExtra).div(capacityCoefficient)).toDecimalPlaces(2,Decimal.ROUND_DOWN);
+ const affordable=Decimal.max(0,incomeLimit.minus(adminFee).minus(capacityInsurance).div(capacityCoefficient)).toDecimalPlaces(2,Decimal.ROUND_DOWN);
  const capByQuota=D(base).mul(quota).div(100);
  const resourceCap=D(V).minus(input.fgtsUse).minus(subsidy.amount).minus(input.confirmedAid);
  const maximum=money(Decimal.max(0,Decimal.min(affordable,capByQuota,resourceCap)));
