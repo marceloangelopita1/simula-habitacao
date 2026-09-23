@@ -1,5 +1,7 @@
 # Parecer independente da implementação normativa
 
+> Atualização de escopo em 23/09/2026: a [matriz oficial de 30 cenários](comparacao-matriz-2026-09-22.md) motivou [correções posteriores](correcoes-matriz-2026-09-23.md), incluindo mínimo automático do subsídio após redutores e tarifa inferida para comparação do CET. Essas hipóteses empíricas e suas limitações constam do [parecer independente atual](revisao-independente-2026-09-23.md); não são uma nova homologação normativa abrangida pelo parecer histórico abaixo.
+
 **Resultado: APROVADO para uso como piloto local de estimativa, comparação e registro de divergências.** Revisão concluída em 14/09/2026 após inspeção do código efetivamente executado e dos controles do site em `http://127.0.0.1:4173`. Não restam correções normativas impeditivas identificadas nesta revisão. Esta aprovação não é homologação bancária nem afirma equivalência universal aos resultados da CAIXA.
 
 ## Evidência de execução

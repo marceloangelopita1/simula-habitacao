@@ -1,5 +1,7 @@
 # Revisão independente de experiência de uso — Simula Habitação
 
+> Atualização de 23/09/2026: os textos de CET/CESH, a vinculação MCMV e a apresentação das premissas foram ajustados junto com as [correções financeiras](correcoes-matriz-2026-09-23.md). Os testes locais `tests/matrix-ui.mjs` e `tests/sbpe-ui.mjs` passaram; isso não reexecuta a auditoria completa de acessibilidade abaixo. O [novo parecer independente](revisao-independente-2026-09-23.md) distingue sua revisão dos cálculos da execução de UI pelo implementador.
+
 Data: 14/09/2026. Revisor: agente independente de IA dedicado à entrada de dados e experiência de uso. Referência: pesquisa aprovada em `outputs/relatorio-caixa.md`. Implementação inspecionada: `outputs/site`, motor `2026-09-14.piloto.1`, servida em `http://127.0.0.1:4173`.
 
 ## Escopo e execução
@@ -34,3 +36,11 @@ A comparação móvel foi convertida em cartões por campo, mostrando valor loca
 ## Situação
 
 **OK FINAL EXPRESSO — aprovado em 14/09/2026 para uso como piloto local de validação pela Letícia.** Os inputs cobrem o escopo pesquisado implementado, as condições adicionais aparecem quando necessárias e os resultados são legíveis e comparáveis aos campos da CAIXA. Fluxos, persistência, exportações, tratamento de divergências e layouts desktop/mobile foram verificados. Não há correções impeditivas pendentes no meu escopo. O aceite é de experiência de uso e integridade do fluxo de testes; a homologação financeira de todos os perfis e a aprovação de crédito não estão abrangidas.
+
+## Comparação ampliada de 22/09/2026
+
+A [matriz de 30 cenários](comparacao-matriz-2026-09-22.md) distingue falhas de cálculo de problemas de comparabilidade. A página do projeto já aberta estava com documento antigo e não mostrava a variante SBPE, embora os arquivos publicados fossem atuais; após recarregar, o seletor apareceu. Os inputs originais foram restaurados. Não houve alteração de interface nesta análise.
+
+No fluxo oficial, mudar modalidade pode redefinir sistema/prazo (Classe Média abriu em PRICE 420; SBPE/MCMV em SAC), enquanto editar SAC→PRICE pode preservar a entrada anterior e impedir que o resultado represente o máximo. Um controle passou de principal 512.900,97 para 532.531,01 somente após limpar a entrada. CET/CESH mostraram zeros durante carregamento. Essas condições devem constar da conferência efetiva dos parâmetros, sem serem atribuídas ao cálculo do projeto.
+
+O aceite histórico de usabilidade não valida as novas diferenças financeiras: seguro/capacidade da Classe Média, subsídio concedido indevidamente na estimativa, CET com subsídio e CESH de pacotes adicionais. A declaração de que adicionais não entram no CESH é incompatível com os pacotes oficiais observados. As evidências, prioridades, confiança e estado final do browser estão no relatório vinculado.

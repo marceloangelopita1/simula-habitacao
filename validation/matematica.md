@@ -1,5 +1,9 @@
 # Validação matemática independente do piloto local
 
+> Implementação de 23/09/2026: os achados A1–A5 foram tratados nas [correções da matriz](correcoes-matriz-2026-09-23.md), com [novo OK independente](revisao-independente-2026-09-23.md). Os pareceres e números abaixo permanecem como histórico de suas respectivas versões.
+
+> Atualização de escopo em 22/09/2026: a [comparação ampliada de 30 cenários](comparacao-matriz-2026-09-22.md) encontrou diferenças materiais de seguro/capacidade na Classe Média, subsídio mínimo, composição do CET e CESH dos pacotes adicionais. O parecer abaixo é histórico e limitado aos casos então capturados; não constitui aprovação desses novos perfis. Código e testes não foram alterados nessa análise.
+
 Data-base: 14/09/2026. Validador: agente independente `/root/validacao_calculos`, que não implementou o motor auditado.
 
 **Parecer: OK para disponibilizar o piloto local à Letícia como ferramenta de estimativa, comparação e registro de diferenças.** A implementação reproduziu as 1.200 linhas dos três cronogramas oficiais disponíveis e passou nos 16 testes adicionais. Não há correção matemática impeditiva pendente no escopo testado. Este parecer não homologa todos os produtos, perfis ou decisões de crédito da CAIXA.
@@ -49,9 +53,9 @@ O SAC observado mantém amortização arredondada constante; no caso 01, sua som
 
 O CET reproduzido usa a convenção mensal que coincide com as respostas capturadas. O cálculo com dias reais/365 também é disponibilizado, pois a Resolução CMN 4.881 define fluxo datado. A diferença não autoriza concluir irregularidade da CAIXA: falta confirmar a formação completa do fluxo e as datas adotadas internamente. A equivalência comprovada é com os três resultados observados. Não há projeção de TR futura.
 
-O CESH foi validado como valor presente dos prêmios obrigatórios, descontados a 0,8% ao mês com expoente proporcional aos dias/365, dividido pelo saldo de referência. Ele não é taxa anual nem deve ser somado ao CET. A cobertura facultativa não entra nesse indicador.
+O CESH foi validado nos cronogramas então capturados como valor presente dos prêmios, descontados a 0,8% ao mês com expoente proporcional aos dias/365, dividido pelo saldo de referência. Ele não é taxa anual nem deve ser somado ao CET. A exclusão de cobertura adicional era uma hipótese da implementação: a [comparação de 22/09/2026, achado A4](comparacao-matriz-2026-09-22.md#a4--p1-cesh-invariável-ao-mudar-o-seguro-contradiz-os-pacotes-oficiais) mostrou que a CAIXA altera o CESH ao selecionar Especial/Ampliado. Não considerar o teste interno de exclusão como validação empírica desses pacotes.
 
-As tabelas de MIP reproduzem os produtos e a idade inicial de 38 anos observados. Aplicá-las a outras idades de entrada continua sendo estimativa: a apólice pode usar uma matriz que depende simultaneamente da idade de contratação e da idade atingida. O teste de dois participantes valida a ponderação implementada; não homologa taxas de seguro nem propostas reais com dois participantes. Projeções de adicionais Mais/Ampliado como valor mensal constante também permanecem hipóteses, sem cronograma oficial de confronto.
+As tabelas de MIP reproduzem os produtos e a idade inicial de 38 anos observados. Aplicá-las a outras idades de entrada continua sendo estimativa: a apólice pode usar uma matriz que depende simultaneamente da idade de contratação e da idade atingida. O teste de dois participantes valida a ponderação implementada; não homologa taxas de seguro nem propostas reais com dois participantes. Projeções de adicionais Mais/Ampliado como valor mensal constante permanecem hipóteses para o prazo completo. A análise ampliada de 22/09 leu trechos dos cronogramas e encontrou DFI/DFC 0,03 e 0,17 acima da projeção no imóvel de 780 mil (achado A5).
 
 Os subsídios de R$ 2.609 e R$ 8.697 conferem nos dois casos de renda R$ 3.000. Eles sustentam a hipótese utilizada para aqueles exemplos, sem provar fator de unidade habitacional universal ou modo geral de arredondamento. Tarifas de avaliação, quotas, renda comprometida, taxas comerciais, limites regionais e produtos sem captura exigem conferência e atualização. O validador normativo independente é responsável pelo parecer de enquadramento; esta aprovação trata da matemática implementada e da reprodução das evidências acima.
 

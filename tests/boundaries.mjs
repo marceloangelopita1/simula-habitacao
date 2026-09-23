@@ -48,7 +48,7 @@ test('subsídio de aquisição renda 4000/4000,01',()=>{if(!(ok({income:4000}).s
 test('subsídio sem área reproduz caso familiar 8697',()=>eq(ok().subsidy.amount,8697));
 test('subsídio sem área reproduz caso unipessoal 2609',()=>eq(ok({family:'single'}).subsidy.amount,2609));
 test('subsídio normativo apto50 9187,16',()=>{const r=ok({subsidyMode:'area',propertyKind:'apartment',propertyArea:50});eq(r.subsidy.amount,9187.16);eq(r.subsidy.factors.fuh,5.5);});
-test('subsídio usado aplica redutor cumulativo',()=>eq(ok({subsidyMode:'area',propertyKind:'apartment',propertyArea:50,propertyType:'used',family:'single'}).subsidy.amount,1378.07));
+test('subsídio usado aplica mínimo após redutores cumulativos',()=>{const r=ok({subsidyMode:'area',propertyKind:'apartment',propertyArea:50,propertyType:'used',family:'single'});eq(r.subsidy.factors.reducer,.15);eq(r.subsidy.amount,0);});
 test('FUH piso zero, teto 10, casa46 =0',()=>{for(const [kind,area,expected] of [['apartment',20,0],['apartment',39,0],['apartment',59,10],['apartment',90,10],['house',46,0],['house',66,10]])eq(ok({subsidyMode:'area',propertyKind:kind,propertyArea:area}).subsidy.factors.fuh,expected);});
 test('FD_fin negativo preservado',()=>{const v=ok().subsidy.factors.fdFin;if(Math.abs(v-(-4.437525943517788))>1e-10)throw Error(v);});
 test('subsídio manual fora de enquadramento desconsiderado',()=>eq(ok({income:5000,subsidyMode:'manual',subsidyManual:8000}).subsidy.amount,0));
@@ -71,7 +71,7 @@ test('FGTS histórico recente bloqueia, desconhecido avisa',()=>{blocked({fgtsUs
 test('SBPE acima SFH identifica SFI exploratório',()=>{const r=ok({program:'sbpe',income:100000,propertyValue:2300000});eq(r.programName,'SBPE • SFI');if(!r.warnings.some(w=>w.includes('SFI exploratório')))throw Error('Falta aviso SFI.');});
 test('Classe Média usado NE não herda cap60 Sudeste',()=>{for(const [system,quota] of [['SAC',90],['PRICE',80]])eq(ok({program:'middle',municipalityId:'2927408',propertyType:'used',system,quotaOverride:quota}).quota,quota);});
 test('subsídio abaixo do mínimo bruto é zero',()=>{const m=catalog.municipalities.find(m=>m.uf==='MG'&&m.fpop===.85);const r=ok({income:3700,municipalityId:m.ibge,propertyValue:210000});if(!(r.subsidy.raw<1500))throw Error(`Cenário não ativa mínimo: ${r.subsidy.raw}`);eq(r.subsidy.amount,0);});
-test('mínimo após redutor e piso financeiro têm aviso',()=>{const r=ok({income:3700,family:'single'});if(!(r.subsidy.amount>0&&r.subsidy.amount<1500)||!r.warnings.some(w=>w.includes('ordem desse mínimo')))throw Error('Falta cautela mínimo após redutor.');const s=ok({income:4000});if(!s.warnings.some(w=>w.includes('piso −10'))||!s.warnings.some(w=>w.includes('expressão quadrática')))throw Error('Falta cautela fatores/fronteira.');});
+test('mínimo após redutor zera estimativa e preserva aviso de fronteira',()=>{const r=ok({income:3700,family:'single'});eq(r.subsidy.amount,0);if(!r.warnings.some(w=>w.includes('proximidades desse mínimo')))throw Error('Falta cautela mínimo após redutor.');const s=ok({income:4000});if(!s.warnings.some(w=>w.includes('piso −10'))||!s.warnings.some(w=>w.includes('expressão quadrática')))throw Error('Falta cautela fatores/fronteira.');});
 const summary={testedAt:new Date().toISOString(),total:results.length,passed:results.filter(x=>x.pass).length,failed:results.filter(x=>!x.pass).length};
 fs.writeFileSync(new URL('./boundary-results.json',import.meta.url),JSON.stringify({summary,results},null,2));
 console.log(JSON.stringify({...summary,failures:results.filter(x=>!x.pass)},null,2));

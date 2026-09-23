@@ -5,3 +5,4 @@ if(process.exitCode)process.exit(process.exitCode);
 await import('./age-capacity.mjs');
 await import('./rounding.mjs');
 await import('./sbpe.mjs');
+await import('./matrix.mjs');

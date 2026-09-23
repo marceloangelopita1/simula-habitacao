@@ -1,0 +1,421 @@
+cenario;descricao;metrica;nosso;CAIXA;diferenca_nosso_menos_CAIXA;unidade
+S01;SBPE empreendimento / SAC420 / básico;principal;530386.96;530386.96;0.00;BRL
+S01;SBPE empreendimento / SAC420 / básico;ownFunds;249613.04;249613.04;0.00;BRL
+S01;SBPE empreendimento / SAC420 / básico;subsidy;0.00;0.00;0.00;BRL
+S01;SBPE empreendimento / SAC420 / básico;months;420.00;420.00;0.00;meses
+S01;SBPE empreendimento / SAC420 / básico;quota;90.00;90.00;0.00;pp
+S01;SBPE empreendimento / SAC420 / básico;nominalDisplayed;10.93;10.92;0.01;pp
+S01;SBPE empreendimento / SAC420 / básico;effectiveAnnual;11.49;11.49;0.00;pp
+S01;SBPE empreendimento / SAC420 / básico;firstSummary;6250.11;6250.11;0.00;BRL
+S01;SBPE empreendimento / SAC420 / básico;lastSummary;1299.33;1299.33;0.00;BRL
+S01;SBPE empreendimento / SAC420 / básico;cet;12.23;12.23;0.00;pp
+S01;SBPE empreendimento / SAC420 / básico;cesh;4.86;4.86;0.00;pp
+S01;SBPE empreendimento / SAC420 / básico;paymentPITotal;1546917.16;1546917.16;0.00;BRL
+S01;SBPE empreendimento / SAC420 / básico;adminFee;25.00;25.00;0.00;BRL
+S01;SBPE empreendimento / SAC420 / básico;assessment;0.00;não observado;;BRL
+S02;SBPE empreendimento / SAC420 / Especial;principal;530386.96;530386.96;0.00;BRL
+S02;SBPE empreendimento / SAC420 / Especial;ownFunds;249613.04;249613.04;0.00;BRL
+S02;SBPE empreendimento / SAC420 / Especial;subsidy;0.00;0.00;0.00;BRL
+S02;SBPE empreendimento / SAC420 / Especial;months;420.00;420.00;0.00;meses
+S02;SBPE empreendimento / SAC420 / Especial;quota;90.00;90.00;0.00;pp
+S02;SBPE empreendimento / SAC420 / Especial;nominalDisplayed;10.93;10.92;0.01;pp
+S02;SBPE empreendimento / SAC420 / Especial;effectiveAnnual;11.49;11.49;0.00;pp
+S02;SBPE empreendimento / SAC420 / Especial;firstSummary;6300.00;6300.00;0.00;BRL
+S02;SBPE empreendimento / SAC420 / Especial;lastSummary;1299.33;1299.33;0.00;BRL
+S02;SBPE empreendimento / SAC420 / Especial;cet;12.39;12.39;0.00;pp
+S02;SBPE empreendimento / SAC420 / Especial;cesh;4.86;5.99;-1.13;pp
+S02;SBPE empreendimento / SAC420 / Especial;paymentPITotal;1546917.16;1546917.16;0.00;BRL
+S02;SBPE empreendimento / SAC420 / Especial;adminFee;25.00;25.00;0.00;BRL
+S02;SBPE empreendimento / SAC420 / Especial;assessment;0.00;não observado;;BRL
+S03;SBPE empreendimento / SAC360 / Especial;principal;512900.97;512900.97;0.00;BRL
+S03;SBPE empreendimento / SAC360 / Especial;ownFunds;267099.03;267099.03;0.00;BRL
+S03;SBPE empreendimento / SAC360 / Especial;subsidy;0.00;0.00;0.00;BRL
+S03;SBPE empreendimento / SAC360 / Especial;months;360.00;360.00;0.00;meses
+S03;SBPE empreendimento / SAC360 / Especial;quota;90.00;90.00;0.00;pp
+S03;SBPE empreendimento / SAC360 / Especial;nominalDisplayed;10.93;10.92;0.01;pp
+S03;SBPE empreendimento / SAC360 / Especial;effectiveAnnual;11.49;11.49;0.00;pp
+S03;SBPE empreendimento / SAC360 / Especial;firstSummary;6300.00;6300.00;0.00;BRL
+S03;SBPE empreendimento / SAC360 / Especial;lastSummary;1462.69;1462.69;0.00;BRL
+S03;SBPE empreendimento / SAC360 / Especial;cet;12.38;12.38;0.00;pp
+S03;SBPE empreendimento / SAC360 / Especial;cesh;4.26;5.41;-1.15;pp
+S03;SBPE empreendimento / SAC360 / Especial;paymentPITotal;1355824.54;1355822.77;1.77;BRL
+S03;SBPE empreendimento / SAC360 / Especial;adminFee;25.00;não observado;;BRL
+S03;SBPE empreendimento / SAC360 / Especial;assessment;0.00;não observado;;BRL
+S04;PRICE360 com entrada herdada de SAC360;principal;512900.97;512900.97;0.00;BRL
+S04;PRICE360 com entrada herdada de SAC360;ownFunds;267099.03;267099.03;0.00;BRL
+S04;PRICE360 com entrada herdada de SAC360;subsidy;0.00;0.00;0.00;BRL
+S04;PRICE360 com entrada herdada de SAC360;months;360.00;360.00;0.00;meses
+S04;PRICE360 com entrada herdada de SAC360;quota;80.00;80.00;0.00;pp
+S04;PRICE360 com entrada herdada de SAC360;nominalDisplayed;10.93;10.92;0.01;pp
+S04;PRICE360 com entrada herdada de SAC360;effectiveAnnual;11.49;11.49;0.00;pp
+S04;PRICE360 com entrada herdada de SAC360;firstSummary;5061.14;5061.14;0.00;BRL
+S04;PRICE360 com entrada herdada de SAC360;lastSummary;4880.78;4880.78;0.00;BRL
+S04;PRICE360 com entrada herdada de SAC360;cet;12.38;não observado;;pp
+S04;PRICE360 com entrada herdada de SAC360;cesh;5.92;não observado;;pp
+S04;PRICE360 com entrada herdada de SAC360;paymentPITotal;1748079.54;não observado;;BRL
+S04;PRICE360 com entrada herdada de SAC360;adminFee;25.00;não observado;;BRL
+S04;PRICE360 com entrada herdada de SAC360;assessment;0.00;não observado;;BRL
+S05;SBPE empreendimento / PRICE360 / máximo básico;principal;532531.01;532531.01;0.00;BRL
+S05;SBPE empreendimento / PRICE360 / máximo básico;ownFunds;247468.99;247468.99;0.00;BRL
+S05;SBPE empreendimento / PRICE360 / máximo básico;subsidy;0.00;0.00;0.00;BRL
+S05;SBPE empreendimento / PRICE360 / máximo básico;months;360.00;360.00;0.00;meses
+S05;SBPE empreendimento / PRICE360 / máximo básico;quota;80.00;80.00;0.00;pp
+S05;SBPE empreendimento / PRICE360 / máximo básico;nominalDisplayed;10.93;10.92;0.01;pp
+S05;SBPE empreendimento / PRICE360 / máximo básico;effectiveAnnual;11.49;11.49;0.00;pp
+S05;SBPE empreendimento / PRICE360 / máximo básico;firstSummary;5200.11;5200.11;0.00;BRL
+S05;SBPE empreendimento / PRICE360 / máximo básico;lastSummary;5066.62;5066.62;0.00;BRL
+S05;SBPE empreendimento / PRICE360 / máximo básico;cet;12.24;12.24;0.00;pp
+S05;SBPE empreendimento / PRICE360 / máximo básico;cesh;5.87;5.87;0.00;pp
+S05;SBPE empreendimento / PRICE360 / máximo básico;paymentPITotal;1814989.69;1814989.69;0.00;BRL
+S05;SBPE empreendimento / PRICE360 / máximo básico;adminFee;25.00;não observado;;BRL
+S05;SBPE empreendimento / PRICE360 / máximo básico;assessment;0.00;não observado;;BRL
+S06;SBPE empreendimento / PRICE360 / Especial;principal;532531.01;532531.01;0.00;BRL
+S06;SBPE empreendimento / PRICE360 / Especial;ownFunds;247468.99;247468.99;0.00;BRL
+S06;SBPE empreendimento / PRICE360 / Especial;subsidy;0.00;0.00;0.00;BRL
+S06;SBPE empreendimento / PRICE360 / Especial;months;360.00;360.00;0.00;meses
+S06;SBPE empreendimento / PRICE360 / Especial;quota;80.00;80.00;0.00;pp
+S06;SBPE empreendimento / PRICE360 / Especial;nominalDisplayed;10.93;10.92;0.01;pp
+S06;SBPE empreendimento / PRICE360 / Especial;effectiveAnnual;11.49;11.49;0.00;pp
+S06;SBPE empreendimento / PRICE360 / Especial;firstSummary;5250.00;5250.00;0.00;BRL
+S06;SBPE empreendimento / PRICE360 / Especial;lastSummary;5066.62;5066.62;0.00;BRL
+S06;SBPE empreendimento / PRICE360 / Especial;cet;12.37;12.37;0.00;pp
+S06;SBPE empreendimento / PRICE360 / Especial;cesh;5.87;6.98;-1.11;pp
+S06;SBPE empreendimento / PRICE360 / Especial;paymentPITotal;1814989.69;1814989.69;0.00;BRL
+S06;SBPE empreendimento / PRICE360 / Especial;adminFee;25.00;não observado;;BRL
+S06;SBPE empreendimento / PRICE360 / Especial;assessment;0.00;não observado;;BRL
+S07;SBPE comum SAC420 / basic;principal;524032.93;524033.79;-0.86;BRL
+S07;SBPE comum SAC420 / basic;ownFunds;255967.07;255966.21;0.86;BRL
+S07;SBPE comum SAC420 / basic;subsidy;0.00;0.00;0.00;BRL
+S07;SBPE comum SAC420 / basic;months;420.00;420.00;0.00;meses
+S07;SBPE comum SAC420 / basic;quota;80.00;80.00;0.00;pp
+S07;SBPE comum SAC420 / basic;nominalDisplayed;10.93;10.92;0.01;pp
+S07;SBPE comum SAC420 / basic;effectiveAnnual;11.49;11.49;0.00;pp
+S07;SBPE comum SAC420 / basic;firstSummary;6176.15;6176.15;0.00;BRL
+S07;SBPE comum SAC420 / basic;lastSummary;1284.06;1284.05;0.01;BRL
+S07;SBPE comum SAC420 / basic;cet;12.26;12.26;0.00;pp
+S07;SBPE comum SAC420 / basic;cesh;4.87;4.87;0.00;pp
+S07;SBPE comum SAC420 / basic;paymentPITotal;1528385.58;1528388.86;-3.28;BRL
+S07;SBPE comum SAC420 / basic;adminFee;25.00;não observado;;BRL
+S07;SBPE comum SAC420 / basic;assessment;841.44;não observado;;BRL
+S08;SBPE comum SAC420 / plus;principal;524032.93;524033.79;-0.86;BRL
+S08;SBPE comum SAC420 / plus;ownFunds;255967.07;255966.21;0.86;BRL
+S08;SBPE comum SAC420 / plus;subsidy;0.00;0.00;0.00;BRL
+S08;SBPE comum SAC420 / plus;months;420.00;420.00;0.00;meses
+S08;SBPE comum SAC420 / plus;quota;80.00;80.00;0.00;pp
+S08;SBPE comum SAC420 / plus;nominalDisplayed;10.93;10.92;0.01;pp
+S08;SBPE comum SAC420 / plus;effectiveAnnual;11.49;11.49;0.00;pp
+S08;SBPE comum SAC420 / plus;firstSummary;6226.04;6226.04;0.00;BRL
+S08;SBPE comum SAC420 / plus;lastSummary;1284.06;1284.05;0.01;BRL
+S08;SBPE comum SAC420 / plus;cet;12.42;12.43;-0.01;pp
+S08;SBPE comum SAC420 / plus;cesh;4.87;6.02;-1.15;pp
+S08;SBPE comum SAC420 / plus;paymentPITotal;1528385.58;1528388.86;-3.28;BRL
+S08;SBPE comum SAC420 / plus;adminFee;25.00;não observado;;BRL
+S08;SBPE comum SAC420 / plus;assessment;841.44;não observado;;BRL
+S09;SBPE comum SAC420 / expanded;principal;524032.93;524033.79;-0.86;BRL
+S09;SBPE comum SAC420 / expanded;ownFunds;255967.07;255966.21;0.86;BRL
+S09;SBPE comum SAC420 / expanded;subsidy;0.00;0.00;0.00;BRL
+S09;SBPE comum SAC420 / expanded;months;420.00;420.00;0.00;meses
+S09;SBPE comum SAC420 / expanded;quota;80.00;80.00;0.00;pp
+S09;SBPE comum SAC420 / expanded;nominalDisplayed;10.93;10.92;0.01;pp
+S09;SBPE comum SAC420 / expanded;effectiveAnnual;11.49;11.49;0.00;pp
+S09;SBPE comum SAC420 / expanded;firstSummary;6300.00;6299.99;0.01;BRL
+S09;SBPE comum SAC420 / expanded;lastSummary;1284.06;1284.05;0.01;BRL
+S09;SBPE comum SAC420 / expanded;cet;12.66;12.66;0.00;pp
+S09;SBPE comum SAC420 / expanded;cesh;4.87;7.72;-2.85;pp
+S09;SBPE comum SAC420 / expanded;paymentPITotal;1528385.58;1528388.86;-3.28;BRL
+S09;SBPE comum SAC420 / expanded;adminFee;25.00;25.00;0.00;BRL
+S09;SBPE comum SAC420 / expanded;assessment;841.44;não observado;;BRL
+S10;Pró-Cotista / imóvel novo400mil / SAC420;principal;320000.00;320000.00;0.00;BRL
+S10;Pró-Cotista / imóvel novo400mil / SAC420;ownFunds;80000.00;80000.00;0.00;BRL
+S10;Pró-Cotista / imóvel novo400mil / SAC420;subsidy;0.00;0.00;0.00;BRL
+S10;Pró-Cotista / imóvel novo400mil / SAC420;months;420.00;420.00;0.00;meses
+S10;Pró-Cotista / imóvel novo400mil / SAC420;quota;80.00;80.00;0.00;pp
+S10;Pró-Cotista / imóvel novo400mil / SAC420;nominalDisplayed;8.66;8.66;0.00;pp
+S10;Pró-Cotista / imóvel novo400mil / SAC420;effectiveAnnual;9.01;9.01;0.00;pp
+S10;Pró-Cotista / imóvel novo400mil / SAC420;firstSummary;3171.91;3171.91;0.00;BRL
+S10;Pró-Cotista / imóvel novo400mil / SAC420;lastSummary;792.40;792.40;0.00;BRL
+S10;Pró-Cotista / imóvel novo400mil / SAC420;cet;9.88;10.06;-0.18;pp
+S10;Pró-Cotista / imóvel novo400mil / SAC420;cesh;4.68;4.68;0.00;pp
+S10;Pró-Cotista / imóvel novo400mil / SAC420;paymentPITotal;806117.76;806115.76;2.00;BRL
+S10;Pró-Cotista / imóvel novo400mil / SAC420;adminFee;25.00;não observado;;BRL
+S10;Pró-Cotista / imóvel novo400mil / SAC420;assessment;841.44;não observado;;BRL
+S11;SBPE empreendimento / cota90% / imóvel400mil;principal;360000.00;360000.00;0.00;BRL
+S11;SBPE empreendimento / cota90% / imóvel400mil;ownFunds;40000.00;40000.00;0.00;BRL
+S11;SBPE empreendimento / cota90% / imóvel400mil;subsidy;0.00;0.00;0.00;BRL
+S11;SBPE empreendimento / cota90% / imóvel400mil;months;420.00;420.00;0.00;meses
+S11;SBPE empreendimento / cota90% / imóvel400mil;quota;90.00;90.00;0.00;pp
+S11;SBPE empreendimento / cota90% / imóvel400mil;nominalDisplayed;10.93;10.92;0.01;pp
+S11;SBPE empreendimento / cota90% / imóvel400mil;effectiveAnnual;11.49;11.49;0.00;pp
+S11;SBPE empreendimento / cota90% / imóvel400mil;firstSummary;4241.75;4241.75;0.00;BRL
+S11;SBPE empreendimento / cota90% / imóvel400mil;lastSummary;889.94;889.94;0.00;BRL
+S11;SBPE empreendimento / cota90% / imóvel400mil;cet;12.23;12.23;0.00;pp
+S11;SBPE empreendimento / cota90% / imóvel400mil;cesh;4.57;4.57;0.00;pp
+S11;SBPE empreendimento / cota90% / imóvel400mil;paymentPITotal;1049972.90;1049971.70;1.20;BRL
+S11;SBPE empreendimento / cota90% / imóvel400mil;adminFee;25.00;não observado;;BRL
+S11;SBPE empreendimento / cota90% / imóvel400mil;assessment;0.00;não observado;;BRL
+S12;SBPE empreendimento / 69 anos / SAC limitado pela idade;principal;310278.80;310278.80;0.00;BRL
+S12;SBPE empreendimento / 69 anos / SAC limitado pela idade;ownFunds;89721.20;89721.20;0.00;BRL
+S12;SBPE empreendimento / 69 anos / SAC limitado pela idade;subsidy;0.00;0.00;0.00;BRL
+S12;SBPE empreendimento / 69 anos / SAC limitado pela idade;months;130.00;130.00;0.00;meses
+S12;SBPE empreendimento / 69 anos / SAC limitado pela idade;quota;90.00;90.00;0.00;pp
+S12;SBPE empreendimento / 69 anos / SAC limitado pela idade;nominalDisplayed;10.93;10.92;0.01;pp
+S12;SBPE empreendimento / 69 anos / SAC limitado pela idade;effectiveAnnual;11.49;11.49;0.00;pp
+S12;SBPE empreendimento / 69 anos / SAC limitado pela idade;firstSummary;6274.42;6274.42;0.00;BRL
+S12;SBPE empreendimento / 69 anos / SAC limitado pela idade;lastSummary;2433.49;2433.49;0.00;BRL
+S12;SBPE empreendimento / 69 anos / SAC limitado pela idade;cet;17.81;17.81;0.00;pp
+S12;SBPE empreendimento / 69 anos / SAC limitado pela idade;cesh;21.54;21.54;0.00;pp
+S12;SBPE empreendimento / 69 anos / SAC limitado pela idade;paymentPITotal;495320.47;495320.47;0.00;BRL
+S12;SBPE empreendimento / 69 anos / SAC limitado pela idade;adminFee;25.00;não observado;;BRL
+S12;SBPE empreendimento / 69 anos / SAC limitado pela idade;assessment;0.00;não observado;;BRL
+S13;MCMV / renda3578 / novo400mil acima do teto municipal;principal;111628.73;111628.73;0.00;BRL
+S13;MCMV / renda3578 / novo400mil acima do teto municipal;ownFunds;288371.27;288371.27;0.00;BRL
+S13;MCMV / renda3578 / novo400mil acima do teto municipal;subsidy;0.00;0.00;0.00;BRL
+S13;MCMV / renda3578 / novo400mil acima do teto municipal;months;420.00;420.00;0.00;meses
+S13;MCMV / renda3578 / novo400mil acima do teto municipal;quota;80.00;80.00;0.00;pp
+S13;MCMV / renda3578 / novo400mil acima do teto municipal;nominalDisplayed;7.66;7.66;0.00;pp
+S13;MCMV / renda3578 / novo400mil acima do teto municipal;effectiveAnnual;7.93;7.93;0.00;pp
+S13;MCMV / renda3578 / novo400mil acima do teto municipal;firstSummary;1047.81;1047.81;0.00;BRL
+S13;MCMV / renda3578 / novo400mil acima do teto municipal;lastSummary;292.48;292.48;0.00;BRL
+S13;MCMV / renda3578 / novo400mil acima do teto municipal;cet;9.44;9.44;0.00;pp
+S13;MCMV / renda3578 / novo400mil acima do teto municipal;cesh;6.02;6.02;0.00;pp
+S13;MCMV / renda3578 / novo400mil acima do teto municipal;paymentPITotal;261624.90;261623.77;1.13;BRL
+S13;MCMV / renda3578 / novo400mil acima do teto municipal;adminFee;25.00;não observado;;BRL
+S13;MCMV / renda3578 / novo400mil acima do teto municipal;assessment;1674.43;não observado;;BRL
+S14;MCMV / renda3578 / novo264mil / unipessoal;principal;142477.50;142477.50;0.00;BRL
+S14;MCMV / renda3578 / novo264mil / unipessoal;ownFunds;120870.50;121522.50;-652.00;BRL
+S14;MCMV / renda3578 / novo264mil / unipessoal;subsidy;652.00;0.00;652.00;BRL
+S14;MCMV / renda3578 / novo264mil / unipessoal;months;420.00;420.00;0.00;meses
+S14;MCMV / renda3578 / novo264mil / unipessoal;quota;80.00;80.00;0.00;pp
+S14;MCMV / renda3578 / novo264mil / unipessoal;nominalDisplayed;5.50;5.50;0.00;pp
+S14;MCMV / renda3578 / novo264mil / unipessoal;effectiveAnnual;5.64;5.64;0.00;pp
+S14;MCMV / renda3578 / novo264mil / unipessoal;firstSummary;1056.51;1056.51;0.00;BRL
+S14;MCMV / renda3578 / novo264mil / unipessoal;lastSummary;365.78;365.78;0.00;BRL
+S14;MCMV / renda3578 / novo264mil / unipessoal;cet;6.87;6.87;0.00;pp
+S14;MCMV / renda3578 / novo264mil / unipessoal;cesh;4.54;4.54;0.00;pp
+S14;MCMV / renda3578 / novo264mil / unipessoal;paymentPITotal;279939.49;279938.59;0.90;BRL
+S14;MCMV / renda3578 / novo264mil / unipessoal;adminFee;25.00;não observado;;BRL
+S14;MCMV / renda3578 / novo264mil / unipessoal;assessment;2137.16;não observado;;BRL
+S15;MCMV / renda3578 / novo264mil / PRICE máximo;principal;183667.14;183667.14;0.00;BRL
+S15;MCMV / renda3578 / novo264mil / PRICE máximo;ownFunds;79680.86;80332.86;-652.00;BRL
+S15;MCMV / renda3578 / novo264mil / PRICE máximo;subsidy;652.00;0.00;652.00;BRL
+S15;MCMV / renda3578 / novo264mil / PRICE máximo;months;420.00;420.00;0.00;meses
+S15;MCMV / renda3578 / novo264mil / PRICE máximo;quota;80.00;80.00;0.00;pp
+S15;MCMV / renda3578 / novo264mil / PRICE máximo;nominalDisplayed;5.50;5.50;0.00;pp
+S15;MCMV / renda3578 / novo264mil / PRICE máximo;effectiveAnnual;5.64;5.64;0.00;pp
+S15;MCMV / renda3578 / novo264mil / PRICE máximo;firstSummary;1056.51;1056.51;0.00;BRL
+S15;MCMV / renda3578 / novo264mil / PRICE máximo;lastSummary;1011.32;1011.32;0.00;BRL
+S15;MCMV / renda3578 / novo264mil / PRICE máximo;cet;6.71;6.71;0.00;pp
+S15;MCMV / renda3578 / novo264mil / PRICE máximo;cesh;5.02;5.02;0.00;pp
+S15;MCMV / renda3578 / novo264mil / PRICE máximo;paymentPITotal;414257.84;414257.84;0.00;BRL
+S15;MCMV / renda3578 / novo264mil / PRICE máximo;adminFee;25.00;não observado;;BRL
+S15;MCMV / renda3578 / novo264mil / PRICE máximo;assessment;2755.01;não observado;;BRL
+S16;MCMV / PRICE / principal fixado100mil;principal;100000.00;100000.00;0.00;BRL
+S16;MCMV / PRICE / principal fixado100mil;ownFunds;163348.00;164000.00;-652.00;BRL
+S16;MCMV / PRICE / principal fixado100mil;subsidy;652.00;0.00;652.00;BRL
+S16;MCMV / PRICE / principal fixado100mil;months;420.00;420.00;0.00;meses
+S16;MCMV / PRICE / principal fixado100mil;quota;80.00;80.00;0.00;pp
+S16;MCMV / PRICE / principal fixado100mil;nominalDisplayed;5.50;5.50;0.00;pp
+S16;MCMV / PRICE / principal fixado100mil;effectiveAnnual;5.64;5.64;0.00;pp
+S16;MCMV / PRICE / principal fixado100mil;firstSummary;595.16;595.16;0.00;BRL
+S16;MCMV / PRICE / principal fixado100mil;lastSummary;562.02;562.02;0.00;BRL
+S16;MCMV / PRICE / principal fixado100mil;cet;7.02;7.02;0.00;pp
+S16;MCMV / PRICE / principal fixado100mil;cesh;6.05;6.05;0.00;pp
+S16;MCMV / PRICE / principal fixado100mil;paymentPITotal;225543.54;225543.54;0.00;BRL
+S16;MCMV / PRICE / principal fixado100mil;adminFee;25.00;não observado;;BRL
+S16;MCMV / PRICE / principal fixado100mil;assessment;1500.00;não observado;;BRL
+S17;MCMV / usado264mil / unipessoal / SAC máximo;principal;142477.50;142477.50;0.00;BRL
+S17;MCMV / usado264mil / unipessoal / SAC máximo;ownFunds;121196.50;121522.50;-326.00;BRL
+S17;MCMV / usado264mil / unipessoal / SAC máximo;subsidy;326.00;0.00;326.00;BRL
+S17;MCMV / usado264mil / unipessoal / SAC máximo;months;420.00;420.00;0.00;meses
+S17;MCMV / usado264mil / unipessoal / SAC máximo;quota;80.00;80.00;0.00;pp
+S17;MCMV / usado264mil / unipessoal / SAC máximo;nominalDisplayed;5.50;5.50;0.00;pp
+S17;MCMV / usado264mil / unipessoal / SAC máximo;effectiveAnnual;5.64;5.64;0.00;pp
+S17;MCMV / usado264mil / unipessoal / SAC máximo;firstSummary;1056.51;1056.51;0.00;BRL
+S17;MCMV / usado264mil / unipessoal / SAC máximo;lastSummary;365.78;365.78;0.00;BRL
+S17;MCMV / usado264mil / unipessoal / SAC máximo;cet;6.87;6.87;0.00;pp
+S17;MCMV / usado264mil / unipessoal / SAC máximo;cesh;4.54;4.54;0.00;pp
+S17;MCMV / usado264mil / unipessoal / SAC máximo;paymentPITotal;279939.49;279938.59;0.90;BRL
+S17;MCMV / usado264mil / unipessoal / SAC máximo;adminFee;25.00;não observado;;BRL
+S17;MCMV / usado264mil / unipessoal / SAC máximo;assessment;2137.16;não observado;;BRL
+S18;MCMV / usado264mil / com dependente;principal;142477.50;142477.50;0.00;BRL
+S18;MCMV / usado264mil / com dependente;ownFunds;120435.50;121522.50;-1087.00;BRL
+S18;MCMV / usado264mil / com dependente;subsidy;1087.00;0.00;1087.00;BRL
+S18;MCMV / usado264mil / com dependente;months;420.00;420.00;0.00;meses
+S18;MCMV / usado264mil / com dependente;quota;80.00;80.00;0.00;pp
+S18;MCMV / usado264mil / com dependente;nominalDisplayed;5.50;5.50;0.00;pp
+S18;MCMV / usado264mil / com dependente;effectiveAnnual;5.64;5.64;0.00;pp
+S18;MCMV / usado264mil / com dependente;firstSummary;1056.51;1056.51;0.00;BRL
+S18;MCMV / usado264mil / com dependente;lastSummary;365.78;365.78;0.00;BRL
+S18;MCMV / usado264mil / com dependente;cet;6.87;não observado;;pp
+S18;MCMV / usado264mil / com dependente;cesh;4.54;não observado;;pp
+S18;MCMV / usado264mil / com dependente;paymentPITotal;279939.49;não observado;;BRL
+S18;MCMV / usado264mil / com dependente;adminFee;25.00;não observado;;BRL
+S18;MCMV / usado264mil / com dependente;assessment;2137.16;não observado;;BRL
+S19;MCMV / novo264mil / com dependente;principal;142477.50;142477.50;0.00;BRL
+S19;MCMV / novo264mil / com dependente;ownFunds;119347.50;119348.50;-1.00;BRL
+S19;MCMV / novo264mil / com dependente;subsidy;2175.00;2174.00;1.00;BRL
+S19;MCMV / novo264mil / com dependente;months;420.00;420.00;0.00;meses
+S19;MCMV / novo264mil / com dependente;quota;80.00;80.00;0.00;pp
+S19;MCMV / novo264mil / com dependente;nominalDisplayed;5.50;5.50;0.00;pp
+S19;MCMV / novo264mil / com dependente;effectiveAnnual;5.64;5.64;0.00;pp
+S19;MCMV / novo264mil / com dependente;firstSummary;1056.51;1056.51;0.00;BRL
+S19;MCMV / novo264mil / com dependente;lastSummary;365.78;365.78;0.00;BRL
+S19;MCMV / novo264mil / com dependente;cet;6.87;6.70;0.17;pp
+S19;MCMV / novo264mil / com dependente;cesh;4.54;4.54;0.00;pp
+S19;MCMV / novo264mil / com dependente;paymentPITotal;279939.49;279938.59;0.90;BRL
+S19;MCMV / novo264mil / com dependente;adminFee;25.00;não observado;;BRL
+S19;MCMV / novo264mil / com dependente;assessment;2137.16;não observado;;BRL
+S20;MCMV empreendimento / novo264mil / com dependente;principal;142477.50;142477.50;0.00;BRL
+S20;MCMV empreendimento / novo264mil / com dependente;ownFunds;119347.50;119348.50;-1.00;BRL
+S20;MCMV empreendimento / novo264mil / com dependente;subsidy;2175.00;2174.00;1.00;BRL
+S20;MCMV empreendimento / novo264mil / com dependente;months;420.00;420.00;0.00;meses
+S20;MCMV empreendimento / novo264mil / com dependente;quota;80.00;80.00;0.00;pp
+S20;MCMV empreendimento / novo264mil / com dependente;nominalDisplayed;5.50;5.50;0.00;pp
+S20;MCMV empreendimento / novo264mil / com dependente;effectiveAnnual;5.64;5.64;0.00;pp
+S20;MCMV empreendimento / novo264mil / com dependente;firstSummary;1056.51;1056.51;0.00;BRL
+S20;MCMV empreendimento / novo264mil / com dependente;lastSummary;365.78;365.78;0.00;BRL
+S20;MCMV empreendimento / novo264mil / com dependente;cet;6.71;6.70;0.01;pp
+S20;MCMV empreendimento / novo264mil / com dependente;cesh;4.54;4.54;0.00;pp
+S20;MCMV empreendimento / novo264mil / com dependente;paymentPITotal;279939.49;279938.59;0.90;BRL
+S20;MCMV empreendimento / novo264mil / com dependente;adminFee;25.00;não observado;;BRL
+S20;MCMV empreendimento / novo264mil / com dependente;assessment;0.00;não observado;;BRL
+S21;MCMV empreendimento / renda2850 / fronteira de tarifa;principal;130577.93;130577.93;0.00;BRL
+S21;MCMV empreendimento / renda2850 / fronteira de tarifa;ownFunds;121488.07;121489.07;-1.00;BRL
+S21;MCMV empreendimento / renda2850 / fronteira de tarifa;subsidy;11934.00;11933.00;1.00;BRL
+S21;MCMV empreendimento / renda2850 / fronteira de tarifa;months;420.00;420.00;0.00;meses
+S21;MCMV empreendimento / renda2850 / fronteira de tarifa;quota;80.00;80.00;0.00;pp
+S21;MCMV empreendimento / renda2850 / fronteira de tarifa;nominalDisplayed;4.50;4.50;0.00;pp
+S21;MCMV empreendimento / renda2850 / fronteira de tarifa;effectiveAnnual;4.59;4.59;0.00;pp
+S21;MCMV empreendimento / renda2850 / fronteira de tarifa;firstSummary;838.11;838.11;0.00;BRL
+S21;MCMV empreendimento / renda2850 / fronteira de tarifa;lastSummary;312.07;312.07;0.00;BRL
+S21;MCMV empreendimento / renda2850 / fronteira de tarifa;cet;5.39;4.69;0.70;pp
+S21;MCMV empreendimento / renda2850 / fronteira de tarifa;cesh;4.68;4.68;0.00;pp
+S21;MCMV empreendimento / renda2850 / fronteira de tarifa;paymentPITotal;233652.94;233652.94;0.00;BRL
+S21;MCMV empreendimento / renda2850 / fronteira de tarifa;adminFee;0.00;não observado;;BRL
+S21;MCMV empreendimento / renda2850 / fronteira de tarifa;assessment;0.00;não observado;;BRL
+S22;MCMV empreendimento / renda2850,01 / fronteira de tarifa;principal;122526.40;122526.40;0.00;BRL
+S22;MCMV empreendimento / renda2850,01 / fronteira de tarifa;ownFunds;129408.60;129409.60;-1.00;BRL
+S22;MCMV empreendimento / renda2850,01 / fronteira de tarifa;subsidy;12065.00;12064.00;1.00;BRL
+S22;MCMV empreendimento / renda2850,01 / fronteira de tarifa;months;420.00;420.00;0.00;meses
+S22;MCMV empreendimento / renda2850,01 / fronteira de tarifa;quota;80.00;80.00;0.00;pp
+S22;MCMV empreendimento / renda2850,01 / fronteira de tarifa;nominalDisplayed;4.75;4.75;0.00;pp
+S22;MCMV empreendimento / renda2850,01 / fronteira de tarifa;effectiveAnnual;4.85;4.85;0.00;pp
+S22;MCMV empreendimento / renda2850,01 / fronteira de tarifa;firstSummary;838.11;838.11;0.00;BRL
+S22;MCMV empreendimento / renda2850,01 / fronteira de tarifa;lastSummary;317.88;317.87;0.01;BRL
+S22;MCMV empreendimento / renda2850,01 / fronteira de tarifa;cet;6.04;5.24;0.80;pp
+S22;MCMV empreendimento / renda2850,01 / fronteira de tarifa;cesh;4.79;4.79;0.00;pp
+S22;MCMV empreendimento / renda2850,01 / fronteira de tarifa;paymentPITotal;224619.04;224619.04;0.00;BRL
+S22;MCMV empreendimento / renda2850,01 / fronteira de tarifa;adminFee;25.00;não observado;;BRL
+S22;MCMV empreendimento / renda2850,01 / fronteira de tarifa;assessment;0.00;não observado;;BRL
+S23;MCMV empreendimento / não cotista / renda2850,01;principal;115127.35;115127.35;0.00;BRL
+S23;MCMV empreendimento / não cotista / renda2850,01;ownFunds;136564.65;136565.65;-1.00;BRL
+S23;MCMV empreendimento / não cotista / renda2850,01;subsidy;12308.00;12307.00;1.00;BRL
+S23;MCMV empreendimento / não cotista / renda2850,01;months;420.00;420.00;0.00;meses
+S23;MCMV empreendimento / não cotista / renda2850,01;quota;80.00;80.00;0.00;pp
+S23;MCMV empreendimento / não cotista / renda2850,01;nominalDisplayed;5.25;5.25;0.00;pp
+S23;MCMV empreendimento / não cotista / renda2850,01;effectiveAnnual;5.38;5.38;0.00;pp
+S23;MCMV empreendimento / não cotista / renda2850,01;firstSummary;838.11;838.11;0.00;BRL
+S23;MCMV empreendimento / não cotista / renda2850,01;lastSummary;300.31;300.31;0.00;BRL
+S23;MCMV empreendimento / não cotista / renda2850,01;cet;6.58;5.67;0.91;pp
+S23;MCMV empreendimento / não cotista / renda2850,01;cesh;4.91;4.91;0.00;pp
+S23;MCMV empreendimento / não cotista / renda2850,01;paymentPITotal;221153.59;221152.44;1.15;BRL
+S23;MCMV empreendimento / não cotista / renda2850,01;adminFee;25.00;não observado;;BRL
+S23;MCMV empreendimento / não cotista / renda2850,01;assessment;0.00;não observado;;BRL
+S24;MCMV empreendimento / Fortaleza / não cotista;principal;118711.78;118711.78;0.00;BRL
+S24;MCMV empreendimento / Fortaleza / não cotista;ownFunds;133214.22;133215.22;-1.00;BRL
+S24;MCMV empreendimento / Fortaleza / não cotista;subsidy;12074.00;12073.00;1.00;BRL
+S24;MCMV empreendimento / Fortaleza / não cotista;months;420.00;420.00;0.00;meses
+S24;MCMV empreendimento / Fortaleza / não cotista;quota;80.00;80.00;0.00;pp
+S24;MCMV empreendimento / Fortaleza / não cotista;nominalDisplayed;5.00;5.00;0.00;pp
+S24;MCMV empreendimento / Fortaleza / não cotista;effectiveAnnual;5.12;5.12;0.00;pp
+S24;MCMV empreendimento / Fortaleza / não cotista;firstSummary;838.11;838.11;0.00;BRL
+S24;MCMV empreendimento / Fortaleza / não cotista;lastSummary;308.83;308.82;0.01;BRL
+S24;MCMV empreendimento / Fortaleza / não cotista;cet;6.31;5.46;0.85;pp
+S24;MCMV empreendimento / Fortaleza / não cotista;cesh;4.85;4.85;0.00;pp
+S24;MCMV empreendimento / Fortaleza / não cotista;paymentPITotal;222832.05;222832.05;0.00;BRL
+S24;MCMV empreendimento / Fortaleza / não cotista;adminFee;25.00;não observado;;BRL
+S24;MCMV empreendimento / Fortaleza / não cotista;assessment;0.00;não observado;;BRL
+S25;Classe Média / limites13000e600mil / Fortaleza novo PRICE;principal;427408.25;434062.64;-6654.39;BRL
+S25;Classe Média / limites13000e600mil / Fortaleza novo PRICE;ownFunds;172591.75;165937.36;6654.39;BRL
+S25;Classe Média / limites13000e600mil / Fortaleza novo PRICE;subsidy;0.00;0.00;0.00;BRL
+S25;Classe Média / limites13000e600mil / Fortaleza novo PRICE;months;420.00;420.00;0.00;meses
+S25;Classe Média / limites13000e600mil / Fortaleza novo PRICE;quota;80.00;80.00;0.00;pp
+S25;Classe Média / limites13000e600mil / Fortaleza novo PRICE;nominalDisplayed;10.00;10.00;0.00;pp
+S25;Classe Média / limites13000e600mil / Fortaleza novo PRICE;effectiveAnnual;10.47;10.47;0.00;pp
+S25;Classe Média / limites13000e600mil / Fortaleza novo PRICE;firstSummary;3804.73;3861.63;-56.90;BRL
+S25;Classe Média / limites13000e600mil / Fortaleza novo PRICE;lastSummary;3699.31;3756.52;-57.21;BRL
+S25;Classe Média / limites13000e600mil / Fortaleza novo PRICE;cet;11.35;11.38;-0.03;pp
+S25;Classe Média / limites13000e600mil / Fortaleza novo PRICE;cesh;6.86;5.48;1.38;pp
+S25;Classe Média / limites13000e600mil / Fortaleza novo PRICE;paymentPITotal;1543214.51;1567226.73;-24012.22;BRL
+S25;Classe Média / limites13000e600mil / Fortaleza novo PRICE;adminFee;25.00;não observado;;BRL
+S25;Classe Média / limites13000e600mil / Fortaleza novo PRICE;assessment;841.44;não observado;;BRL
+S26;Classe Média / Fortaleza usado PRICE;principal;427408.25;434062.64;-6654.39;BRL
+S26;Classe Média / Fortaleza usado PRICE;ownFunds;172591.75;165937.36;6654.39;BRL
+S26;Classe Média / Fortaleza usado PRICE;subsidy;0.00;0.00;0.00;BRL
+S26;Classe Média / Fortaleza usado PRICE;months;420.00;420.00;0.00;meses
+S26;Classe Média / Fortaleza usado PRICE;quota;80.00;80.00;0.00;pp
+S26;Classe Média / Fortaleza usado PRICE;nominalDisplayed;10.00;10.00;0.00;pp
+S26;Classe Média / Fortaleza usado PRICE;effectiveAnnual;10.47;10.47;0.00;pp
+S26;Classe Média / Fortaleza usado PRICE;firstSummary;3804.73;3861.63;-56.90;BRL
+S26;Classe Média / Fortaleza usado PRICE;lastSummary;3699.31;3756.52;-57.21;BRL
+S26;Classe Média / Fortaleza usado PRICE;cet;11.35;11.38;-0.03;pp
+S26;Classe Média / Fortaleza usado PRICE;cesh;6.86;5.48;1.38;pp
+S26;Classe Média / Fortaleza usado PRICE;paymentPITotal;1543214.51;1567226.73;-24012.22;BRL
+S26;Classe Média / Fortaleza usado PRICE;adminFee;25.00;não observado;;BRL
+S26;Classe Média / Fortaleza usado PRICE;assessment;841.44;não observado;;BRL
+S27;Classe Média / Ribeirão Preto usado PRICE / cota60;principal;360000.00;360000.00;0.00;BRL
+S27;Classe Média / Ribeirão Preto usado PRICE / cota60;ownFunds;240000.00;240000.00;0.00;BRL
+S27;Classe Média / Ribeirão Preto usado PRICE / cota60;subsidy;0.00;0.00;0.00;BRL
+S27;Classe Média / Ribeirão Preto usado PRICE / cota60;months;420.00;420.00;0.00;meses
+S27;Classe Média / Ribeirão Preto usado PRICE / cota60;quota;60.00;60.00;0.00;pp
+S27;Classe Média / Ribeirão Preto usado PRICE / cota60;nominalDisplayed;10.00;10.00;0.00;pp
+S27;Classe Média / Ribeirão Preto usado PRICE / cota60;effectiveAnnual;10.47;10.47;0.00;pp
+S27;Classe Média / Ribeirão Preto usado PRICE / cota60;firstSummary;3214.86;3214.26;0.60;BRL
+S27;Classe Média / Ribeirão Preto usado PRICE / cota60;lastSummary;3119.82;3119.82;0.00;BRL
+S27;Classe Média / Ribeirão Preto usado PRICE / cota60;cet;11.39;11.42;-0.03;pp
+S27;Classe Média / Ribeirão Preto usado PRICE / cota60;cesh;7.07;5.72;1.35;pp
+S27;Classe Média / Ribeirão Preto usado PRICE / cota60;paymentPITotal;1299827.08;1299827.08;0.00;BRL
+S27;Classe Média / Ribeirão Preto usado PRICE / cota60;adminFee;25.00;25.00;0.00;BRL
+S27;Classe Média / Ribeirão Preto usado PRICE / cota60;assessment;841.44;não observado;;BRL
+S28;Classe Média / Ribeirão Preto usado SAC máximo;principal;344132.65;349412.61;-5279.96;BRL
+S28;Classe Média / Ribeirão Preto usado SAC máximo;ownFunds;255867.35;250587.39;5279.96;BRL
+S28;Classe Média / Ribeirão Preto usado SAC máximo;subsidy;0.00;0.00;0.00;BRL
+S28;Classe Média / Ribeirão Preto usado SAC máximo;months;420.00;420.00;0.00;meses
+S28;Classe Média / Ribeirão Preto usado SAC máximo;quota;60.00;60.00;0.00;pp
+S28;Classe Média / Ribeirão Preto usado SAC máximo;nominalDisplayed;10.00;10.00;0.00;pp
+S28;Classe Média / Ribeirão Preto usado SAC máximo;effectiveAnnual;10.47;10.47;0.00;pp
+S28;Classe Média / Ribeirão Preto usado SAC máximo;firstSummary;3804.73;3861.62;-56.89;BRL
+S28;Classe Média / Ribeirão Preto usado SAC máximo;lastSummary;851.19;863.86;-12.67;BRL
+S28;Classe Média / Ribeirão Preto usado SAC máximo;cet;11.35;11.47;-0.12;pp
+S28;Classe Média / Ribeirão Preto usado SAC máximo;cesh;5.07;4.42;0.65;pp
+S28;Classe Média / Ribeirão Preto usado SAC máximo;paymentPITotal;947801.17;962342.12;-14540.95;BRL
+S28;Classe Média / Ribeirão Preto usado SAC máximo;adminFee;25.00;não observado;;BRL
+S28;Classe Média / Ribeirão Preto usado SAC máximo;assessment;841.44;não observado;;BRL
+S29;Classe Média / usado SAC240 máximo;principal;295568.99;300064.85;-4495.86;BRL
+S29;Classe Média / usado SAC240 máximo;ownFunds;304431.01;299935.15;4495.86;BRL
+S29;Classe Média / usado SAC240 máximo;subsidy;0.00;0.00;0.00;BRL
+S29;Classe Média / usado SAC240 máximo;months;240.00;240.00;0.00;meses
+S29;Classe Média / usado SAC240 máximo;quota;60.00;60.00;0.00;pp
+S29;Classe Média / usado SAC240 máximo;nominalDisplayed;10.00;10.00;0.00;pp
+S29;Classe Média / usado SAC240 máximo;effectiveAnnual;10.47;10.47;0.00;pp
+S29;Classe Média / usado SAC240 máximo;firstSummary;3804.73;3861.61;-56.88;BRL
+S29;Classe Média / usado SAC240 máximo;lastSummary;1266.80;1285.68;-18.88;BRL
+S29;Classe Média / usado SAC240 máximo;cet;11.31;11.55;-0.24;pp
+S29;Classe Média / usado SAC240 máximo;cesh;3.31;3.27;0.04;pp
+S29;Classe Média / usado SAC240 máximo;paymentPITotal;592369.52;601379.98;-9010.46;BRL
+S29;Classe Média / usado SAC240 máximo;adminFee;25.00;não observado;;BRL
+S29;Classe Média / usado SAC240 máximo;assessment;841.44;não observado;;BRL
+S30;Renda R$ 13.000,01 / SBPE comum usado;principal;321321.13;321321.99;-0.86;BRL
+S30;Renda R$ 13.000,01 / SBPE comum usado;ownFunds;278678.87;278678.01;0.86;BRL
+S30;Renda R$ 13.000,01 / SBPE comum usado;subsidy;0.00;0.00;0.00;BRL
+S30;Renda R$ 13.000,01 / SBPE comum usado;months;420.00;420.00;0.00;meses
+S30;Renda R$ 13.000,01 / SBPE comum usado;quota;80.00;80.00;0.00;pp
+S30;Renda R$ 13.000,01 / SBPE comum usado;nominalDisplayed;10.93;10.92;0.01;pp
+S30;Renda R$ 13.000,01 / SBPE comum usado;effectiveAnnual;11.49;11.49;0.00;pp
+S30;Renda R$ 13.000,01 / SBPE comum usado;firstSummary;3804.73;3804.74;-0.01;BRL
+S30;Renda R$ 13.000,01 / SBPE comum usado;lastSummary;797.02;797.03;-0.01;BRL
+S30;Renda R$ 13.000,01 / SBPE comum usado;cet;12.37;12.37;0.00;pp
+S30;Renda R$ 13.000,01 / SBPE comum usado;cesh;5.17;5.17;0.00;pp
+S30;Renda R$ 13.000,01 / SBPE comum usado;paymentPITotal;937160.54;937163.85;-3.31;BRL
+S30;Renda R$ 13.000,01 / SBPE comum usado;adminFee;25.00;não observado;;BRL
+S30;Renda R$ 13.000,01 / SBPE comum usado;assessment;841.44;não observado;;BRL

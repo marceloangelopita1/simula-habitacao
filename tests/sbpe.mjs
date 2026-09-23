@@ -75,5 +75,6 @@ assert.equal(simulate({...reference.input,sbpeVariant:'invalid'},catalog).ok,fal
 const mcmv={program:'mcmv',income:6000,propertyValue:350000,linkedProject:false};
 assert.equal(run({...mcmv,sbpeVariant:'linked'}).principal,run({...mcmv,sbpeVariant:'standard'}).principal);
 assert.equal(run({...mcmv,sbpeVariant:'linked'}).assessment,run({...mcmv,sbpeVariant:'standard'}).assessment);
-assert.equal(run({...mcmv,linkedProject:true}).assessment,0,'Dispensa MCMV continua disponível');
+assert.equal(run({...mcmv,linkedProject:true}).assessment,run(mcmv).assessment,'Vinculação MCMV não presume dispensa');
+assert.equal(run({...mcmv,linkedProject:true,assessmentOverride:0}).assessment,0,'Isenção oficial explícita continua disponível');
 console.log(JSON.stringify({suite:'SBPE 22/09/2026',cases:reference.cases.length,officialRows:rowCount,remainingDifferences},null,2));

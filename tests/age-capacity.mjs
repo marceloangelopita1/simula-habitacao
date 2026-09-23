@@ -25,12 +25,12 @@ for(const [fixture,birthDate] of [
   for(const field of ['date','balance','mip','dfi','adminFee','total'])assert.equal(actual[field],expected[field],`${fixture}: ${k+1} ${field}`);
   assert.equal(money(new Decimal(actual.amortization).plus(actual.interest)),expected.paymentPI,`${fixture}: ${k+1} prestação`);
  }
- // A estimativa de subsídio é uma limitação separada: não confundir o ajuste
- // do seguro/capacidade com uma homologação da entrada automática.
+ // A matriz de 22/09 confirmou desconto zero após o redutor. A entrada
+ // automática agora coincide sem precisar forçar o modo sem subsídio.
  const quick=simulate({...base,birthDate,subsidyMode:'quick'},catalog);
- assert.equal(quick.subsidy.amount,326);
+ assert.equal(quick.subsidy.amount,0);
  assert.equal(quick.principal,r.principal);
- assert.equal(money(quick.ownFunds+326),r.ownFunds);
+ assert.equal(quick.ownFunds,r.ownFunds);
  results.push({age:official.profile.entryAge,rows:420,principal:r.principal,cet:r.cet,cesh:r.cesh});
 }
 
