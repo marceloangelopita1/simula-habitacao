@@ -33,7 +33,7 @@ try{
  let saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('simula-habitacao.tests.v1')));
  assert.equal(saved[0].result.principal,434062.64);
  assert.equal(saved[0].result.insuranceModel,'mcmv');
- assert.equal(saved[0].result.ruleVersion,'2026-09-23.piloto.1');
+ assert.equal(saved[0].result.ruleVersion,'2026-09-23.piloto.2');
 
  // Subsídio, CET e a vinculação sem isenção automática.
  await initial('3578','264000');

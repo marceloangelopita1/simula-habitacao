@@ -17,10 +17,9 @@ for(const c of reference.cases){
  const r=run(c.input);
  results.set(c.id,r);
  for(const field of ['principal','ownFunds','firstSummary'])assert.equal(r[field],c.expected[field],`${c.id}: ${field}`);
- // A última do caso 314 mil ainda difere um centavo; não trocar a referência
- // oficial pelo resultado do motor nem anunciar coincidência integral.
+ // A regra SAC de 23/09 concilia também a última do imóvel de 314 mil.
  const delta=cents(new Decimal(r.lastSummary).minus(c.expected.lastSummary));
- assert.ok(Math.abs(delta)<=(c.id==='max-314000'?.01:0),`${c.id}: última parcela, diferença ${delta}`);
+ assert.equal(delta,0,`${c.id}: última parcela, diferença ${delta}`);
  if(delta)remainingDifferences.push({case:c.id,field:'lastSummary',delta});
  // A mesma composição de recursos deve funcionar pelo modo de entrada.
  const entry=run({...c.input,amountMode:'entry',ownFunds:c.expected.ownFunds});

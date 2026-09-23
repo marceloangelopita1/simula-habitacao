@@ -1,0 +1,154 @@
+{
+  "source": "https://simuladorhabitacao.caixa.gov.br/simulacao",
+  "observedOn": "2026-09-23",
+  "method": "Interface real do Chrome; valores transcritos antes de alterar o motor.",
+  "birthDateNote": "Data sintética preserva os reenquadramentos mensais do comprador observado.",
+  "input": {
+    "income": 15200,
+    "birthDate": "1988-02-01",
+    "simulationDate": "2026-09-23",
+    "family": "dependents",
+    "cotista": false,
+    "propertyType": "used",
+    "system": "SAC",
+    "months": 420,
+    "municipalityId": "3543402",
+    "program": "sbpe",
+    "sbpeVariant": "standard",
+    "relationship": "none",
+    "insurance": "basic",
+    "amountMode": "max",
+    "subsidyMode": "none"
+  },
+  "cases": [
+    {
+      "id": "C01",
+      "input": {
+        "propertyValue": 1500000
+      },
+      "expected": {
+        "principal": 360643.51,
+        "ownFunds": 1139356.49,
+        "firstSummary": 4321.84,
+        "lastSummary": 891.5
+      },
+      "plusFirstSummary": 4417.78,
+      "expandedFirstSummary": 4560,
+      "predictedBeforeObservation": false
+    },
+    {
+      "id": "C02",
+      "input": {
+        "propertyValue": 1400000
+      },
+      "expected": {
+        "principal": 362574.8,
+        "ownFunds": 1037425.2,
+        "firstSummary": 4337.72,
+        "lastSummary": 896.13
+      },
+      "plusFirstSummary": 4427.26,
+      "expandedFirstSummary": 4560,
+      "predictedBeforeObservation": false
+    },
+    {
+      "id": "C03",
+      "input": {
+        "propertyValue": 1600000
+      },
+      "expected": {
+        "principal": 358712.21,
+        "ownFunds": 1241287.79,
+        "firstSummary": 4305.95,
+        "lastSummary": 886.85
+      },
+      "plusFirstSummary": 4408.29,
+      "expandedFirstSummary": 4559.99,
+      "predictedBeforeObservation": false
+    },
+    {
+      "id": "C04",
+      "input": {
+        "propertyValue": 1600000,
+        "amountMode": "fixed",
+        "principal": 352800
+      },
+      "expected": {
+        "principal": 352800,
+        "ownFunds": 1247200,
+        "firstSummary": 4237.14,
+        "lastSummary": 872.65
+      },
+      "plusFirstSummary": 4339.48,
+      "expandedFirstSummary": 4491.18,
+      "predictedBeforeObservation": false
+    },
+    {
+      "id": "C05",
+      "input": {
+        "propertyValue": 1600000,
+        "amountMode": "fixed",
+        "principal": 350100
+      },
+      "expected": {
+        "principal": 350100,
+        "ownFunds": 1249900,
+        "firstSummary": 4205.72,
+        "lastSummary": 866.16
+      },
+      "plusFirstSummary": 4308.05,
+      "expandedFirstSummary": 4459.75,
+      "predictedBeforeObservation": false
+    },
+    {
+      "id": "C06",
+      "input": {
+        "propertyValue": 1600000,
+        "amountMode": "fixed",
+        "principal": 350348.97
+      },
+      "expected": {
+        "principal": 350348.97,
+        "ownFunds": 1249651.03,
+        "firstSummary": 4208.6,
+        "lastSummary": 866.75
+      },
+      "plusFirstSummary": 4310.94,
+      "expandedFirstSummary": 4462.64,
+      "predictedBeforeObservation": false
+    },
+    {
+      "id": "C07",
+      "input": {
+        "propertyValue": 1005000
+      },
+      "expected": {
+        "principal": 370202.04,
+        "ownFunds": 634797.96,
+        "firstSummary": 4400.42,
+        "lastSummary": 914.46
+      },
+      "plusFirstSummary": 4464.7,
+      "expandedFirstSummary": 4559.99,
+      "predictedBeforeObservation": true
+    },
+    {
+      "id": "C08",
+      "input": {
+        "propertyValue": 1005000,
+        "months": 419
+      },
+      "expected": {
+        "principal": 370021.16,
+        "ownFunds": 634978.84,
+        "firstSummary": 4400.42,
+        "lastSummary": 916.14
+      },
+      "plusFirstSummary": 4464.7,
+      "expandedFirstSummary": 4559.99,
+      "predictedBeforeObservation": true
+    }
+  ],
+  "scheduleCaseId": "C01",
+  "scheduleFile": "caixa-centavos-parcelas-2026-09-23.json"
+}

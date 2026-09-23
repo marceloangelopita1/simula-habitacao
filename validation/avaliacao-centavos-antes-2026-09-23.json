@@ -1,0 +1,4372 @@
+{
+  "ruleVersion": "2026-09-23.piloto.1",
+  "groups": [
+    {
+      "name": "centavos-2026-09-23",
+      "cases": [
+        {
+          "id": "C01",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 360643.51,
+              "actual": 360642.65,
+              "delta": -0.86
+            },
+            {
+              "field": "ownFunds",
+              "expected": 1139356.49,
+              "actual": 1139357.35,
+              "delta": 0.86
+            },
+            {
+              "field": "firstSummary",
+              "expected": 4321.84,
+              "actual": 4321.83,
+              "delta": -0.01
+            },
+            {
+              "field": "lastSummary",
+              "expected": 891.5,
+              "actual": 891.49,
+              "delta": -0.01
+            },
+            {
+              "field": "plusFirstSummary",
+              "expected": 4417.78,
+              "actual": 4417.77,
+              "delta": -0.01
+            },
+            {
+              "field": "expandedFirstSummary",
+              "expected": 4560,
+              "actual": 4560,
+              "delta": 0
+            }
+          ],
+          "differences": [
+            {
+              "field": "principal",
+              "expected": 360643.51,
+              "actual": 360642.65,
+              "delta": -0.86
+            },
+            {
+              "field": "ownFunds",
+              "expected": 1139356.49,
+              "actual": 1139357.35,
+              "delta": 0.86
+            },
+            {
+              "field": "firstSummary",
+              "expected": 4321.84,
+              "actual": 4321.83,
+              "delta": -0.01
+            },
+            {
+              "field": "lastSummary",
+              "expected": 891.5,
+              "actual": 891.49,
+              "delta": -0.01
+            },
+            {
+              "field": "plusFirstSummary",
+              "expected": 4417.78,
+              "actual": 4417.77,
+              "delta": -0.01
+            }
+          ]
+        },
+        {
+          "id": "C02",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 362574.8,
+              "actual": 362573.94,
+              "delta": -0.86
+            },
+            {
+              "field": "ownFunds",
+              "expected": 1037425.2,
+              "actual": 1037426.06,
+              "delta": 0.86
+            },
+            {
+              "field": "firstSummary",
+              "expected": 4337.72,
+              "actual": 4337.71,
+              "delta": -0.01
+            },
+            {
+              "field": "lastSummary",
+              "expected": 896.13,
+              "actual": 896.13,
+              "delta": 0
+            },
+            {
+              "field": "plusFirstSummary",
+              "expected": 4427.26,
+              "actual": 4427.25,
+              "delta": -0.01
+            },
+            {
+              "field": "expandedFirstSummary",
+              "expected": 4560,
+              "actual": 4560,
+              "delta": 0
+            }
+          ],
+          "differences": [
+            {
+              "field": "principal",
+              "expected": 362574.8,
+              "actual": 362573.94,
+              "delta": -0.86
+            },
+            {
+              "field": "ownFunds",
+              "expected": 1037425.2,
+              "actual": 1037426.06,
+              "delta": 0.86
+            },
+            {
+              "field": "firstSummary",
+              "expected": 4337.72,
+              "actual": 4337.71,
+              "delta": -0.01
+            },
+            {
+              "field": "plusFirstSummary",
+              "expected": 4427.26,
+              "actual": 4427.25,
+              "delta": -0.01
+            }
+          ]
+        },
+        {
+          "id": "C03",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 358712.21,
+              "actual": 358711.35,
+              "delta": -0.86
+            },
+            {
+              "field": "ownFunds",
+              "expected": 1241287.79,
+              "actual": 1241288.65,
+              "delta": 0.86
+            },
+            {
+              "field": "firstSummary",
+              "expected": 4305.95,
+              "actual": 4305.95,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 886.85,
+              "actual": 886.85,
+              "delta": 0
+            },
+            {
+              "field": "plusFirstSummary",
+              "expected": 4408.29,
+              "actual": 4408.29,
+              "delta": 0
+            },
+            {
+              "field": "expandedFirstSummary",
+              "expected": 4559.99,
+              "actual": 4560,
+              "delta": 0.01
+            }
+          ],
+          "differences": [
+            {
+              "field": "principal",
+              "expected": 358712.21,
+              "actual": 358711.35,
+              "delta": -0.86
+            },
+            {
+              "field": "ownFunds",
+              "expected": 1241287.79,
+              "actual": 1241288.65,
+              "delta": 0.86
+            },
+            {
+              "field": "expandedFirstSummary",
+              "expected": 4559.99,
+              "actual": 4560,
+              "delta": 0.01
+            }
+          ]
+        },
+        {
+          "id": "C04",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 352800,
+              "actual": 352800,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 1247200,
+              "actual": 1247200,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 4237.14,
+              "actual": 4237.14,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 872.65,
+              "actual": 872.65,
+              "delta": 0
+            },
+            {
+              "field": "plusFirstSummary",
+              "expected": 4339.48,
+              "actual": 4339.48,
+              "delta": 0
+            },
+            {
+              "field": "expandedFirstSummary",
+              "expected": 4491.18,
+              "actual": 4491.19,
+              "delta": 0.01
+            }
+          ],
+          "differences": [
+            {
+              "field": "expandedFirstSummary",
+              "expected": 4491.18,
+              "actual": 4491.19,
+              "delta": 0.01
+            }
+          ]
+        },
+        {
+          "id": "C05",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 350100,
+              "actual": 350100,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 1249900,
+              "actual": 1249900,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 4205.72,
+              "actual": 4205.72,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 866.16,
+              "actual": 866.16,
+              "delta": 0
+            },
+            {
+              "field": "plusFirstSummary",
+              "expected": 4308.05,
+              "actual": 4308.06,
+              "delta": 0.01
+            },
+            {
+              "field": "expandedFirstSummary",
+              "expected": 4459.75,
+              "actual": 4459.77,
+              "delta": 0.02
+            }
+          ],
+          "differences": [
+            {
+              "field": "plusFirstSummary",
+              "expected": 4308.05,
+              "actual": 4308.06,
+              "delta": 0.01
+            },
+            {
+              "field": "expandedFirstSummary",
+              "expected": 4459.75,
+              "actual": 4459.77,
+              "delta": 0.02
+            }
+          ]
+        },
+        {
+          "id": "C06",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 350348.97,
+              "actual": 350348.97,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 1249651.03,
+              "actual": 1249651.03,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 4208.6,
+              "actual": 4208.61,
+              "delta": 0.01
+            },
+            {
+              "field": "lastSummary",
+              "expected": 866.75,
+              "actual": 866.75,
+              "delta": 0
+            },
+            {
+              "field": "plusFirstSummary",
+              "expected": 4310.94,
+              "actual": 4310.95,
+              "delta": 0.01
+            },
+            {
+              "field": "expandedFirstSummary",
+              "expected": 4462.64,
+              "actual": 4462.66,
+              "delta": 0.02
+            }
+          ],
+          "differences": [
+            {
+              "field": "firstSummary",
+              "expected": 4208.6,
+              "actual": 4208.61,
+              "delta": 0.01
+            },
+            {
+              "field": "plusFirstSummary",
+              "expected": 4310.94,
+              "actual": 4310.95,
+              "delta": 0.01
+            },
+            {
+              "field": "expandedFirstSummary",
+              "expected": 4462.64,
+              "actual": 4462.66,
+              "delta": 0.02
+            }
+          ]
+        },
+        {
+          "id": "C07",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 370202.04,
+              "actual": 370202.04,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 634797.96,
+              "actual": 634797.96,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 4400.42,
+              "actual": 4400.43,
+              "delta": 0.01
+            },
+            {
+              "field": "lastSummary",
+              "expected": 914.46,
+              "actual": 914.46,
+              "delta": 0
+            },
+            {
+              "field": "plusFirstSummary",
+              "expected": 4464.7,
+              "actual": 4464.71,
+              "delta": 0.01
+            },
+            {
+              "field": "expandedFirstSummary",
+              "expected": 4559.99,
+              "actual": 4560,
+              "delta": 0.01
+            }
+          ],
+          "differences": [
+            {
+              "field": "firstSummary",
+              "expected": 4400.42,
+              "actual": 4400.43,
+              "delta": 0.01
+            },
+            {
+              "field": "plusFirstSummary",
+              "expected": 4464.7,
+              "actual": 4464.71,
+              "delta": 0.01
+            },
+            {
+              "field": "expandedFirstSummary",
+              "expected": 4559.99,
+              "actual": 4560,
+              "delta": 0.01
+            }
+          ]
+        },
+        {
+          "id": "C08",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 370021.16,
+              "actual": 370021.16,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 634978.84,
+              "actual": 634978.84,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 4400.42,
+              "actual": 4400.42,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 916.14,
+              "actual": 916.15,
+              "delta": 0.01
+            },
+            {
+              "field": "plusFirstSummary",
+              "expected": 4464.7,
+              "actual": 4464.7,
+              "delta": 0
+            },
+            {
+              "field": "expandedFirstSummary",
+              "expected": 4559.99,
+              "actual": 4559.99,
+              "delta": 0
+            }
+          ],
+          "differences": [
+            {
+              "field": "lastSummary",
+              "expected": 916.14,
+              "actual": 916.15,
+              "delta": 0.01
+            }
+          ]
+        }
+      ],
+      "metrics": 48,
+      "exact": 26,
+      "differences": [
+        {
+          "case": "C01",
+          "field": "principal",
+          "expected": 360643.51,
+          "actual": 360642.65,
+          "delta": -0.86
+        },
+        {
+          "case": "C01",
+          "field": "ownFunds",
+          "expected": 1139356.49,
+          "actual": 1139357.35,
+          "delta": 0.86
+        },
+        {
+          "case": "C01",
+          "field": "firstSummary",
+          "expected": 4321.84,
+          "actual": 4321.83,
+          "delta": -0.01
+        },
+        {
+          "case": "C01",
+          "field": "lastSummary",
+          "expected": 891.5,
+          "actual": 891.49,
+          "delta": -0.01
+        },
+        {
+          "case": "C01",
+          "field": "plusFirstSummary",
+          "expected": 4417.78,
+          "actual": 4417.77,
+          "delta": -0.01
+        },
+        {
+          "case": "C02",
+          "field": "principal",
+          "expected": 362574.8,
+          "actual": 362573.94,
+          "delta": -0.86
+        },
+        {
+          "case": "C02",
+          "field": "ownFunds",
+          "expected": 1037425.2,
+          "actual": 1037426.06,
+          "delta": 0.86
+        },
+        {
+          "case": "C02",
+          "field": "firstSummary",
+          "expected": 4337.72,
+          "actual": 4337.71,
+          "delta": -0.01
+        },
+        {
+          "case": "C02",
+          "field": "plusFirstSummary",
+          "expected": 4427.26,
+          "actual": 4427.25,
+          "delta": -0.01
+        },
+        {
+          "case": "C03",
+          "field": "principal",
+          "expected": 358712.21,
+          "actual": 358711.35,
+          "delta": -0.86
+        },
+        {
+          "case": "C03",
+          "field": "ownFunds",
+          "expected": 1241287.79,
+          "actual": 1241288.65,
+          "delta": 0.86
+        },
+        {
+          "case": "C03",
+          "field": "expandedFirstSummary",
+          "expected": 4559.99,
+          "actual": 4560,
+          "delta": 0.01
+        },
+        {
+          "case": "C04",
+          "field": "expandedFirstSummary",
+          "expected": 4491.18,
+          "actual": 4491.19,
+          "delta": 0.01
+        },
+        {
+          "case": "C05",
+          "field": "plusFirstSummary",
+          "expected": 4308.05,
+          "actual": 4308.06,
+          "delta": 0.01
+        },
+        {
+          "case": "C05",
+          "field": "expandedFirstSummary",
+          "expected": 4459.75,
+          "actual": 4459.77,
+          "delta": 0.02
+        },
+        {
+          "case": "C06",
+          "field": "firstSummary",
+          "expected": 4208.6,
+          "actual": 4208.61,
+          "delta": 0.01
+        },
+        {
+          "case": "C06",
+          "field": "plusFirstSummary",
+          "expected": 4310.94,
+          "actual": 4310.95,
+          "delta": 0.01
+        },
+        {
+          "case": "C06",
+          "field": "expandedFirstSummary",
+          "expected": 4462.64,
+          "actual": 4462.66,
+          "delta": 0.02
+        },
+        {
+          "case": "C07",
+          "field": "firstSummary",
+          "expected": 4400.42,
+          "actual": 4400.43,
+          "delta": 0.01
+        },
+        {
+          "case": "C07",
+          "field": "plusFirstSummary",
+          "expected": 4464.7,
+          "actual": 4464.71,
+          "delta": 0.01
+        },
+        {
+          "case": "C07",
+          "field": "expandedFirstSummary",
+          "expected": 4559.99,
+          "actual": 4560,
+          "delta": 0.01
+        },
+        {
+          "case": "C08",
+          "field": "lastSummary",
+          "expected": 916.14,
+          "actual": 916.15,
+          "delta": 0.01
+        }
+      ]
+    },
+    {
+      "name": "arredondamento-2026-09-22",
+      "cases": [
+        {
+          "id": "original-315000",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 194480.86,
+              "actual": 194480.86,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 120519.14,
+              "actual": 120519.14,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 1779.85,
+              "actual": 1779.85,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 491.01,
+              "actual": 491.01,
+              "delta": 0
+            },
+            {
+              "field": "plusFirstSummary",
+              "expected": 1800,
+              "actual": 1800,
+              "delta": 0
+            }
+          ],
+          "differences": []
+        },
+        {
+          "id": "max-314000",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 194495.45,
+              "actual": 194495.45,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 119504.55,
+              "actual": 119504.55,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 1779.91,
+              "actual": 1779.91,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 491.05,
+              "actual": 491.04,
+              "delta": -0.01
+            },
+            {
+              "field": "plusFirstSummary",
+              "expected": 1800,
+              "actual": 1799.99,
+              "delta": -0.01
+            }
+          ],
+          "differences": [
+            {
+              "field": "lastSummary",
+              "expected": 491.05,
+              "actual": 491.04,
+              "delta": -0.01
+            },
+            {
+              "field": "plusFirstSummary",
+              "expected": 1800,
+              "actual": 1799.99,
+              "delta": -0.01
+            }
+          ]
+        },
+        {
+          "id": "max-325000",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 194329.32,
+              "actual": 194329.32,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 130670.68,
+              "actual": 130670.68,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 1779.21,
+              "actual": 1779.21,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 490.64,
+              "actual": 490.64,
+              "delta": 0
+            },
+            {
+              "field": "plusFirstSummary",
+              "expected": 1800,
+              "actual": 1800,
+              "delta": 0
+            }
+          ],
+          "differences": []
+        },
+        {
+          "id": "max-316000",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 194465.14,
+              "actual": 194465.14,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 121534.86,
+              "actual": 121534.86,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 1779.78,
+              "actual": 1779.78,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 490.97,
+              "actual": 490.97,
+              "delta": 0
+            },
+            {
+              "field": "plusFirstSummary",
+              "expected": 1799.99,
+              "actual": 1799.99,
+              "delta": 0
+            }
+          ],
+          "differences": []
+        },
+        {
+          "id": "fixed-190000",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 190000,
+              "actual": 190000,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 125000,
+              "actual": 125000,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 1739.93,
+              "actual": 1739.93,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 480.27,
+              "actual": 480.27,
+              "delta": 0
+            }
+          ],
+          "differences": []
+        },
+        {
+          "id": "fixed-180000",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 180000,
+              "actual": 180000,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 136000,
+              "actual": 136000,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 1650.93,
+              "actual": 1650.93,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 456.31,
+              "actual": 456.31,
+              "delta": 0
+            },
+            {
+              "field": "plusFirstSummary",
+              "expected": 1671.14,
+              "actual": 1671.14,
+              "delta": 0
+            }
+          ],
+          "differences": []
+        },
+        {
+          "id": "tie-up",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 180687.5,
+              "actual": 180687.5,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 135312.5,
+              "actual": 135312.5,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 1657.05,
+              "actual": 1657.05,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 457.96,
+              "actual": 457.96,
+              "delta": 0
+            }
+          ],
+          "differences": []
+        },
+        {
+          "id": "tie-down",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 180062.5,
+              "actual": 180062.5,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 135937.5,
+              "actual": 135937.5,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 1651.47,
+              "actual": 1651.47,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 456.46,
+              "actual": 456.46,
+              "delta": 0
+            }
+          ],
+          "differences": []
+        }
+      ],
+      "metrics": 37,
+      "exact": 35,
+      "differences": [
+        {
+          "case": "max-314000",
+          "field": "lastSummary",
+          "expected": 491.05,
+          "actual": 491.04,
+          "delta": -0.01
+        },
+        {
+          "case": "max-314000",
+          "field": "plusFirstSummary",
+          "expected": 1800,
+          "actual": 1799.99,
+          "delta": -0.01
+        }
+      ]
+    },
+    {
+      "name": "sbpe-2026-09-22",
+      "cases": [
+        {
+          "id": "linked-sac-original",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 530386.96,
+              "actual": 530386.96,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 249613.04,
+              "actual": 249613.04,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 90,
+              "actual": 90,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 6250.11,
+              "actual": 6250.11,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 1299.33,
+              "actual": 1299.33,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 12.23,
+              "actual": 12.23,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 4.86,
+              "actual": 4.86,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 1546917.16,
+              "actual": 1546917.16,
+              "delta": 0
+            },
+            {
+              "field": "plusFirstSummary",
+              "expected": 6300,
+              "actual": 6300,
+              "delta": 0
+            }
+          ],
+          "differences": []
+        },
+        {
+          "id": "linked-sac-360",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 512900.97,
+              "actual": 512900.97,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 267099.03,
+              "actual": 267099.03,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 90,
+              "actual": 90,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 6250.11,
+              "actual": 6250.11,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 1462.69,
+              "actual": 1462.69,
+              "delta": 0
+            }
+          ],
+          "differences": []
+        },
+        {
+          "id": "linked-price-360",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 532531.01,
+              "actual": 532531.01,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 247468.99,
+              "actual": 247468.99,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 5200.11,
+              "actual": 5200.11,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 5066.62,
+              "actual": 5066.62,
+              "delta": 0
+            }
+          ],
+          "differences": []
+        },
+        {
+          "id": "standard-sac-780000",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 524033.79,
+              "actual": 524032.93,
+              "delta": -0.86
+            },
+            {
+              "field": "ownFunds",
+              "expected": 255966.21,
+              "actual": 255967.07,
+              "delta": 0.86
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 6176.15,
+              "actual": 6176.15,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 1284.05,
+              "actual": 1284.06,
+              "delta": 0.01
+            },
+            {
+              "field": "plusFirstSummary",
+              "expected": 6226.04,
+              "actual": 6226.04,
+              "delta": 0
+            },
+            {
+              "field": "expandedFirstSummary",
+              "expected": 6299.99,
+              "actual": 6300,
+              "delta": 0.01
+            }
+          ],
+          "differences": [
+            {
+              "field": "principal",
+              "expected": 524033.79,
+              "actual": 524032.93,
+              "delta": -0.86
+            },
+            {
+              "field": "ownFunds",
+              "expected": 255966.21,
+              "actual": 255967.07,
+              "delta": 0.86
+            },
+            {
+              "field": "lastSummary",
+              "expected": 1284.05,
+              "actual": 1284.06,
+              "delta": 0.01
+            },
+            {
+              "field": "expandedFirstSummary",
+              "expected": 6299.99,
+              "actual": 6300,
+              "delta": 0.01
+            }
+          ]
+        },
+        {
+          "id": "linked-sac-quota-400000",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 360000,
+              "actual": 360000,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 40000,
+              "actual": 40000,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 90,
+              "actual": 90,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 4241.75,
+              "actual": 4241.75,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 889.94,
+              "actual": 889.94,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 12.23,
+              "actual": 12.23,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 4.57,
+              "actual": 4.57,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 1049971.7,
+              "actual": 1049972.9,
+              "delta": 1.2
+            },
+            {
+              "field": "plusFirstSummary",
+              "expected": 4267.33,
+              "actual": 4267.33,
+              "delta": 0
+            }
+          ],
+          "differences": [
+            {
+              "field": "paymentPITotal",
+              "expected": 1049971.7,
+              "actual": 1049972.9,
+              "delta": 1.2
+            }
+          ]
+        },
+        {
+          "id": "linked-sac-age69",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 310278.8,
+              "actual": 310278.8,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 89721.2,
+              "actual": 89721.2,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 90,
+              "actual": 90,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 130,
+              "actual": 130,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 6274.42,
+              "actual": 6274.42,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 2433.49,
+              "actual": 2433.49,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 17.81,
+              "actual": 17.81,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 21.54,
+              "actual": 21.54,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 495320.47,
+              "actual": 495320.47,
+              "delta": 0
+            },
+            {
+              "field": "plusFirstSummary",
+              "expected": 6300,
+              "actual": 6300,
+              "delta": 0
+            }
+          ],
+          "differences": []
+        },
+        {
+          "id": "linked-price-age69",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 315183.58,
+              "actual": 315183.58,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 84816.42,
+              "actual": 84816.42,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 130,
+              "actual": 130,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 5224.42,
+              "actual": 5224.42,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 4170.84,
+              "actual": 4170.84,
+              "delta": 0
+            }
+          ],
+          "differences": []
+        }
+      ],
+      "metrics": 52,
+      "exact": 47,
+      "differences": [
+        {
+          "case": "standard-sac-780000",
+          "field": "principal",
+          "expected": 524033.79,
+          "actual": 524032.93,
+          "delta": -0.86
+        },
+        {
+          "case": "standard-sac-780000",
+          "field": "ownFunds",
+          "expected": 255966.21,
+          "actual": 255967.07,
+          "delta": 0.86
+        },
+        {
+          "case": "standard-sac-780000",
+          "field": "lastSummary",
+          "expected": 1284.05,
+          "actual": 1284.06,
+          "delta": 0.01
+        },
+        {
+          "case": "standard-sac-780000",
+          "field": "expandedFirstSummary",
+          "expected": 6299.99,
+          "actual": 6300,
+          "delta": 0.01
+        },
+        {
+          "case": "linked-sac-quota-400000",
+          "field": "paymentPITotal",
+          "expected": 1049971.7,
+          "actual": 1049972.9,
+          "delta": 1.2
+        }
+      ]
+    },
+    {
+      "name": "matriz-independente",
+      "cases": [
+        {
+          "id": "S01",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 530386.96,
+              "actual": 530386.96,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 249613.04,
+              "actual": 249613.04,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 90,
+              "actual": 90,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 11.49,
+              "actual": 11.49,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 6250.11,
+              "actual": 6250.11,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 1299.33,
+              "actual": 1299.33,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 12.23,
+              "actual": 12.23,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 4.86,
+              "actual": 4.86,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 1546917.16,
+              "actual": 1546917.16,
+              "delta": 0
+            },
+            {
+              "field": "adminFee",
+              "expected": 25,
+              "actual": 25,
+              "delta": 0
+            }
+          ],
+          "differences": [
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            }
+          ]
+        },
+        {
+          "id": "S02",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 530386.96,
+              "actual": 530386.96,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 249613.04,
+              "actual": 249613.04,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 90,
+              "actual": 90,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 11.49,
+              "actual": 11.49,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 6300,
+              "actual": 6300,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 1299.33,
+              "actual": 1299.33,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 12.39,
+              "actual": 12.39,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 5.99,
+              "actual": 5.99,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 1546917.16,
+              "actual": 1546917.16,
+              "delta": 0
+            },
+            {
+              "field": "adminFee",
+              "expected": 25,
+              "actual": 25,
+              "delta": 0
+            }
+          ],
+          "differences": [
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            }
+          ]
+        },
+        {
+          "id": "S03",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 512900.97,
+              "actual": 512900.97,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 267099.03,
+              "actual": 267099.03,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 90,
+              "actual": 90,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 360,
+              "actual": 360,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 11.49,
+              "actual": 11.49,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 6300,
+              "actual": 6300,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 1462.69,
+              "actual": 1462.69,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 12.38,
+              "actual": 12.38,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 5.41,
+              "actual": 5.41,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 1355822.77,
+              "actual": 1355824.54,
+              "delta": 1.77
+            }
+          ],
+          "differences": [
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 1355822.77,
+              "actual": 1355824.54,
+              "delta": 1.77
+            }
+          ]
+        },
+        {
+          "id": "S04",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 512900.97,
+              "actual": 512900.97,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 267099.03,
+              "actual": 267099.03,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 360,
+              "actual": 360,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 11.49,
+              "actual": 11.49,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 5061.14,
+              "actual": 5061.14,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 4880.78,
+              "actual": 4880.78,
+              "delta": 0
+            }
+          ],
+          "differences": [
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            }
+          ]
+        },
+        {
+          "id": "S05",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 532531.01,
+              "actual": 532531.01,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 247468.99,
+              "actual": 247468.99,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 360,
+              "actual": 360,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 11.49,
+              "actual": 11.49,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 5200.11,
+              "actual": 5200.11,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 5066.62,
+              "actual": 5066.62,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 12.24,
+              "actual": 12.24,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 5.87,
+              "actual": 5.87,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 1814989.69,
+              "actual": 1814989.69,
+              "delta": 0
+            }
+          ],
+          "differences": [
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            }
+          ]
+        },
+        {
+          "id": "S06",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 532531.01,
+              "actual": 532531.01,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 247468.99,
+              "actual": 247468.99,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 360,
+              "actual": 360,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 11.49,
+              "actual": 11.49,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 5250,
+              "actual": 5250,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 5066.62,
+              "actual": 5066.62,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 12.37,
+              "actual": 12.37,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 6.98,
+              "actual": 6.98,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 1814989.69,
+              "actual": 1814989.69,
+              "delta": 0
+            }
+          ],
+          "differences": [
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            }
+          ]
+        },
+        {
+          "id": "S07",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 524033.79,
+              "actual": 524032.93,
+              "delta": -0.86
+            },
+            {
+              "field": "ownFunds",
+              "expected": 255966.21,
+              "actual": 255967.07,
+              "delta": 0.86
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 11.49,
+              "actual": 11.49,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 6176.15,
+              "actual": 6176.15,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 1284.05,
+              "actual": 1284.06,
+              "delta": 0.01
+            },
+            {
+              "field": "cet",
+              "expected": 12.26,
+              "actual": 12.26,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 4.87,
+              "actual": 4.87,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 1528388.86,
+              "actual": 1528385.58,
+              "delta": -3.28
+            }
+          ],
+          "differences": [
+            {
+              "field": "principal",
+              "expected": 524033.79,
+              "actual": 524032.93,
+              "delta": -0.86
+            },
+            {
+              "field": "ownFunds",
+              "expected": 255966.21,
+              "actual": 255967.07,
+              "delta": 0.86
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            },
+            {
+              "field": "lastSummary",
+              "expected": 1284.05,
+              "actual": 1284.06,
+              "delta": 0.01
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 1528388.86,
+              "actual": 1528385.58,
+              "delta": -3.28
+            }
+          ]
+        },
+        {
+          "id": "S08",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 524033.79,
+              "actual": 524032.93,
+              "delta": -0.86
+            },
+            {
+              "field": "ownFunds",
+              "expected": 255966.21,
+              "actual": 255967.07,
+              "delta": 0.86
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 11.49,
+              "actual": 11.49,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 6226.04,
+              "actual": 6226.04,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 1284.05,
+              "actual": 1284.06,
+              "delta": 0.01
+            },
+            {
+              "field": "cet",
+              "expected": 12.43,
+              "actual": 12.42,
+              "delta": -0.01
+            },
+            {
+              "field": "cesh",
+              "expected": 6.02,
+              "actual": 6.02,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 1528388.86,
+              "actual": 1528385.58,
+              "delta": -3.28
+            }
+          ],
+          "differences": [
+            {
+              "field": "principal",
+              "expected": 524033.79,
+              "actual": 524032.93,
+              "delta": -0.86
+            },
+            {
+              "field": "ownFunds",
+              "expected": 255966.21,
+              "actual": 255967.07,
+              "delta": 0.86
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            },
+            {
+              "field": "lastSummary",
+              "expected": 1284.05,
+              "actual": 1284.06,
+              "delta": 0.01
+            },
+            {
+              "field": "cet",
+              "expected": 12.43,
+              "actual": 12.42,
+              "delta": -0.01
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 1528388.86,
+              "actual": 1528385.58,
+              "delta": -3.28
+            }
+          ]
+        },
+        {
+          "id": "S09",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 524033.79,
+              "actual": 524032.93,
+              "delta": -0.86
+            },
+            {
+              "field": "ownFunds",
+              "expected": 255966.21,
+              "actual": 255967.07,
+              "delta": 0.86
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 11.49,
+              "actual": 11.49,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 6299.99,
+              "actual": 6300,
+              "delta": 0.01
+            },
+            {
+              "field": "lastSummary",
+              "expected": 1284.05,
+              "actual": 1284.06,
+              "delta": 0.01
+            },
+            {
+              "field": "cet",
+              "expected": 12.66,
+              "actual": 12.66,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 7.72,
+              "actual": 7.72,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 1528388.86,
+              "actual": 1528385.58,
+              "delta": -3.28
+            },
+            {
+              "field": "adminFee",
+              "expected": 25,
+              "actual": 25,
+              "delta": 0
+            }
+          ],
+          "differences": [
+            {
+              "field": "principal",
+              "expected": 524033.79,
+              "actual": 524032.93,
+              "delta": -0.86
+            },
+            {
+              "field": "ownFunds",
+              "expected": 255966.21,
+              "actual": 255967.07,
+              "delta": 0.86
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            },
+            {
+              "field": "firstSummary",
+              "expected": 6299.99,
+              "actual": 6300,
+              "delta": 0.01
+            },
+            {
+              "field": "lastSummary",
+              "expected": 1284.05,
+              "actual": 1284.06,
+              "delta": 0.01
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 1528388.86,
+              "actual": 1528385.58,
+              "delta": -3.28
+            }
+          ]
+        },
+        {
+          "id": "S10",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 320000,
+              "actual": 320000,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 80000,
+              "actual": 80000,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 8.66,
+              "actual": 8.66,
+              "delta": 0
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 9.01,
+              "actual": 9.01,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 3171.91,
+              "actual": 3171.91,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 792.4,
+              "actual": 792.4,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 10.06,
+              "actual": 10.06,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 4.68,
+              "actual": 4.68,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 806115.76,
+              "actual": 806117.76,
+              "delta": 2
+            }
+          ],
+          "differences": [
+            {
+              "field": "paymentPITotal",
+              "expected": 806115.76,
+              "actual": 806117.76,
+              "delta": 2
+            }
+          ]
+        },
+        {
+          "id": "S11",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 360000,
+              "actual": 360000,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 40000,
+              "actual": 40000,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 90,
+              "actual": 90,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 11.49,
+              "actual": 11.49,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 4241.75,
+              "actual": 4241.75,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 889.94,
+              "actual": 889.94,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 12.23,
+              "actual": 12.23,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 4.57,
+              "actual": 4.57,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 1049971.7,
+              "actual": 1049972.9,
+              "delta": 1.2
+            }
+          ],
+          "differences": [
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 1049971.7,
+              "actual": 1049972.9,
+              "delta": 1.2
+            }
+          ]
+        },
+        {
+          "id": "S12",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 310278.8,
+              "actual": 310278.8,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 89721.2,
+              "actual": 89721.2,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 90,
+              "actual": 90,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 130,
+              "actual": 130,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 11.49,
+              "actual": 11.49,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 6274.42,
+              "actual": 6274.42,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 2433.49,
+              "actual": 2433.49,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 17.81,
+              "actual": 17.81,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 21.54,
+              "actual": 21.54,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 495320.47,
+              "actual": 495320.47,
+              "delta": 0
+            }
+          ],
+          "differences": [
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            }
+          ]
+        },
+        {
+          "id": "S13",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 111628.73,
+              "actual": 111628.73,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 288371.27,
+              "actual": 288371.27,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 7.66,
+              "actual": 7.66,
+              "delta": 0
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 7.93,
+              "actual": 7.93,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 1047.81,
+              "actual": 1047.81,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 292.48,
+              "actual": 292.48,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 9.44,
+              "actual": 9.44,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 6.02,
+              "actual": 6.02,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 261623.77,
+              "actual": 261624.9,
+              "delta": 1.13
+            }
+          ],
+          "differences": [
+            {
+              "field": "paymentPITotal",
+              "expected": 261623.77,
+              "actual": 261624.9,
+              "delta": 1.13
+            }
+          ]
+        },
+        {
+          "id": "S14",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 142477.5,
+              "actual": 142477.5,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 121522.5,
+              "actual": 121522.5,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 5.5,
+              "actual": 5.5,
+              "delta": 0
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 5.64,
+              "actual": 5.64,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 1056.51,
+              "actual": 1056.51,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 365.78,
+              "actual": 365.78,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 6.87,
+              "actual": 6.87,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 4.54,
+              "actual": 4.54,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 279938.59,
+              "actual": 279939.49,
+              "delta": 0.9
+            }
+          ],
+          "differences": [
+            {
+              "field": "paymentPITotal",
+              "expected": 279938.59,
+              "actual": 279939.49,
+              "delta": 0.9
+            }
+          ]
+        },
+        {
+          "id": "S15",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 183667.14,
+              "actual": 183667.14,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 80332.86,
+              "actual": 80332.86,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 5.5,
+              "actual": 5.5,
+              "delta": 0
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 5.64,
+              "actual": 5.64,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 1056.51,
+              "actual": 1056.51,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 1011.32,
+              "actual": 1011.32,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 6.71,
+              "actual": 6.71,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 5.02,
+              "actual": 5.02,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 414257.84,
+              "actual": 414257.84,
+              "delta": 0
+            }
+          ],
+          "differences": []
+        },
+        {
+          "id": "S16",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 100000,
+              "actual": 100000,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 164000,
+              "actual": 164000,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 5.5,
+              "actual": 5.5,
+              "delta": 0
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 5.64,
+              "actual": 5.64,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 595.16,
+              "actual": 595.16,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 562.02,
+              "actual": 562.02,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 7.02,
+              "actual": 7.02,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 6.05,
+              "actual": 6.05,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 225543.54,
+              "actual": 225543.54,
+              "delta": 0
+            }
+          ],
+          "differences": []
+        },
+        {
+          "id": "S17",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 142477.5,
+              "actual": 142477.5,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 121522.5,
+              "actual": 121522.5,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 5.5,
+              "actual": 5.5,
+              "delta": 0
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 5.64,
+              "actual": 5.64,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 1056.51,
+              "actual": 1056.51,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 365.78,
+              "actual": 365.78,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 6.87,
+              "actual": 6.87,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 4.54,
+              "actual": 4.54,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 279938.59,
+              "actual": 279939.49,
+              "delta": 0.9
+            }
+          ],
+          "differences": [
+            {
+              "field": "paymentPITotal",
+              "expected": 279938.59,
+              "actual": 279939.49,
+              "delta": 0.9
+            }
+          ]
+        },
+        {
+          "id": "S18",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 142477.5,
+              "actual": 142477.5,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 121522.5,
+              "actual": 121522.5,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 5.5,
+              "actual": 5.5,
+              "delta": 0
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 5.64,
+              "actual": 5.64,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 1056.51,
+              "actual": 1056.51,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 365.78,
+              "actual": 365.78,
+              "delta": 0
+            }
+          ],
+          "differences": []
+        },
+        {
+          "id": "S19",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 142477.5,
+              "actual": 142477.5,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 119348.5,
+              "actual": 119348.5,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 2174,
+              "actual": 2174,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 5.5,
+              "actual": 5.5,
+              "delta": 0
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 5.64,
+              "actual": 5.64,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 1056.51,
+              "actual": 1056.51,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 365.78,
+              "actual": 365.78,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 6.7,
+              "actual": 6.7,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 4.54,
+              "actual": 4.54,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 279938.59,
+              "actual": 279939.49,
+              "delta": 0.9
+            }
+          ],
+          "differences": [
+            {
+              "field": "paymentPITotal",
+              "expected": 279938.59,
+              "actual": 279939.49,
+              "delta": 0.9
+            }
+          ]
+        },
+        {
+          "id": "S20",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 142477.5,
+              "actual": 142477.5,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 119348.5,
+              "actual": 119348.5,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 2174,
+              "actual": 2174,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 5.5,
+              "actual": 5.5,
+              "delta": 0
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 5.64,
+              "actual": 5.64,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 1056.51,
+              "actual": 1056.51,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 365.78,
+              "actual": 365.78,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 6.7,
+              "actual": 6.7,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 4.54,
+              "actual": 4.54,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 279938.59,
+              "actual": 279939.49,
+              "delta": 0.9
+            }
+          ],
+          "differences": [
+            {
+              "field": "paymentPITotal",
+              "expected": 279938.59,
+              "actual": 279939.49,
+              "delta": 0.9
+            }
+          ]
+        },
+        {
+          "id": "S21",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 130577.93,
+              "actual": 130577.93,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 121489.07,
+              "actual": 121489.07,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 11933,
+              "actual": 11933,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 4.5,
+              "actual": 4.5,
+              "delta": 0
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 4.59,
+              "actual": 4.59,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 838.11,
+              "actual": 838.11,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 312.07,
+              "actual": 312.07,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 4.69,
+              "actual": 4.69,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 4.68,
+              "actual": 4.68,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 233652.94,
+              "actual": 233652.94,
+              "delta": 0
+            }
+          ],
+          "differences": []
+        },
+        {
+          "id": "S22",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 122526.4,
+              "actual": 122526.4,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 129409.6,
+              "actual": 129409.6,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 12064,
+              "actual": 12064,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 4.75,
+              "actual": 4.75,
+              "delta": 0
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 4.85,
+              "actual": 4.85,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 838.11,
+              "actual": 838.11,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 317.87,
+              "actual": 317.88,
+              "delta": 0.01
+            },
+            {
+              "field": "cet",
+              "expected": 5.24,
+              "actual": 5.24,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 4.79,
+              "actual": 4.79,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 224619.04,
+              "actual": 224619.04,
+              "delta": 0
+            }
+          ],
+          "differences": [
+            {
+              "field": "lastSummary",
+              "expected": 317.87,
+              "actual": 317.88,
+              "delta": 0.01
+            }
+          ]
+        },
+        {
+          "id": "S23",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 115127.35,
+              "actual": 115127.35,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 136565.65,
+              "actual": 136565.65,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 12307,
+              "actual": 12307,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 5.25,
+              "actual": 5.25,
+              "delta": 0
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 5.38,
+              "actual": 5.38,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 838.11,
+              "actual": 838.11,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 300.31,
+              "actual": 300.31,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 5.67,
+              "actual": 5.67,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 4.91,
+              "actual": 4.91,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 221152.44,
+              "actual": 221153.59,
+              "delta": 1.15
+            }
+          ],
+          "differences": [
+            {
+              "field": "paymentPITotal",
+              "expected": 221152.44,
+              "actual": 221153.59,
+              "delta": 1.15
+            }
+          ]
+        },
+        {
+          "id": "S24",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 118711.78,
+              "actual": 118711.78,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 133215.22,
+              "actual": 133215.22,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 12073,
+              "actual": 12073,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 5,
+              "actual": 5,
+              "delta": 0
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 5.12,
+              "actual": 5.12,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 838.11,
+              "actual": 838.11,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 308.82,
+              "actual": 308.83,
+              "delta": 0.01
+            },
+            {
+              "field": "cet",
+              "expected": 5.46,
+              "actual": 5.46,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 4.85,
+              "actual": 4.85,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 222832.05,
+              "actual": 222832.05,
+              "delta": 0
+            }
+          ],
+          "differences": [
+            {
+              "field": "lastSummary",
+              "expected": 308.82,
+              "actual": 308.83,
+              "delta": 0.01
+            }
+          ]
+        },
+        {
+          "id": "S25",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 434062.64,
+              "actual": 434062.64,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 165937.36,
+              "actual": 165937.36,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 10,
+              "actual": 10,
+              "delta": 0
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 10.47,
+              "actual": 10.47,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 3861.63,
+              "actual": 3861.62,
+              "delta": -0.01
+            },
+            {
+              "field": "lastSummary",
+              "expected": 3756.52,
+              "actual": 3756.52,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 11.38,
+              "actual": 11.38,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 5.48,
+              "actual": 5.48,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 1567226.73,
+              "actual": 1567226.73,
+              "delta": 0
+            }
+          ],
+          "differences": [
+            {
+              "field": "firstSummary",
+              "expected": 3861.63,
+              "actual": 3861.62,
+              "delta": -0.01
+            }
+          ]
+        },
+        {
+          "id": "S26",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 434062.64,
+              "actual": 434062.64,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 165937.36,
+              "actual": 165937.36,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 10,
+              "actual": 10,
+              "delta": 0
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 10.47,
+              "actual": 10.47,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 3861.63,
+              "actual": 3861.62,
+              "delta": -0.01
+            },
+            {
+              "field": "lastSummary",
+              "expected": 3756.52,
+              "actual": 3756.52,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 11.38,
+              "actual": 11.38,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 5.48,
+              "actual": 5.48,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 1567226.73,
+              "actual": 1567226.73,
+              "delta": 0
+            }
+          ],
+          "differences": [
+            {
+              "field": "firstSummary",
+              "expected": 3861.63,
+              "actual": 3861.62,
+              "delta": -0.01
+            }
+          ]
+        },
+        {
+          "id": "S27",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 360000,
+              "actual": 360000,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 240000,
+              "actual": 240000,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 60,
+              "actual": 60,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 10,
+              "actual": 10,
+              "delta": 0
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 10.47,
+              "actual": 10.47,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 3214.26,
+              "actual": 3214.26,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 3119.82,
+              "actual": 3119.82,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 11.42,
+              "actual": 11.42,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 5.72,
+              "actual": 5.72,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 1299827.08,
+              "actual": 1299827.08,
+              "delta": 0
+            },
+            {
+              "field": "adminFee",
+              "expected": 25,
+              "actual": 25,
+              "delta": 0
+            }
+          ],
+          "differences": []
+        },
+        {
+          "id": "S28",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 349412.61,
+              "actual": 349412.61,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 250587.39,
+              "actual": 250587.39,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 60,
+              "actual": 60,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 10,
+              "actual": 10,
+              "delta": 0
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 10.47,
+              "actual": 10.47,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 3861.62,
+              "actual": 3861.62,
+              "delta": 0
+            },
+            {
+              "field": "lastSummary",
+              "expected": 863.86,
+              "actual": 863.86,
+              "delta": 0
+            },
+            {
+              "field": "cet",
+              "expected": 11.47,
+              "actual": 11.47,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 4.42,
+              "actual": 4.42,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 962342.12,
+              "actual": 962344.13,
+              "delta": 2.01
+            }
+          ],
+          "differences": [
+            {
+              "field": "paymentPITotal",
+              "expected": 962342.12,
+              "actual": 962344.13,
+              "delta": 2.01
+            }
+          ]
+        },
+        {
+          "id": "S29",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 300064.85,
+              "actual": 300064.85,
+              "delta": 0
+            },
+            {
+              "field": "ownFunds",
+              "expected": 299935.15,
+              "actual": 299935.15,
+              "delta": 0
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 60,
+              "actual": 60,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 240,
+              "actual": 240,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 10,
+              "actual": 10,
+              "delta": 0
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 10.47,
+              "actual": 10.47,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 3861.61,
+              "actual": 3861.62,
+              "delta": 0.01
+            },
+            {
+              "field": "lastSummary",
+              "expected": 1285.68,
+              "actual": 1285.69,
+              "delta": 0.01
+            },
+            {
+              "field": "cet",
+              "expected": 11.55,
+              "actual": 11.55,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 3.27,
+              "actual": 3.27,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 601379.98,
+              "actual": 601380.03,
+              "delta": 0.05
+            }
+          ],
+          "differences": [
+            {
+              "field": "firstSummary",
+              "expected": 3861.61,
+              "actual": 3861.62,
+              "delta": 0.01
+            },
+            {
+              "field": "lastSummary",
+              "expected": 1285.68,
+              "actual": 1285.69,
+              "delta": 0.01
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 601379.98,
+              "actual": 601380.03,
+              "delta": 0.05
+            }
+          ]
+        },
+        {
+          "id": "S30",
+          "metrics": [
+            {
+              "field": "principal",
+              "expected": 321321.99,
+              "actual": 321321.13,
+              "delta": -0.86
+            },
+            {
+              "field": "ownFunds",
+              "expected": 278678.01,
+              "actual": 278678.87,
+              "delta": 0.86
+            },
+            {
+              "field": "subsidy",
+              "expected": 0,
+              "actual": 0,
+              "delta": 0
+            },
+            {
+              "field": "quota",
+              "expected": 80,
+              "actual": 80,
+              "delta": 0
+            },
+            {
+              "field": "months",
+              "expected": 420,
+              "actual": 420,
+              "delta": 0
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            },
+            {
+              "field": "effectiveAnnual",
+              "expected": 11.49,
+              "actual": 11.49,
+              "delta": 0
+            },
+            {
+              "field": "firstSummary",
+              "expected": 3804.74,
+              "actual": 3804.73,
+              "delta": -0.01
+            },
+            {
+              "field": "lastSummary",
+              "expected": 797.03,
+              "actual": 797.02,
+              "delta": -0.01
+            },
+            {
+              "field": "cet",
+              "expected": 12.37,
+              "actual": 12.37,
+              "delta": 0
+            },
+            {
+              "field": "cesh",
+              "expected": 5.17,
+              "actual": 5.17,
+              "delta": 0
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 937163.85,
+              "actual": 937160.54,
+              "delta": -3.31
+            }
+          ],
+          "differences": [
+            {
+              "field": "principal",
+              "expected": 321321.99,
+              "actual": 321321.13,
+              "delta": -0.86
+            },
+            {
+              "field": "ownFunds",
+              "expected": 278678.01,
+              "actual": 278678.87,
+              "delta": 0.86
+            },
+            {
+              "field": "nominalDisplayed",
+              "expected": 10.92,
+              "actual": 10.93,
+              "delta": 0.01
+            },
+            {
+              "field": "firstSummary",
+              "expected": 3804.74,
+              "actual": 3804.73,
+              "delta": -0.01
+            },
+            {
+              "field": "lastSummary",
+              "expected": 797.03,
+              "actual": 797.02,
+              "delta": -0.01
+            },
+            {
+              "field": "paymentPITotal",
+              "expected": 937163.85,
+              "actual": 937160.54,
+              "delta": -3.31
+            }
+          ]
+        }
+      ],
+      "metrics": 358,
+      "exact": 310,
+      "differences": [
+        {
+          "case": "S01",
+          "field": "nominalDisplayed",
+          "expected": 10.92,
+          "actual": 10.93,
+          "delta": 0.01
+        },
+        {
+          "case": "S02",
+          "field": "nominalDisplayed",
+          "expected": 10.92,
+          "actual": 10.93,
+          "delta": 0.01
+        },
+        {
+          "case": "S03",
+          "field": "nominalDisplayed",
+          "expected": 10.92,
+          "actual": 10.93,
+          "delta": 0.01
+        },
+        {
+          "case": "S03",
+          "field": "paymentPITotal",
+          "expected": 1355822.77,
+          "actual": 1355824.54,
+          "delta": 1.77
+        },
+        {
+          "case": "S04",
+          "field": "nominalDisplayed",
+          "expected": 10.92,
+          "actual": 10.93,
+          "delta": 0.01
+        },
+        {
+          "case": "S05",
+          "field": "nominalDisplayed",
+          "expected": 10.92,
+          "actual": 10.93,
+          "delta": 0.01
+        },
+        {
+          "case": "S06",
+          "field": "nominalDisplayed",
+          "expected": 10.92,
+          "actual": 10.93,
+          "delta": 0.01
+        },
+        {
+          "case": "S07",
+          "field": "principal",
+          "expected": 524033.79,
+          "actual": 524032.93,
+          "delta": -0.86
+        },
+        {
+          "case": "S07",
+          "field": "ownFunds",
+          "expected": 255966.21,
+          "actual": 255967.07,
+          "delta": 0.86
+        },
+        {
+          "case": "S07",
+          "field": "nominalDisplayed",
+          "expected": 10.92,
+          "actual": 10.93,
+          "delta": 0.01
+        },
+        {
+          "case": "S07",
+          "field": "lastSummary",
+          "expected": 1284.05,
+          "actual": 1284.06,
+          "delta": 0.01
+        },
+        {
+          "case": "S07",
+          "field": "paymentPITotal",
+          "expected": 1528388.86,
+          "actual": 1528385.58,
+          "delta": -3.28
+        },
+        {
+          "case": "S08",
+          "field": "principal",
+          "expected": 524033.79,
+          "actual": 524032.93,
+          "delta": -0.86
+        },
+        {
+          "case": "S08",
+          "field": "ownFunds",
+          "expected": 255966.21,
+          "actual": 255967.07,
+          "delta": 0.86
+        },
+        {
+          "case": "S08",
+          "field": "nominalDisplayed",
+          "expected": 10.92,
+          "actual": 10.93,
+          "delta": 0.01
+        },
+        {
+          "case": "S08",
+          "field": "lastSummary",
+          "expected": 1284.05,
+          "actual": 1284.06,
+          "delta": 0.01
+        },
+        {
+          "case": "S08",
+          "field": "cet",
+          "expected": 12.43,
+          "actual": 12.42,
+          "delta": -0.01
+        },
+        {
+          "case": "S08",
+          "field": "paymentPITotal",
+          "expected": 1528388.86,
+          "actual": 1528385.58,
+          "delta": -3.28
+        },
+        {
+          "case": "S09",
+          "field": "principal",
+          "expected": 524033.79,
+          "actual": 524032.93,
+          "delta": -0.86
+        },
+        {
+          "case": "S09",
+          "field": "ownFunds",
+          "expected": 255966.21,
+          "actual": 255967.07,
+          "delta": 0.86
+        },
+        {
+          "case": "S09",
+          "field": "nominalDisplayed",
+          "expected": 10.92,
+          "actual": 10.93,
+          "delta": 0.01
+        },
+        {
+          "case": "S09",
+          "field": "firstSummary",
+          "expected": 6299.99,
+          "actual": 6300,
+          "delta": 0.01
+        },
+        {
+          "case": "S09",
+          "field": "lastSummary",
+          "expected": 1284.05,
+          "actual": 1284.06,
+          "delta": 0.01
+        },
+        {
+          "case": "S09",
+          "field": "paymentPITotal",
+          "expected": 1528388.86,
+          "actual": 1528385.58,
+          "delta": -3.28
+        },
+        {
+          "case": "S10",
+          "field": "paymentPITotal",
+          "expected": 806115.76,
+          "actual": 806117.76,
+          "delta": 2
+        },
+        {
+          "case": "S11",
+          "field": "nominalDisplayed",
+          "expected": 10.92,
+          "actual": 10.93,
+          "delta": 0.01
+        },
+        {
+          "case": "S11",
+          "field": "paymentPITotal",
+          "expected": 1049971.7,
+          "actual": 1049972.9,
+          "delta": 1.2
+        },
+        {
+          "case": "S12",
+          "field": "nominalDisplayed",
+          "expected": 10.92,
+          "actual": 10.93,
+          "delta": 0.01
+        },
+        {
+          "case": "S13",
+          "field": "paymentPITotal",
+          "expected": 261623.77,
+          "actual": 261624.9,
+          "delta": 1.13
+        },
+        {
+          "case": "S14",
+          "field": "paymentPITotal",
+          "expected": 279938.59,
+          "actual": 279939.49,
+          "delta": 0.9
+        },
+        {
+          "case": "S17",
+          "field": "paymentPITotal",
+          "expected": 279938.59,
+          "actual": 279939.49,
+          "delta": 0.9
+        },
+        {
+          "case": "S19",
+          "field": "paymentPITotal",
+          "expected": 279938.59,
+          "actual": 279939.49,
+          "delta": 0.9
+        },
+        {
+          "case": "S20",
+          "field": "paymentPITotal",
+          "expected": 279938.59,
+          "actual": 279939.49,
+          "delta": 0.9
+        },
+        {
+          "case": "S22",
+          "field": "lastSummary",
+          "expected": 317.87,
+          "actual": 317.88,
+          "delta": 0.01
+        },
+        {
+          "case": "S23",
+          "field": "paymentPITotal",
+          "expected": 221152.44,
+          "actual": 221153.59,
+          "delta": 1.15
+        },
+        {
+          "case": "S24",
+          "field": "lastSummary",
+          "expected": 308.82,
+          "actual": 308.83,
+          "delta": 0.01
+        },
+        {
+          "case": "S25",
+          "field": "firstSummary",
+          "expected": 3861.63,
+          "actual": 3861.62,
+          "delta": -0.01
+        },
+        {
+          "case": "S26",
+          "field": "firstSummary",
+          "expected": 3861.63,
+          "actual": 3861.62,
+          "delta": -0.01
+        },
+        {
+          "case": "S28",
+          "field": "paymentPITotal",
+          "expected": 962342.12,
+          "actual": 962344.13,
+          "delta": 2.01
+        },
+        {
+          "case": "S29",
+          "field": "firstSummary",
+          "expected": 3861.61,
+          "actual": 3861.62,
+          "delta": 0.01
+        },
+        {
+          "case": "S29",
+          "field": "lastSummary",
+          "expected": 1285.68,
+          "actual": 1285.69,
+          "delta": 0.01
+        },
+        {
+          "case": "S29",
+          "field": "paymentPITotal",
+          "expected": 601379.98,
+          "actual": 601380.03,
+          "delta": 0.05
+        },
+        {
+          "case": "S30",
+          "field": "principal",
+          "expected": 321321.99,
+          "actual": 321321.13,
+          "delta": -0.86
+        },
+        {
+          "case": "S30",
+          "field": "ownFunds",
+          "expected": 278678.01,
+          "actual": 278678.87,
+          "delta": 0.86
+        },
+        {
+          "case": "S30",
+          "field": "nominalDisplayed",
+          "expected": 10.92,
+          "actual": 10.93,
+          "delta": 0.01
+        },
+        {
+          "case": "S30",
+          "field": "firstSummary",
+          "expected": 3804.74,
+          "actual": 3804.73,
+          "delta": -0.01
+        },
+        {
+          "case": "S30",
+          "field": "lastSummary",
+          "expected": 797.03,
+          "actual": 797.02,
+          "delta": -0.01
+        },
+        {
+          "case": "S30",
+          "field": "paymentPITotal",
+          "expected": 937163.85,
+          "actual": 937160.54,
+          "delta": -3.31
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "cases": 53,
+    "metrics": 495,
+    "exact": 418,
+    "different": 77
+  }
+}

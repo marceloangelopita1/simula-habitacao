@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import {simulate,mcmvRate,calculateSubsidy,maxAgeMonths} from '../engine.js';
 const catalog=JSON.parse(fs.readFileSync(new URL('../data/municipal-rules.json',import.meta.url)));
 const rp=catalog.municipalities.find(x=>x.ibge==='3543402');
-const base={income:3000,propertyValue:240000,birthDate:'1988-02-01',family:'dependents',program:'mcmv',amountMode:'fixed',principal:100000};
+const base={simulationDate:'2026-09-14',income:3000,propertyValue:240000,birthDate:'1988-02-01',family:'dependents',program:'mcmv',amountMode:'fixed',principal:100000};
 const results=[];
 function test(name,fn){try{const detail=fn();results.push({name,pass:true,detail});}catch(e){results.push({name,pass:false,error:String(e.message)});}}
 function eq(v,w){if(v!==w)throw Error(`obtido ${v}; esperado ${w}`);}

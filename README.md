@@ -43,6 +43,8 @@ O histórico usa o armazenamento local deste navegador e endereço. Outro navega
 
 As datas de nascimento usam **dia/mês/ano**; também aceitam oito dígitos sem barras. Os registros salvos continuam usando o formato ISO.
 
+Novas simulações usam o **dia atual do navegador**. A data automática acompanha a virada do dia e invalida um resultado anterior até recalcular. Datas alteradas manualmente, exemplos da pesquisa e testes históricos são preservados; **Usar hoje**, nos ajustes, retoma a data automática. Isso atualiza datas e idades do cálculo, não as ofertas comerciais pesquisadas.
+
 Alterações no formulário invalidam a conferência corrente. Abrir um teste salvo gera um novo rascunho e preserva o registro anterior. Os casos importados mantêm a versão das regras e os valores salvos.
 
 ## Cobertura e limites
@@ -72,6 +74,10 @@ A cada atualização de `main`, o workflow em `.github/workflows/pages.yml` exec
 Para verificar a publicação: `gh run list --repo marceloangelopita1/simula-habitacao`. Para republicar a mesma revisão: `gh workflow run pages.yml --repo marceloangelopita1/simula-habitacao`.
 
 ## Verificação reproduzível
+
+A conciliação de centavos está descrita no [plano executado](docs/plano-centavos-2026-09-23.md) e na [avaliação de resultados](validation/avaliacao-centavos-2026-09-23.md). A versão `2026-09-23.piloto.2` diferencia taxa nominal de cálculo/apresentação e soma financeira do resumo/planilha, além de refinar capacidade e resumos SAC. Os valores oficiais preservados continuam sendo o critério dos testes.
+
+`node scripts/audit-centavos.mjs` confronta 495 métricas de 53 registros (alguns cenários se repetem entre as fontes). `tests/centavos-ui.mjs` acrescenta verificações de data local, virada do dia, histórico, comparação e CSV, usando `SIMULA_URL` e `PLAYWRIGHT_MODULE` como os outros testes opcionais de interface.
 
 Execute dentro desta pasta:
 

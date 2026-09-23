@@ -19,7 +19,7 @@ try{
  await page.locator('#adjustments-details > summary').click();
  await page.locator('#simulationDate').fill('2026-09-22');
  await calculate();
- assert.ok((await summary()).includes('R$524.032,93'));
+ assert.ok((await summary()).includes('R$524.033,79'));
  await page.locator('#sbpeVariant').selectOption('linked');
  assert.equal(await page.locator('.stale-banner').isVisible(),true);
  await calculate();

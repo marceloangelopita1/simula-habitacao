@@ -16,17 +16,17 @@ const results=new Map(),remainingDifferences=[];
 for(const c of reference.cases){
  const r=run(c.input);results.set(c.id,r);
  for(const [key,expected] of Object.entries(c.expected)){
-  const actual=key==='paymentPITotal'?cents(new Decimal(r.schedule.sums.amortization).plus(r.schedule.sums.interest)):cents(r[key]);
+  const actual=cents(r[key]);
   const delta=cents(new Decimal(actual).minus(expected));
-  assert.equal(delta,c.knownDifferences?.[key]??0,`${c.id}: ${key}`);
+  assert.equal(delta,0,`${c.id}: ${key}`);
   if(delta)remainingDifferences.push({case:c.id,field:key,delta});
  }
- // Entrada e principal fixo reproduzem o mesmo resumo observado. No controle
- // comum, usam o principal oficial: sua diferença de capacidade é independente.
+ // Entrada e principal fixo reproduzem o mesmo resumo observado. Os resíduos
+ // antigos permanecem no registro histórico; não são mais tolerados no teste.
  for(const input of [{amountMode:'entry',ownFunds:c.expected.ownFunds},{amountMode:'fixed',principal:c.expected.principal}]){
   const fixed=run({...c.input,...input});
   assert.equal(fixed.principal,c.expected.principal,`${c.id}: ${input.amountMode}`);
-  for(const field of ['firstSummary','lastSummary'])assert.equal(cents(new Decimal(fixed[field]).minus(c.expected[field])),c.knownFixedDifferences?.[field]??0,`${c.id}: ${field} fixo`);
+  for(const field of ['firstSummary','lastSummary'])assert.equal(fixed[field],c.expected[field],`${c.id}: ${field} fixo`);
  }
  if(c.plusFirstSummary!==undefined&&c.input.sbpeVariant!=='standard'){
   const plus=run({...c.input,insurance:'plus'});
@@ -55,7 +55,7 @@ const linked=results.get('linked-sac-original'),standard=run({sbpeVariant:'stand
 assert.equal(linked.assessment,0);
 assert.equal(standard.assessment,841.44);
 assert.equal(linked.capacityReferenceExtra,49.89);
-assert.equal(standard.capacityReferenceExtra,123.85);
+assert.equal(standard.capacityReferenceExtra,123.84);
 assert.equal(linked.commitmentPercent,30);
 assert.equal(results.get('linked-price-360').commitmentPercent,25);
 assert.equal(linked.schedule.sums.extraPremium,0,'Reserva de capacidade não vira cobrança no básico');

@@ -16,16 +16,10 @@ const run=input=>{const r=simulate(input,catalog);assert.equal(r.ok,true,JSON.st
 // Resíduos identificados na auditoria e preservados explicitamente. Não
 // usar tolerância global que esconda nova divergência em outra métrica.
 const known={
- S03:{paymentPITotal:1.77},
- S07:{principal:-.86,ownFunds:.86,lastSummary:.01,paymentPITotal:-3.28},
- S08:{principal:-.86,ownFunds:.86,lastSummary:.01,cet:-.01,paymentPITotal:-3.28},
- S09:{principal:-.86,ownFunds:.86,firstSummary:.01,lastSummary:.01,paymentPITotal:-3.28},
- S10:{paymentPITotal:2},S11:{paymentPITotal:1.2},S13:{paymentPITotal:1.13},
- S14:{paymentPITotal:.9},S17:{paymentPITotal:.9},S19:{paymentPITotal:.9},S20:{paymentPITotal:.9},
- S22:{lastSummary:.01},S23:{paymentPITotal:1.15},S24:{lastSummary:.01},
- S25:{firstSummary:-.01},S26:{firstSummary:-.01},S28:{paymentPITotal:2.01},
- S29:{firstSummary:.01,lastSummary:.01,paymentPITotal:.05},
- S30:{principal:-.86,ownFunds:.86,firstSummary:-.01,lastSummary:-.01,paymentPITotal:-3.31},
+ S08:{cet:-.01},
+ S25:{firstSummary:-.01},S26:{firstSummary:-.01},
+ S29:{firstSummary:.01,lastSummary:.01},
+ S30:{firstSummary:-.01,lastSummary:-.01},
 };
 const results=new Map(),remainingDifferences=[];
 let metrics=0,officialRows=0;
@@ -33,12 +27,12 @@ assert.equal(reference.cases.length,30);
 assert.equal(new Set(reference.cases.map(c=>c.id)).size,30);
 for(const c of reference.cases){
  const r=run(inputOf(c));results.set(c.id,r);
- const actual={...r,subsidy:r.subsidy.amount,nominalDisplayed:r.nominalAnnual,paymentPITotal:money(new Decimal(r.schedule.sums.amortization).plus(r.schedule.sums.interest))};
+ const actual={...r,subsidy:r.subsidy.amount};
  for(const [key,expected] of Object.entries(c.observed)){
   if(typeof expected!=='number')continue;
   assert.equal(typeof actual[key],'number',`${c.id}: métrica ${key}`);
   const delta=difference(money(actual[key]),expected);
-  const expectedDelta=key==='nominalDisplayed'&&r.program==='sbpe'?.01:known[c.id]?.[key]??0;
+  const expectedDelta=known[c.id]?.[key]??0;
   assert.equal(delta,expectedDelta,`${c.id}: ${key}`);
   if(delta)remainingDifferences.push({case:c.id,field:key,delta});
   metrics++;

@@ -1,6 +1,6 @@
 import Decimal from './vendor/decimal.mjs';
 Decimal.set({precision:42,rounding:Decimal.ROUND_HALF_UP});
-export const RULE_VERSION='2026-09-23.piloto.1';
+export const RULE_VERSION='2026-09-23.piloto.2';
 const D=x=>new Decimal(x);
 const money=x=>D(x).toDecimalPlaces(2).toNumber();
 const jr=x=>D(x).toDecimalPlaces(4).toDecimalPlaces(2);
@@ -12,9 +12,13 @@ const bands={mcmv:[[30,.0085],[35,.0108],[40,.0144],[45,.0244],[50,.0359],[55,.0
 // Perfis comerciais observados, não limites universais do SFH. A reserva
 // de capacidade não é uma cobertura cobrada no cronograma do seguro básico.
 const sbpeProfiles={
- standard:{name:'SBPE • comum',quota:{SAC:80,PRICE:70},commitment:{SAC:30,PRICE:30},referenceExtra:'.00015878',assessment:841.44},
+ standard:{name:'SBPE • comum',quota:{SAC:80,PRICE:70},commitment:{SAC:30,PRICE:30},referenceExtra:'.000158774',assessment:841.44},
  linked:{name:'SBPE • empreendimento CAIXA',quota:{SAC:90,PRICE:80},commitment:{SAC:30,PRICE:25},referenceExtra:'.00006396',assessment:0},
 };
+// Dia civil local: UTC pode avançar a data antes da meia-noite no Brasil.
+export function localToday(date=new Date()){
+ return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
+}
 export function parseDate(s){
  if(!/^\d{4}-\d{2}-\d{2}$/.test(s||''))return null;
  const [y,m,d]=s.split('-').map(Number),v=new Date(Date.UTC(y,m-1,d));
@@ -70,16 +74,25 @@ export function buildSchedule(o){
  const rawPayment=system==='SAC'?F.div(n).plus(F.mul(i)):(i.isZero()?F.div(n):F.mul(i).div(D(1).minus(D(1).plus(i).pow(-n))));
  // Nos pacotes SBPE, o adicional do resumo difere do DFI/DFC da planilha.
  const summaryInsurance=F.mul(weightedMip(o,simulationDate)).div(100).plus(D(propertyValue).mul(o.dfiRatePercent??(o.insuranceModel==='mcmv'?.0071:.0066)).div(100)).plus(o.extraPremiumSummary??o.extraPremiumMonthly??0);
- // SAC: prestação sem seguros truncada; prêmios somados e arredondados para
- // o centavo par. Empates de R$ 48,365 e R$ 48,455 foram conferidos na CAIXA.
- // PRICE mantém a soma integral. Ver validation/arredondamento-2026-09-22.md.
+ // Regra empírica dos resumos SAC, distinta da planilha: coeficiente em
+ // oito casas, valor em três casas e truncamento para centavos. As capturas
+ // ainda não distinguem o desempate da terceira casa. Seguros: centavo par.
+ // Ver validation/investigacao-centavos-2026-09-23.md (21 referências).
+ const summaryPayment=system==='SAC'
+  ? F.mul(D(1).div(n).plus(i).toDecimalPlaces(8,Decimal.ROUND_DOWN)).toDecimalPlaces(3,Decimal.ROUND_HALF_UP).toDecimalPlaces(2,Decimal.ROUND_DOWN)
+  : rawPayment;
  const firstSummary=system==='SAC'
-  ? money(rawPayment.toDecimalPlaces(2,Decimal.ROUND_DOWN).plus(summaryInsurance.toDecimalPlaces(2,Decimal.ROUND_HALF_EVEN)).plus(o.adminFee??25))
+  ? money(summaryPayment.plus(summaryInsurance.toDecimalPlaces(2,Decimal.ROUND_HALF_EVEN)).plus(o.adminFee??25))
   : money(rawPayment.plus(summaryInsurance).plus(o.adminFee??25));
- const lastSummary=money((system==='SAC'?A0.mul(D(1).plus(i)):P).plus(o.adminFee??25));
+ const summaryInterest=F.mul(i).toDecimalPlaces(2,Decimal.ROUND_DOWN);
+ const lastSummary=money((system==='SAC'?summaryPayment.minus(summaryInterest).plus(summaryInterest.div(n)):P).plus(o.adminFee??25));
+ // A soma financeira exibida no SAC não incorpora o acerto residual da
+ // última amortização. A planilha e seus totais mantêm o pagamento efetivo.
+ // Esta distinção reproduz os totais oficiais da matriz de 30 cenários.
+ const paymentPITotalSummary=money((system==='SAC'?A0.mul(n):D(sums.amortization)).plus(sums.interest));
  const d0=parseDate(simulationDate),days=rows.map(r=>(parseDate(r.date)-d0)/86400000);
  const cesh=rows.reduce((s,r,k)=>s+(r.mip+r.dfi+r.extraPremium)/Math.pow(1.008,12*days[k]/365),0)/+F*100;
- return {rows,sums,firstSummary,lastSummary,initialInsurance,cesh,roundingAdjustment:money(D(sums.amortization).minus(F)),paymentPI:P.toNumber()};
+ return {rows,sums,firstSummary,lastSummary,paymentPITotalSummary,initialInsurance,cesh,roundingAdjustment:money(D(sums.amortization).minus(F)),paymentPI:P.toNumber()};
 }
 export function computeCet(rows,netCredit,simulationDate,actualDates=false){
  if(netCredit<=0)return null;
@@ -127,7 +140,7 @@ export function calculateSubsidy(input,municipality,fdUf,rate,eligible=true){
  return {amount,raw:raw.toNumber(),warnings,reason:amount?'Estimativa pela fórmula do Manual 034.':'Fórmula abaixo do mínimo do desconto.',factors:{income:R,incomeFactor:Fr.toNumber(),financingDemand:pv.toNumber(),vvi:vvi.toNumber(),fdUf:fd,fdFin,fuh,fpop:municipality.fpop,cap,reducer:factor.toNumber()}};
 }
 export function simulate(raw,catalog){
- const input={simulationDate:'2026-09-14',municipalityId:'3543402',program:'auto',system:'SAC',months:420,propertyType:'new',purpose:'purchase',family:'single',cotista:true,relationship:'none',sbpeVariant:'standard',amountMode:'max',subsidyMode:'quick',insurance:'basic',fgtsUse:0,confirmedAid:0,purchaseCosts:0,secondSharePercent:0,...raw};
+ const input={simulationDate:localToday(),municipalityId:'3543402',program:'auto',system:'SAC',months:420,propertyType:'new',purpose:'purchase',family:'single',cotista:true,relationship:'none',sbpeVariant:'standard',amountMode:'max',subsidyMode:'quick',insurance:'basic',fgtsUse:0,confirmedAid:0,purchaseCosts:0,secondSharePercent:0,...raw};
  const warnings=[],errors=[];const error=(field,message)=>errors.push({field,message});
  if(input.simulationDate!=='2026-09-14')warnings.push('Data diferente da pesquisa: as regras mantêm as referências de setembro/2026 documentadas; outras datas não atualizam as ofertas comerciais; as datas e idades do cronograma acompanham a data informada.');
  const finite=(key,min,max=1e10)=>{const x=+input[key];if(!Number.isFinite(x)||x<min||x>max)error(key,`Confira o valor de ${key}.`);return x;};
@@ -220,15 +233,20 @@ export function simulate(raw,catalog){
  const insuranceModel=['mcmv','middle'].includes(program)?'mcmv':'sbpe';
  const adminFee=input.adminOverride!=null&&input.adminOverride!==''?+input.adminOverride:(program==='mcmv'&&R<=2850&&V<=municipality.propertyLimit?0:25);
  const dfiRatePercent=input.dfiOverride!=null&&input.dfiOverride!==''?+input.dfiOverride:insuranceModel==='mcmv'?.0071:.0066;
- const extraPremiumRaw=D(V).mul(input.insurance==='plus'?'.00006396':input.insurance==='expanded'?'.00015878':0);
- const extraPremiumSummary=money(extraPremiumRaw);
+ // Ampliado SBPE: aproximação dentro do intervalo observado, sem ajuste
+ // fixo de centavos. Outras linhas conservam o coeficiente anterior.
+ const expandedReference=program==='sbpe'?'.000158774':'.00015878';
+ const extraPremiumRaw=D(V).mul(input.insurance==='plus'?'.00006396':input.insurance==='expanded'?expandedReference:0);
+ // SAC compõe prêmios integrais antes do desempate para par. PRICE mantém
+ // o adicional em centavos, necessário para reproduzir a referência S04.
+ const extraPremiumSummary=input.system==='SAC'?extraPremiumRaw.toNumber():money(extraPremiumRaw);
  // SBPE Especial/Ampliado: DFI/DFC observado de 101,40/175,50 no imóvel
  // de 780 mil. Preservar a referência do resumo/capacidade separadamente.
  const scheduleExtraRate=program==='sbpe'?(input.insurance==='plus'?'.000064':input.insurance==='expanded'?'.000159':null):null;
  const dfiRaw=D(+input.appraisal||V).mul(dfiRatePercent).div(100);
  const extraPremiumMonthly=scheduleExtraRate
   ? money(D(money(dfiRaw.plus(D(V).mul(scheduleExtraRate)))).minus(money(dfiRaw)))
-  : extraPremiumSummary;
+  : money(extraPremiumRaw);
  if(extraPremiumMonthly)warnings.push(program==='sbpe'?'Adicionais SBPE: resumo e DFI/DFC seguem os trechos oficiais observados; projeção constante nos demais meses ainda exige conferência.':'Adicionais estimados a partir dos resumos; cronograma completo dessa apólice ainda exige conferência.');
  if(input.insurance==='custom')warnings.push('Coeficiente MIP manual constante: mudanças futuras por idade não estão incorporadas nesta opção.');
  const ages=[ageOn(input.birthDate,input.simulationDate),...(input.family==='two'?[ageOn(input.secondBirthDate,input.simulationDate)]:[])];
@@ -270,5 +288,5 @@ export function simulate(raw,catalog){
  if(netCredit<=0)return {ok:false,errors:[{field:'assessmentOverride',message:'Avaliação e seguro inicial esgotam o crédito considerado no CET, incluindo o subsídio. Confira os custos à vista.'}],warnings,ruleVersion:RULE_VERSION};
  const cet=computeCet(schedule.rows,netCredit,input.simulationDate),cetActualDates=computeCet(schedule.rows,netCredit,input.simulationDate,true);
  const ownFunds=money(resourceCap.minus(principal));
- return {ok:true,input,ruleVersion:RULE_VERSION,status:'estimate',program,programName,municipality,principal,maximum,ownFunds,fgtsUse:+input.fgtsUse,aid:+input.confirmedAid,subsidy,propertyValue:V,months,quota,nominalAnnual:nominal,effectiveAnnual:effectiveFromNominal(nominal),adminFee,assessment,dfiRatePercent,insuranceModel,insurance:input.insurance,firstSummary:schedule.firstSummary,lastSummary:schedule.lastSummary,schedule,cet,cetActualDates,cetNetCredit:netCredit,cesh:schedule.cesh,initialInsurance:schedule.initialInsurance,purchaseCosts:+input.purchaseCosts,totalCash:money(D(ownFunds).plus(input.purchaseCosts).plus(assessment).plus(schedule.initialInsurance)),incomeCommitment:schedule.firstSummary/R*100,commitmentPercent,capacityReferenceExtra:money(capExtra),capacityApproved:principal<=maximum+1,warnings:[...new Set(warnings)],errors,assumptions:['Cronograma sem projeção da TR futura.','CET de comparação usa períodos mensais iguais; o cálculo por datas corridas aparece nos detalhes.','No CET, o crédito considerado inclui financiamento e subsídio, deduzidos avaliação estimada e seguro inicial, conforme os fluxos observados.','CESH considera MIP, DFI e os adicionais do seguro selecionado.']};
+ return {ok:true,input,ruleVersion:RULE_VERSION,status:'estimate',program,programName,municipality,principal,maximum,ownFunds,fgtsUse:+input.fgtsUse,aid:+input.confirmedAid,subsidy,propertyValue:V,months,quota,nominalAnnual:nominal,nominalDisplayed:D(nominal).toDecimalPlaces(2,Decimal.ROUND_DOWN).toNumber(),effectiveAnnual:effectiveFromNominal(nominal),adminFee,assessment,dfiRatePercent,insuranceModel,insurance:input.insurance,firstSummary:schedule.firstSummary,lastSummary:schedule.lastSummary,paymentPITotal:schedule.paymentPITotalSummary,schedule,cet,cetActualDates,cetNetCredit:netCredit,cesh:schedule.cesh,initialInsurance:schedule.initialInsurance,purchaseCosts:+input.purchaseCosts,totalCash:money(D(ownFunds).plus(input.purchaseCosts).plus(assessment).plus(schedule.initialInsurance)),incomeCommitment:schedule.firstSummary/R*100,commitmentPercent,capacityReferenceExtra:money(capExtra),capacityApproved:principal<=maximum+1,warnings:[...new Set(warnings)],errors,assumptions:['Cronograma sem projeção da TR futura.','CET de comparação usa períodos mensais iguais; o cálculo por datas corridas aparece nos detalhes.','No CET, o crédito considerado inclui financiamento e subsídio, deduzidos avaliação estimada e seguro inicial, conforme os fluxos observados.','CESH considera MIP, DFI e os adicionais do seguro selecionado.']};
 }
