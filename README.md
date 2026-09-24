@@ -47,6 +47,16 @@ Novas simulações usam o **dia atual do navegador**. A data automática acompan
 
 Alterações no formulário invalidam a conferência corrente. Abrir um teste salvo gera um novo rascunho e preserva o registro anterior. Os casos importados mantêm a versão das regras e os valores salvos.
 
+## Parcela máxima
+
+Em **Calcular a partir de → Parcela máxima**, informe um limite em reais, como `1.604,28`. O simulador calcula o financiamento máximo estimado e a entrada própria necessária, mantendo a renda real para enquadramento, juros, subsídio e capacidade. O teto atua somente nesse modo; os modos por renda, valor financiado e entrada continuam disponíveis.
+
+O limite é **inicial**, incluindo amortização, juros, seguro e tarifa. O motor respeita também renda, quota e recursos da compra, e mantém o seguro de referência usado na capacidade; por isso, a parcela exibida pode ficar abaixo do teto. Uma verificação em centavos impede que o resumo inicial ou o primeiro encargo do cronograma o ultrapassem, inclusive quando o MIP muda de faixa no primeiro vencimento. O resultado mostra o motivo limitante e a maior parcela projetada. Parcelas futuras podem ultrapassar o teto por variação do seguro; a projeção não incorpora TR futura.
+
+Modo, teto e resultados acompanham histórico, JSON e impressão. Registros antigos continuam abrindo sem migração. O recurso não declara aprovação bancária ou cumprimento integral de uma aprovação condicional. A existência do campo e seu envio separado da renda foram confirmados na CAIXA, mas a **comparação numérica específica do teto continua pendente**, conforme a [inspeção](validation/parcela-maxima-inspecao-2026-09-23.md). O novo cálculo é uma estimativa baseada no motor existente, com contrato explícito de limite inicial.
+
+O motor `2026-09-23.piloto.3` inclui 54 testes específicos em `tests/payment-cap.mjs`, executados por `npm test`. `tests/payment-cap-ui.mjs` verifica 42 aspectos da interface; usa `SIMULA_URL` e `PLAYWRIGHT_MODULE`, como os outros testes opcionais. Consulte o [plano de execução](docs/plano-parcela-maxima-2026-09-23.md) e a [validação da implementação](validation/implementacao-parcela-maxima-2026-09-23.md).
+
 ## Cobertura e limites
 
 O motor calcula aquisição residencial pronta, com SAC/PRICE, regras de MCMV/Classe Média/SBPE, enquadramento exploratório de Pró-Cotista, fatores municipais, subsídio, FGTS/aportes, prazo por idade, MIP/DFI, tarifas e indicadores CET/CESH. O catálogo contém os municípios e fatores da pesquisa; limites nacionais e faixas de renda posteriores à planilha municipal são tratados separadamente no motor.

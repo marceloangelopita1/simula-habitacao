@@ -7,3 +7,4 @@ await import('./rounding.mjs');
 await import('./sbpe.mjs');
 await import('./matrix.mjs');
 await import('./centavos.mjs');
+await import('./payment-cap.mjs');

@@ -1,6 +1,6 @@
 import Decimal from './vendor/decimal.mjs';
 Decimal.set({precision:42,rounding:Decimal.ROUND_HALF_UP});
-export const RULE_VERSION='2026-09-23.piloto.2';
+export const RULE_VERSION='2026-09-23.piloto.3';
 const D=x=>new Decimal(x);
 const money=x=>D(x).toDecimalPlaces(2).toNumber();
 const jr=x=>D(x).toDecimalPlaces(4).toDecimalPlaces(2);
@@ -152,7 +152,7 @@ export function simulate(raw,catalog){
  finite('income',.01,1e8);finite('propertyValue',1,1e9);finite('months',1,420);
  if(!Number.isInteger(+input.months))error('months','O prazo deve ser um número inteiro de meses.');
  if(!['SAC','PRICE'].includes(input.system))error('system','Selecione SAC ou PRICE.');
- for(const [key,values] of Object.entries({program:['auto','mcmv','middle','sbpe','pro'],family:['single','dependents','two'],propertyType:['new','used'],amountMode:['max','fixed','entry'],insurance:['basic','plus','expanded','custom'],subsidyMode:['quick','area','none','manual'],relationship:['none','account','salary'],sbpeVariant:['standard','linked']}))if(!values.includes(input[key]))error(key,'Selecione uma opção válida.');
+ for(const [key,values] of Object.entries({program:['auto','mcmv','middle','sbpe','pro'],family:['single','dependents','two'],propertyType:['new','used'],amountMode:['max','fixed','entry','payment'],insurance:['basic','plus','expanded','custom'],subsidyMode:['quick','area','none','manual'],relationship:['none','account','salary'],sbpeVariant:['standard','linked']}))if(!values.includes(input[key]))error(key,'Selecione uma opção válida.');
  for(const key of ['fgtsUse','confirmedAid','purchaseCosts'])finite(key,0,1e9);
  if(input.purpose!=='purchase')error('purpose','Obras e empréstimo com garantia exigem outro fluxo de liberações. Este piloto calcula aquisição residencial pronta.');
  if(input.family==='two'){
@@ -163,6 +163,13 @@ export function simulate(raw,catalog){
  for(const [k,[min,max]] of Object.entries(optional))if(input[k]!==null&&input[k]!==undefined&&input[k]!=='')finite(k,min,max);
  if(input.amountMode==='fixed')finite('principal',.01,1e9);
  if(input.amountMode==='entry')finite('ownFunds',0,1e9);
+ const paymentMode=input.amountMode==='payment';
+ if(paymentMode){
+  const value=+input.maxInstallment;
+  if(!['number','string'].includes(typeof input.maxInstallment)||!Number.isFinite(value)||value<.01||value>1e8)error('maxInstallment','Informe uma parcela máxima entre R$ 0,01 e R$ 100.000.000,00.');
+  else if(D(value).decimalPlaces()>2)error('maxInstallment','Informe a parcela máxima com até duas casas decimais.');
+  else input.maxInstallment=value;
+ }else input.maxInstallment=null;
  if(input.appraisal!=null&&input.appraisal!=='')finite('appraisal',1,1e9);
  if(input.subsidyMode==='area')finite('propertyArea',1,10000);
  if(input.insurance==='custom'&&(input.customMipPercent==null||input.dfiOverride==null))error('customMipPercent','Informe os coeficientes MIP e DFI da apólice.');
@@ -268,17 +275,56 @@ export function simulate(raw,catalog){
  const capByQuota=D(base).mul(quota).div(100);
  const resourceCap=D(V).minus(input.fgtsUse).minus(subsidy.amount).minus(input.confirmedAid);
  const maximum=money(Decimal.max(0,Decimal.min(affordable,capByQuota,resourceCap)));
- let principal=input.amountMode==='fixed'?money(input.principal):input.amountMode==='entry'?money(resourceCap.minus(input.ownFunds)):maximum;
+ const monthlyBudget=paymentMode?Decimal.min(incomeLimit,input.maxInstallment):incomeLimit;
+ const affordableWithLimit=paymentMode
+  ? Decimal.max(0,monthlyBudget.minus(adminFee).minus(capacityInsurance).div(capacityCoefficient)).toDecimalPlaces(2,Decimal.ROUND_DOWN)
+  : affordable;
+ const maximumWithLimit=money(Decimal.max(0,Decimal.min(affordableWithLimit,capByQuota,resourceCap)));
+ let principal=input.amountMode==='fixed'?money(input.principal):input.amountMode==='entry'?money(resourceCap.minus(input.ownFunds)):maximumWithLimit;
+ const scheduleOptions={months,nominalAnnual:nominal,system:input.system,simulationDate:input.simulationDate,propertyValue:+input.appraisal||V,...insuranceOpts,adminFee,dfiRatePercent,extraPremiumMonthly,extraPremiumSummary};
+ let schedule=null,initialAdjustment=false;
+ if(paymentMode&&principal>0){
+  const fits=s=>D(s.firstSummary).lte(monthlyBudget)&&D(s.rows[0].total).lte(monthlyBudget);
+  schedule=buildSchedule({principal,...scheduleOptions});
+  if(!fits(schedule)){
+   // O coeficiente usa a idade de contratação. O primeiro vencimento pode
+   // mudar o MIP; resumo e planilha também têm arredondamentos distintos.
+   // Busca em centavos, sem a tolerância exploratória dos modos manuais.
+   let lo=0,hi=D(principal).mul(100).toNumber();
+   while(lo<hi){
+    const mid=Math.ceil((lo+hi)/2);
+    const candidate=buildSchedule({principal:D(mid).div(100).toNumber(),...scheduleOptions});
+    if(fits(candidate))lo=mid;else hi=mid-1;
+   }
+   principal=D(lo).div(100).toNumber();
+   schedule=principal>0?buildSchedule({principal,...scheduleOptions}):null;
+   initialAdjustment=true;
+  }
+ }
  if(program==='pro'&&principal>2250000)error('principal','Pró-Cotista: o financiamento deve respeitar o teto SFH de R$ 2,25 milhões.');
- if(principal<=0)error('principal','Não há valor positivo a financiar com esta renda e composição de recursos.');
+ if(principal<=0)error(paymentMode?'maxInstallment':'principal',paymentMode?'A parcela máxima, a renda e os recursos informados não comportam financiamento positivo. Confira o limite, o seguro, as tarifas e os recursos para a compra.':'Não há valor positivo a financiar com esta renda e composição de recursos.');
  if(D(principal).gt(capByQuota.plus(.01)))error('principal',`O financiamento supera a quota de ${quota}% sobre a base de compra/avaliação.`);
  if(D(principal).gt(resourceCap.plus(.01)))error('fgtsUse','Financiamento, FGTS, subsídio e aporte excedem o preço do imóvel.');
- if(program==='sbpe'&&input.relationship!=='none'&&principal<150000)error('principal','No fluxo de relacionamento/TR pesquisado, o financiamento mínimo foi R$ 150 mil. Experimente balcão ou outro valor.');
- if(input.amountMode!=='max'&&principal>maximum+1)warnings.push('Valor informado acima da capacidade estimada por renda. As parcelas são um cálculo exploratório, sem indicação de aprovação.');
- if(input.amountMode!=='max'&&principal>maximum+.01&&principal<=maximum+1)warnings.push('Há diferença de até R$ 1 entre o principal informado e a capacidade aproximada; o motor não usa isso para inferir reprovação por renda.');
- if(input.amountMode==='max')warnings.push('Financiamento máximo estimado por quota e renda, com seguro de referência e precisão conciliados nos casos oficiais registrados. Outros perfis ainda exigem comparação.');
+ if(program==='sbpe'&&input.relationship!=='none'&&principal<150000)error(paymentMode?'maxInstallment':'principal',paymentMode?'Com este teto e as demais condições, o financiamento fica abaixo do mínimo de R$ 150 mil do SBPE com relacionamento pesquisado. Experimente balcão ou reveja o limite e os dados.':'No fluxo de relacionamento/TR pesquisado, o financiamento mínimo foi R$ 150 mil. Experimente balcão ou outro valor.');
+ if(['fixed','entry'].includes(input.amountMode)&&principal>maximum+1)warnings.push('Valor informado acima da capacidade estimada por renda. As parcelas são um cálculo exploratório, sem indicação de aprovação.');
+ if(['fixed','entry'].includes(input.amountMode)&&principal>maximum+.01&&principal<=maximum+1)warnings.push('Há diferença de até R$ 1 entre o principal informado e a capacidade aproximada; o motor não usa isso para inferir reprovação por renda.');
+ if(input.amountMode==='max'||paymentMode)warnings.push('Financiamento máximo estimado por quota e renda, com seguro de referência e precisão conciliados nos casos oficiais registrados. Outros perfis ainda exigem comparação.');
  if(errors.length)return {ok:false,errors,warnings,ruleVersion:RULE_VERSION};
- const schedule=buildSchedule({principal,months,nominalAnnual:nominal,system:input.system,simulationDate:input.simulationDate,propertyValue:+input.appraisal||V,...insuranceOpts,adminFee,dfiRatePercent,extraPremiumMonthly,extraPremiumSummary});
+ schedule??=buildSchedule({principal,...scheduleOptions});
+ let paymentLimit=null;
+ if(paymentMode){
+  const limitingFactors=[];
+  if(affordableWithLimit.lte(capByQuota)&&affordableWithLimit.lte(resourceCap)){
+   if(incomeLimit.lte(input.maxInstallment))limitingFactors.push('income');
+   if(D(input.maxInstallment).lte(incomeLimit))limitingFactors.push('payment');
+  }
+  if(capByQuota.lte(affordableWithLimit)&&capByQuota.lte(resourceCap))limitingFactors.push('quota');
+  if(resourceCap.lte(affordableWithLimit)&&resourceCap.lte(capByQuota))limitingFactors.push('resources');
+  if(initialAdjustment)limitingFactors.push('initialPayment');
+  const peak=schedule.rows.reduce((best,row)=>row.total>best.total?row:best);
+  paymentLimit={requested:input.maxInstallment,incomeBudget:incomeLimit.toNumber(),monthlyBudget:monthlyBudget.toNumber(),maximumByIncome:affordable.toNumber(),maximumByBudget:affordableWithLimit.toNumber(),maximum:principal,limitingFactors,initialAdjustment,satisfied:schedule.firstSummary<=input.maxInstallment&&schedule.rows[0].total<=input.maxInstallment,peak:{amount:peak.total,installment:peak.installment,date:peak.date},futureExceeds:peak.installment>1&&peak.total>input.maxInstallment};
+  warnings.push('O teto informado limita o encargo inicial estimado, com seguro e tarifa. Não garante o mesmo teto nas parcelas futuras nem aprovação de crédito.');
+ }
  // Reconstrução do CET observado: 1,5% nas linhas FGTS, mesmo em
  // empreendimento MCMV. Vinculação não comprova dispensa de tarifa.
  const assessment=input.assessmentOverride!=null&&input.assessmentOverride!==''?+input.assessmentOverride:sbpeProfile?.assessment??money(D(principal).mul('.015'));
@@ -288,5 +334,5 @@ export function simulate(raw,catalog){
  if(netCredit<=0)return {ok:false,errors:[{field:'assessmentOverride',message:'Avaliação e seguro inicial esgotam o crédito considerado no CET, incluindo o subsídio. Confira os custos à vista.'}],warnings,ruleVersion:RULE_VERSION};
  const cet=computeCet(schedule.rows,netCredit,input.simulationDate),cetActualDates=computeCet(schedule.rows,netCredit,input.simulationDate,true);
  const ownFunds=money(resourceCap.minus(principal));
- return {ok:true,input,ruleVersion:RULE_VERSION,status:'estimate',program,programName,municipality,principal,maximum,ownFunds,fgtsUse:+input.fgtsUse,aid:+input.confirmedAid,subsidy,propertyValue:V,months,quota,nominalAnnual:nominal,nominalDisplayed:D(nominal).toDecimalPlaces(2,Decimal.ROUND_DOWN).toNumber(),effectiveAnnual:effectiveFromNominal(nominal),adminFee,assessment,dfiRatePercent,insuranceModel,insurance:input.insurance,firstSummary:schedule.firstSummary,lastSummary:schedule.lastSummary,paymentPITotal:schedule.paymentPITotalSummary,schedule,cet,cetActualDates,cetNetCredit:netCredit,cesh:schedule.cesh,initialInsurance:schedule.initialInsurance,purchaseCosts:+input.purchaseCosts,totalCash:money(D(ownFunds).plus(input.purchaseCosts).plus(assessment).plus(schedule.initialInsurance)),incomeCommitment:schedule.firstSummary/R*100,commitmentPercent,capacityReferenceExtra:money(capExtra),capacityApproved:principal<=maximum+1,warnings:[...new Set(warnings)],errors,assumptions:['Cronograma sem projeção da TR futura.','CET de comparação usa períodos mensais iguais; o cálculo por datas corridas aparece nos detalhes.','No CET, o crédito considerado inclui financiamento e subsídio, deduzidos avaliação estimada e seguro inicial, conforme os fluxos observados.','CESH considera MIP, DFI e os adicionais do seguro selecionado.']};
+ return {ok:true,input,ruleVersion:RULE_VERSION,status:'estimate',program,programName,municipality,principal,maximum,paymentLimit,ownFunds,fgtsUse:+input.fgtsUse,aid:+input.confirmedAid,subsidy,propertyValue:V,months,quota,nominalAnnual:nominal,nominalDisplayed:D(nominal).toDecimalPlaces(2,Decimal.ROUND_DOWN).toNumber(),effectiveAnnual:effectiveFromNominal(nominal),adminFee,assessment,dfiRatePercent,insuranceModel,insurance:input.insurance,firstSummary:schedule.firstSummary,lastSummary:schedule.lastSummary,paymentPITotal:schedule.paymentPITotalSummary,schedule,cet,cetActualDates,cetNetCredit:netCredit,cesh:schedule.cesh,initialInsurance:schedule.initialInsurance,purchaseCosts:+input.purchaseCosts,totalCash:money(D(ownFunds).plus(input.purchaseCosts).plus(assessment).plus(schedule.initialInsurance)),incomeCommitment:schedule.firstSummary/R*100,commitmentPercent,capacityReferenceExtra:money(capExtra),capacityApproved:principal<=maximum+1,warnings:[...new Set(warnings)],errors,assumptions:['Cronograma sem projeção da TR futura.','CET de comparação usa períodos mensais iguais; o cálculo por datas corridas aparece nos detalhes.','No CET, o crédito considerado inclui financiamento e subsídio, deduzidos avaliação estimada e seguro inicial, conforme os fluxos observados.','CESH considera MIP, DFI e os adicionais do seguro selecionado.']};
 }
